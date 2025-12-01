@@ -6,3 +6,4 @@
 ## Week 1
 - Software Installation
 - Helloworld Java Program
+  - sub bullet point
