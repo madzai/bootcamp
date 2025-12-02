@@ -4,5 +4,6 @@ public class Helloworld {
     // 1. System.out.println("abc");
     // Every line of java code must end with ;
     System.out.println("Hello world!");
+    System.out.println("Hello world!");
   }
 }
