@@ -106,9 +106,9 @@ public class DemoMath {
     char n3 = (char) v11;
     System.out.println(n3);
 
-    int v12 = 65620;
+    int v12 = 65535 + 100;
     char n4 = (char) v12; // overflow
-    System.out.println("char overflow (65620): " + n4);
+    System.out.println("char overflow " + (v12 - 655356) + ": " + n4);
     System.out.println((char) (65620 - 65535));
     System.out.println((int) (n4));
 
