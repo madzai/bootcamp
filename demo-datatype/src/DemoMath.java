@@ -42,7 +42,13 @@ public class DemoMath {
     int s20 = b10 + s10;
 
     int result = 10 / 3; // 3: floor of division
-    System.out.println(result);
+    System.out.println("int: 10 / 3 = " + result);
+
+    double result1 = 10 / 3; // 3: floor of division
+    System.out.println("double: 10 / 3 = " + result1);
+
+    double result2 = 10 / 3.0; // 3.3333...
+    System.out.println("double: 10 / 3.0 = " + result2);
 
     int englishScore = 87;
     int mathScore = 72;
