@@ -63,7 +63,7 @@ public class DemoString {
     // replace char instead of string
     System.out.println(s.replace('g', 'v'));
 
-    // 8. starsWith() -> check prefix
+    // 8. startsWith() -> check prefix
     System.out.println(s.startsWith("go")); // true
     System.out.println(s.startsWith("o")); // false
 
