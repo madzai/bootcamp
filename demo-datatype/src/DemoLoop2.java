@@ -92,5 +92,44 @@ public class DemoLoop2 {
       System.out.println(word4.substring(0, i));
     }
 
+    // Given Password = "abcd@1234XYZ"
+    // Check fi the password is valid
+    // 1. Length >= 12
+    // 2. with at least one capital letter
+    // 3. with at least one special character @#$!
+    String password = "abcd@1234XYZ";
+    boolean pwHasSpecChar = false;
+    boolean pwHasCapital = false;
+    boolean pwValid = false;
+    if (password.length() >= 12) {
+      for (int i = 0; i < password.length(); i++) {
+        if ((int) password.charAt(i) >= 65 && (int) password.charAt(i) <= 90) {
+          pwHasCapital = true;
+        }
+
+        if (password.charAt(i) == '@' || password.charAt(i) == '#' || password.charAt(i) == '$' || password.charAt(i) == '!') {
+          pwHasSpecChar = true;
+        }
+      }
+    }
+
+    if (pwHasCapital && pwHasSpecChar) {
+      pwValid = true;
+    }
+    System.out.println("Valid password: " + pwValid);
+    System.out.println(password + " is a valid password: " + (pwHasCapital && pwHasSpecChar));
+
+
+    // Given a string "abc5uk20fs", move all numbers to another string
+    // s1 = "abc5uk20fs" -> s2 = 520
+    String s1 = "abc5uk20fs19";
+    String s2 = "";
+    for (int i = 0; i < s1.length(); i++) {
+      if ( (int) s1.charAt(i) >= 48 && (int) s1.charAt(i) < 58) {
+        s2 += s1.charAt(i);
+      }
+    }
+    System.out.println(s1 + " has number string " + s2);
+
   }
 }
