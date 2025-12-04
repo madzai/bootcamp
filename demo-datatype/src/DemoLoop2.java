@@ -131,5 +131,16 @@ public class DemoLoop2 {
     }
     System.out.println(s1 + " has number string " + s2);
 
+    // Encrypt password with algorithm: ASCII + 3
+    // "abcd" -> "defg"
+    String pw1 = "abcd";
+    String pw2 = "";
+    int charNum = -1;
+    for (int i = 0; i < pw1.length(); i++) {
+      charNum = (int) pw1.charAt(i);
+      pw2 += (char) (charNum + 3);
+    }
+    System.out.println(pw1 + " -> " + pw2 + " after encyrption");
+
   }
 }
