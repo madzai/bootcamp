@@ -78,11 +78,21 @@ public class DemoLoop2 {
 
     // given a string "apple", count of the no. of vowel characters (a, e, i, o, u)
     String word3 = "apple";
+    String letterString = "";
     int countVowel = 0;
+    String vowels = "aeiou";
     for (int i = 0; i < word3.length(); i++) {
-      if (word3.charAt(i) == 'a' || word3.charAt(i) == 'e' || word3.charAt(i) == 'i' || word3.charAt(i) == 'o' || word3.charAt(i) == 'u') {
+      letterString = "";
+      letterString += word3.charAt(i);
+      if (vowels.contains(letterString)) {
         countVowel++;
       }
+
+      // if (word3.charAt(i) == 'a' || word3.charAt(i) == 'e'
+      //     || word3.charAt(i) == 'i' || word3.charAt(i) == 'o'
+      //     || word3.charAt(i) == 'u') {
+      //   countVowel++;
+      // }
     }
     System.out.println("No. of vowels in " + word3 + ": " + countVowel);
 
@@ -132,7 +142,7 @@ public class DemoLoop2 {
     System.out.println(s1 + " has number string " + s2);
 
     // Encrypt password with algorithm: ASCII + 3
-    // "abcd" -> "defg"
+    // e.g. "abcd" -> "defg"
     String pw1 = "abcd";
     String pw2 = "";
     int charNum = -1;
@@ -140,7 +150,6 @@ public class DemoLoop2 {
       charNum = (int) pw1.charAt(i);
       pw2 += (char) (charNum + 3);
     }
-    System.out.println(pw1 + " -> " + pw2 + " after encyrption");
-
+    System.out.println(pw1 + " -- encyrption --> " + pw2);
   }
 }

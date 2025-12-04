@@ -41,6 +41,7 @@ public class DemoString {
     System.out.println("contains oo: " + s.contains("oo")); // true
     System.out.println("contains ooo: " + s.contains("ooo")); // false
     System.out.println("contains o: " + s.contains("o")); // true
+    // System.out.println("contains o: " + s.contains('o')); // error
     
     // 5. isEmpty
     // Empty string is a String value ("")
