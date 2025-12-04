@@ -107,7 +107,10 @@ public class DemoLoop2 {
     // 1. Length >= 12
     // 2. with at least one capital letter
     // 3. with at least one special character @#$!
+    
     String password = "abcd@1234XYZ";
+    String SpecChar = "@#$!";
+    String letterString2 = "";
     boolean pwHasSpecChar = false;
     boolean pwHasCapital = false;
     boolean pwValid = false;
@@ -117,7 +120,13 @@ public class DemoLoop2 {
           pwHasCapital = true;
         }
 
-        if (password.charAt(i) == '@' || password.charAt(i) == '#' || password.charAt(i) == '$' || password.charAt(i) == '!') {
+        // if (password.charAt(i) == '@' || password.charAt(i) == '#' || password.charAt(i) == '$' || password.charAt(i) == '!') {
+        //   pwHasSpecChar = true;
+        // }
+
+        letterString2 = "";
+        letterString2 += password.charAt(i);
+        if (SpecChar.contains(letterString2)) {
           pwHasSpecChar = true;
         }
       }
