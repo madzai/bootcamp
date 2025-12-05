@@ -58,16 +58,16 @@ public class DemoArray2 {
     int backup = -1;
 
     for (int i = 0; i < scores.length - 1; i++) {
-      if (scores[i] > scores[i+1]) {
-          backup = scores[i];
-          scores[i] = scores[i + 1];
-          scores[i + 1] = backup;
-        }        
-    } 
+      if (scores[i] > scores[i + 1]) {
+        backup = scores[i];
+        scores[i] = scores[i + 1];
+        scores[i + 1] = backup;
+      }
+    }
 
     System.out.println("After moving max to the tail:");
-    for (int i = 0; i < scores.length; i++) {     
-        System.out.println(scores[i]);
+    for (int i = 0; i < scores.length; i++) {
+      System.out.println(scores[i]);
     }
 
     // 4. Algorithm - Bubble Sort
@@ -77,15 +77,15 @@ public class DemoArray2 {
     // x, 23, 56, 97, 100
     scores = new int[] {23, 100, 8, 97, 56};
     backup = -1;
-    // for (int i = 0; i < scores.length - 1; i++) {
-    //   for (int j = 0; i < scores.length - i - 1; j++) {
-    //     if (scores[j] > scores[j + 1]) {
-    //       backup = scores[j];
-    //       scores[j] = scores[j + 1];
-    //       scores[j + 1] = backup;
-    //     }
-    //   }
-    // }
+    for (int i = 0; i < scores.length - 1; i++) {
+      for (int j = 0; j < scores.length - i - 1; j++) {
+        if (scores[j] > scores[j + 1]) {
+          backup = scores[j];
+          scores[j] = scores[j + 1];
+          scores[j + 1] = backup;
+        }
+      }
+    }
 
     System.out.println("After bubble sorting:");
     System.out.println(Arrays.toString(scores));
