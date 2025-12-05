@@ -69,27 +69,80 @@ public class DemoArray3 {
     // 1. username is NOT Found.
     // 2. Password is wrong for this user.
     // 3. Login successful.
-    boolean usernameOk = false;
-    boolean passwordOk = false;
+
+    // boolean usernameOk = false;
+    // boolean passwordOk = false;
+
+    // for (int i = 0; i < usernames.length; i++) {
+    // if (usernameOk && passwordOk) {
+    // break;
+    // }
+    // if (usernameInput == usernames[i]) {
+    // usernameOk = true;
+    // }
+    // if (passwordInput == passwords[i]) {
+    // passwordOk = true;
+    // }
+    // }
+
+    // if (usernameOk && passwordOk) {
+    // System.out.println("Login successful.");
+    // } else if (usernameOk) {
+    // System.out.println("Password is wrong for this user.");
+    // } else {
+    // System.out.println("Username does not exist.");
+    // }
+
+
+    boolean usernameCorrect = false;
+    boolean pwCorrect = false;
+
     for (int i = 0; i < usernames.length; i++) {
-      if (usernameOk && passwordOk) {
-        break;
-      }
       if (usernameInput == usernames[i]) {
-        usernameOk = true;
-      }
-      if (passwordInput == passwords[i]) {
-        passwordOk = true;
+        usernameCorrect = true;
+        if (passwordInput == passwords[i]) {
+          pwCorrect = true;
+        }
       }
     }
 
-    if (usernameOk && passwordOk) {
-      System.out.println("Login successful.");
-    } else if (usernameOk) {
-      System.out.println("Password is wrong for this user.");
-    } else {
+    if (!usernameCorrect) {
       System.out.println("Username does not exist.");
+    } else {
+      if (pwCorrect) {
+        System.out.println("Login successful.");
+      } else {
+        System.out.println("Password is wrong for this user.");
+      }
     }
 
+    // ages 16, 66, 18, 37
+    // genders 'M', 'F', 'M', 'F'
+    // smokers false, true, true, false
+
+    // baseFee = 100
+    // 1. Smokers -> +20% fee
+    // 2. age > 60 -> +30% fee
+    // 3. genders female -> +5% fee
+    // calculate fees
+
+    int[] ages = new int[] {16, 66, 18, 37};
+    char[] genders = new char[] {'M', 'F', 'M', 'F'};
+    boolean[] smokers = new boolean[] {false, true, true, false};
+    int baseFee = 100;
+    double[] fees = new double[] {baseFee, baseFee, baseFee, baseFee};
+
+    for (int i = 0; i < ages.length; i++) {
+      if (smokers[i]) {
+        fees[i] += baseFee * 0.2;
+      }
+      if (ages[i] > 60) {
+        fees[i] += baseFee * 0.3;
+      }
+      if (genders[i] == 'F') {
+        fees[i] += baseFee * 0.05;
+      }
+    }
+    System.out.println("Fees: " + Arrays.toString(fees));
   }
 }
