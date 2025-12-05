@@ -232,7 +232,7 @@ public class DemoLoop {
     System.out.println("Index of X in " + s10 + ": " + indexOfTarget);
 
     // Prime numbers between 1 - 50
-    System.out.println("Prime numbers from 1 - 50");
+    System.out.println("Prime numbers from 1-50:");
     boolean isPrime = true;
     for (int i = 2; i <= 50; i++) {
       isPrime = true;
@@ -243,17 +243,19 @@ public class DemoLoop {
         }
       }
       if (isPrime) {
-        System.out.println(i);
+        System.out.print(i);
+        System.out.print(" ");
       }
     }
+    System.out.println();
 
     // Outter loop
-    for (int i = 0; i < 3; i++) {
-      // Inner loop
-      for (int j = 0; j < 3; j++) {
-        System.out.println("i=" + i + ", " + "j=" + j);
-      }
-    }
+    // for (int i = 0; i < 3; i++) {
+    //   // Inner loop
+    //   for (int j = 0; j < 3; j++) {
+    //     System.out.println("i=" + i + ", " + "j=" + j);
+    //   }
+    // }
 
     // *
     // **
@@ -268,6 +270,19 @@ public class DemoLoop {
       }
       System.out.println(starString);
     }
+
+    System.out.println();
+
+    for (int i = 1; i <= k; i++) {      
+      for (int j = 0; j < i; j++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+
+    // ..*..
+    // .***.
+    // *****
 
   }
 }
