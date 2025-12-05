@@ -92,7 +92,7 @@ public class DemoString {
     // 13. toLowerCase() and toUpperCase()
     System.out.println(s.toUpperCase());
     System.out.println(s.toLowerCase());
-    System.out.println("BootCAMP".toLowerCase()); // bootcamp
+    System.out.println("!BootCAMP".toLowerCase()); // bootcamp
 
     // 14. trim() -> remove leading and trailing spaces
     System.out.println(" Java Python.  ".trim()); // "Java Python."

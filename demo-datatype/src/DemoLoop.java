@@ -114,5 +114,160 @@ public class DemoLoop {
       Hundred += (char) i; // String + any type of value -> String
     }
     System.out.println("Characters from 1 - 100: " + Hundred);
+
+    // ! break -> exit earlier
+    // The first number between 1 - 50 which is divisible by 7
+    int target = -1;
+    for (int i = 1; i <= 50; i++) {
+      if (i % 7 == 0) {
+        target = i;
+        break; // break the loop
+      }
+    }
+
+    if (target == -1) {
+      System.out.println("target not found");
+    } else {
+      System.out.println("The first number between 1 - 50 which is divisible by 7 is " + target);
+    }
+
+    // ！ continue -> skip the rest
+    for (int i = 0; i < 20; i++) {
+      if (i % 2 == 0) {
+        System.out.println("Hello");
+        continue; // goes to modifier (i++), the the rest in the same for loop
+      }
+      System.out.println("Goodbye");
+      // 1000 lines ...
+    }
+
+    // Alt
+    // for (int i = 0; i < 20; i++) {
+    //   if (i % 2 == 0) {
+    //     System.out.println("Hello");
+    //   } else { 
+    //     System.out.println("Hello");
+    //     System.out.println("Goodbye");
+    //   }
+    // }
+    
+    // find the largest number < 1000, divided by 7
+    int target1 = -1;
+    // for (int i = 1; i < 1000; i++) {
+    //   if ((1000 - i) % 7 == 0) {
+    //     target1 = i;
+    //     break;
+    //   }
+    // }
+
+    for (int i = 0; i < 1000; i += 7) {
+      if (i % 7 == 0) {
+        target1 = i;
+      }
+    }
+
+    System.out.println("The largest multiple of 7 less than 1000 is " + target1);
+
+    int largestNumber = 0;
+    while (true) {
+      if (largestNumber + 7 >= 1000) {
+        break;
+      }
+      largestNumber += 7;
+    }
+    System.out.println("The largest number is " + largestNumber);
+
+    // Time string: add seconds
+    String currentTime = "23:42:00";
+    int secondsToAdd = 6500;
+
+    int currentHour = (currentTime.charAt(0) - '0') * 10 + currentTime.charAt(1) - '0';
+    int currentMinute = (currentTime.charAt(3) - '0') * 10 + currentTime.charAt(4) - '0';
+    int currentSecond = (currentTime.charAt(6) - '0') * 10 + currentTime.charAt(7) - '0';
+    
+    int currentTimeInSeconds = currentHour * 3600 + currentMinute * 60 + currentSecond;
+    int finalTimeInSeconds = currentTimeInSeconds + secondsToAdd;
+    System.out.println("Final time in seconds: " + finalTimeInSeconds);
+    int todayTimeInSeconds = finalTimeInSeconds % (24 * 60 * 60);
+    System.out.println("Today's time in seconds: " + todayTimeInSeconds);
+    
+    int todayHour = todayTimeInSeconds / (60 * 60); // prefix 0
+    int todayMinute = todayTimeInSeconds % (60 * 60) / 60; // prefix 0
+    int todaySecond = todayTimeInSeconds % (60 * 60) % 60; // prefix 0
+
+    String todayHourInString = todayHour < 10 ? "0" + todayHour : "" + todayHour;
+    String todayMinuteInString = todayMinute < 10 ? "0" + todayMinute : "" + todayMinute;
+    String todaySecondInString = todaySecond < 10 ? "0" + todaySecond : "" + todaySecond;
+
+    String todayTime = todayHourInString + ":" + todayMinuteInString + ":" + todaySecondInString;
+    System.out.println("Updated time: " + todayTime); // 01:30:20
+
+    // Keep doubling a given number until > 10000
+    int n = 9;
+    target = n;
+    while (target <= 10000) {
+      target *= 2;
+    }
+
+    // while (true) {
+    //   if (target > 10000) {
+    //     break;
+    //   } else {
+    //     target *= 2;
+    //   }
+    // }
+
+    System.out.println("Final number doubled until >10000 : " + target);
+
+    String s10 = "HELLOXWORLD";
+    // Find the index of 'X', return -1 if not found
+    // i.e. use loop, not indexOf()
+    int indexOfTarget = -1;
+    for (int i = 0; i < s10.length(); i++) {
+      if (s10.charAt(i) == 'X') {
+        indexOfTarget = i;
+        break;
+      }
+    }
+    System.out.println("Index of X in " + s10 + ": " + indexOfTarget);
+
+    // Prime numbers between 1 - 50
+    System.out.println("Prime numbers from 1 - 50");
+    boolean isPrime = true;
+    for (int i = 2; i <= 50; i++) {
+      isPrime = true;
+      for (int j = 2; j < i; j++) {
+        if (i % j == 0) {
+          isPrime = false;
+          break;
+        }
+      }
+      if (isPrime) {
+        System.out.println(i);
+      }
+    }
+
+    // Outter loop
+    for (int i = 0; i < 3; i++) {
+      // Inner loop
+      for (int j = 0; j < 3; j++) {
+        System.out.println("i=" + i + ", " + "j=" + j);
+      }
+    }
+
+    // *
+    // **
+    // ***
+    // ****
+    int k = 4;
+    String starString = "";
+    for (int i = 1; i <= k; i++) {
+      starString = "";
+      for (int j = 0; j < i; j++) {
+        starString += "*";
+      }
+      System.out.println(starString);
+    }
+
   }
 }
