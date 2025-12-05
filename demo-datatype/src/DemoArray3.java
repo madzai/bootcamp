@@ -21,6 +21,7 @@ public class DemoArray3 {
     // Sorted: 12 23 34 45 78 89 99
     scores = new int[] {34, 78, 12, 89, 45, 99, 23, 11};
 
+    // self
     // Bubble sorting
     int backup = -1;
     for (int i = 0; i < scores.length - 1; i++) {
@@ -46,12 +47,27 @@ public class DemoArray3 {
     }
     System.out.println("Median: " + median);
 
+    // Vincent
+    int[] values = new int[] {34, 78, 12, 89, 45, 99, 23};
+    int medianIdx = values.length / 2;
+    backup = -1;
+    for (int i = 0; i < medianIdx + 1; i++) { // ! control the number of moving max
+      for (int j = 0; j < values.length - i - 1; j++) { // control the moving max position
+        if (values[j] > values[j + 1]) {
+          backup = values[j];
+          values[j] = values[j + 1];
+          values[j + 1] = backup;
+        }
+      }
+    }
+    System.out.println("Median: " + values[medianIdx]);
+
     // Prices 99.9, 13.8, 9.9, 1200.0
     // Quantities 3, 10, 12, 20
     // Amount = Price * Quantity
     double[] prices = new double[] {99.9, 13.8, 9.9, 1200.0};
-    double[] quantities = new double[] {3, 10, 12, 20};
-    double[] amounts = new double[4];
+    int[] quantities = new int[] {3, 10, 12, 20};
+    double[] amounts = new double[prices.length];
 
     for (int i = 0; i < prices.length; i++) {
       amounts[i] = prices[i] * quantities[i];
@@ -70,6 +86,7 @@ public class DemoArray3 {
     // 2. Password is wrong for this user.
     // 3. Login successful.
 
+    // Method 1
     // boolean usernameOk = false;
     // boolean passwordOk = false;
 
@@ -93,23 +110,42 @@ public class DemoArray3 {
     // System.out.println("Username does not exist.");
     // }
 
+    // Method 2
+    // boolean usernameCorrect = false;
+    // boolean pwCorrect = false;
 
-    boolean usernameCorrect = false;
-    boolean pwCorrect = false;
+    // for (int i = 0; i < usernames.length; i++) {
+    // if (usernameInput == usernames[i]) {
+    // usernameCorrect = true;
+    // if (passwordInput == passwords[i]) {
+    // pwCorrect = true;
+    // }
+    // }
+    // }
 
+    // if (!usernameCorrect) {
+    // System.out.println("Username does not exist.");
+    // } else {
+    // if (pwCorrect) {
+    // System.out.println("Login successful.");
+    // } else {
+    // System.out.println("Password is wrong for this user.");
+    // }
+    // }
+
+    // Method 3
+    int userIdx = -1;
     for (int i = 0; i < usernames.length; i++) {
-      if (usernameInput == usernames[i]) {
-        usernameCorrect = true;
-        if (passwordInput == passwords[i]) {
-          pwCorrect = true;
-        }
+      if (usernameInput.equals(usernames[i])) {
+        userIdx = i;
+        break;
       }
     }
 
-    if (!usernameCorrect) {
+    if (userIdx == -1) {
       System.out.println("Username does not exist.");
     } else {
-      if (pwCorrect) {
+      if (passwordInput.equals(passwords[userIdx])) {
         System.out.println("Login successful.");
       } else {
         System.out.println("Password is wrong for this user.");
@@ -129,7 +165,7 @@ public class DemoArray3 {
     int[] ages = new int[] {16, 66, 18, 37};
     char[] genders = new char[] {'M', 'F', 'M', 'F'};
     boolean[] smokers = new boolean[] {false, true, true, false};
-    int baseFee = 100;
+    double baseFee = 100.0;
     double[] fees = new double[] {baseFee, baseFee, baseFee, baseFee};
 
     for (int i = 0; i < ages.length; i++) {
@@ -144,5 +180,11 @@ public class DemoArray3 {
       }
     }
     System.out.println("Fees: " + Arrays.toString(fees));
+
+    // toCharArray()
+    String staff = "John";
+    char[] chs = staff.toCharArray();
+    System.out.println(Arrays.toString(chs));
+
   }
 }
