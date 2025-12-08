@@ -38,7 +38,7 @@ public class DemoMath {
     byte b10 = 9;
     short s10 = 9;
     // ! special case: byte + short -> int
-    // short s20 = b10 + s10; 
+    // short s20 = b10 + s10;
     int s20 = b10 + s10;
 
     int result = 10 / 3; // 3: floor of division
@@ -53,13 +53,14 @@ public class DemoMath {
     int englishScore = 87;
     int mathScore = 72;
     int historyScore = 34;
-    // Step 1: int + int + int -> int answer 64 
+    // Step 1: int + int + int -> int answer 64
     // Step 2: assign int value value into double box -> 64.0
     // double averageScore = (englishScore + mathScore + historyScore) / 3; // 64.0
     // System.out.println(averageScore);
 
     // Solution 1
-    double averageScore = (double) (englishScore + mathScore + historyScore) / 3; // 64.3333
+    double averageScore =
+        (double) (englishScore + mathScore + historyScore) / 3; // 64.3333
     // Solution 2: divide by double number 3.0
     // double averageScore = (englishScore + mathScore + historyScore) / 3.0; // 64.3333
     // Solution 3: double data type instead of int for the three scores upon declaration
@@ -96,12 +97,12 @@ public class DemoMath {
     int v = 97;
     char n = 'a';
     int v2 = n;
-    System.out.println(v2);
+    System.out.println("v2: " + v2);
 
     // A
     char n2 = 'A';
     int v3 = n2;
-    System.out.println(v3);
+    System.out.println("v3: " + v3);
 
     int v5 = 20320;
     // ! Cannot assign higher level value into lower level type
@@ -110,7 +111,9 @@ public class DemoMath {
     // 65 -> A
     int v11 = 'A'; // char -> int 65
     char n3 = (char) v11;
-    System.out.println(n3);
+    System.out.println("v11: " + v11);
+    System.out.println("n3: " + n3);
+    System.out.println("v11 + 3: " + (v11 + 3));
 
     int v12 = 65535 + 100;
     char n4 = (char) v12; // overflow

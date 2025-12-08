@@ -16,7 +16,7 @@ public class DemoPrimitive {
     double y = 3.14159;
     double z = 3.0;
     // ! Assign 10 (int) into double box, convert 10 to 10.0
-    double a = 10; 
+    double a = 10;
     System.out.println("\nDouble:");
     System.out.println(y);
     System.out.println(z);
@@ -29,7 +29,7 @@ public class DemoPrimitive {
     char h = 'e';
     System.out.println("\nCharacter:");
     System.out.println(h);
-    //re-assign value k
+    // re-assign value k
     h = 'k';
     System.out.println(h);
 
@@ -53,7 +53,7 @@ public class DemoPrimitive {
     // java will check assigned values for short and byte (exception)
     short s1 = 32767; // 2 bytes, -32,768 to 32,767
     // short s1 = 32768; // out of range
-    short s2 = -32768; 
+    short s2 = -32768;
 
     // ! in real life, use use int for integer by default
     int i1 = 2_100_000_000; // 4 bytes, -2,147,483,648 to 2,147,483,647

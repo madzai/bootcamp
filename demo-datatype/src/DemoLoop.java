@@ -45,7 +45,7 @@ public class DemoLoop {
     // 0 - 20: print odd numbers and number > 5
     for (int i = 0; i <= 20; i++) {
       // if (i % 2 > 0 && i > 5) { // slower as i > 5 has less cases than odd numbers in 0-20
-      if (i > 5 && i % 2 > 0 ) {      
+      if (i > 5 && i % 2 > 0) {
         System.out.println(i);
       }
     }
@@ -54,39 +54,40 @@ public class DemoLoop {
     // Divided by 100, not a leap year, unless divided by 400
     // e.g. 2000 is a leap year and 2100 is not, 2004 is a leap year
     // Leap year if divisible by 100 and 400
-    // or if not a multiple of 100, then divisible by 4 
+    // or if not a multiple of 100, then divisible by 4
     int year = 2000;
     boolean isLeapYear = false;
+
     // if (year % 100 == 0) {
-    //   if (year % 400 == 0) {
-    //     isLeapYear = true;
-    //   }
+    // if (year % 400 == 0) {
+    // isLeapYear = true;
+    // }
     // } else if (year % 4 == 0) {
-    //   isLeapYear = true;
+    // isLeapYear = true;
     // }
 
     // if (year % 4 == 0) {
-    //   if (year % 100 > 0) {
-    //     isLeapYear = true;
-    //   } else {
-    //     if (year % 400 == 0) {
-    //       isLeapYear = true;
-    //     }
-    //   }
-    // } 
+    // if (year % 100 > 0) {
+    // isLeapYear = true;
+    // } else {
+    // if (year % 400 == 0) {
+    // isLeapYear = true;
+    // }
+    // }
+    // }
 
     if (year % 4 == 0) {
       if (year % 100 == 0) {
         if (year % 400 == 0) {
           isLeapYear = true; // 2000
-        } 
+        }
       } else {
         isLeapYear = true; // 2004
       }
     }
     System.out.println("Leap year? " + isLeapYear);
 
-    isLeapYear = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0); 
+    isLeapYear = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
 
     System.out.println("Leap year? " + isLeapYear);
 
@@ -128,7 +129,9 @@ public class DemoLoop {
     if (target == -1) {
       System.out.println("target not found");
     } else {
-      System.out.println("The first number between 1 - 50 which is divisible by 7 is " + target);
+      System.out
+          .println("The first number between 1 - 50 which is divisible by 7 is "
+              + target);
     }
 
     // ！ continue -> skip the rest
@@ -143,21 +146,21 @@ public class DemoLoop {
 
     // Alt
     // for (int i = 0; i < 20; i++) {
-    //   if (i % 2 == 0) {
-    //     System.out.println("Hello");
-    //   } else { 
-    //     System.out.println("Hello");
-    //     System.out.println("Goodbye");
-    //   }
+    // if (i % 2 == 0) {
+    // System.out.println("Hello");
+    // } else {
+    // System.out.println("Hello");
+    // System.out.println("Goodbye");
     // }
-    
+    // }
+
     // find the largest number < 1000, divided by 7
     int target1 = -1;
     // for (int i = 1; i < 1000; i++) {
-    //   if ((1000 - i) % 7 == 0) {
-    //     target1 = i;
-    //     break;
-    //   }
+    // if ((1000 - i) % 7 == 0) {
+    // target1 = i;
+    // break;
+    // }
     // }
 
     for (int i = 0; i < 1000; i += 7) {
@@ -166,7 +169,8 @@ public class DemoLoop {
       }
     }
 
-    System.out.println("The largest multiple of 7 less than 1000 is " + target1);
+    System.out
+        .println("The largest multiple of 7 less than 1000 is " + target1);
 
     int largestNumber = 0;
     while (true) {
@@ -181,25 +185,33 @@ public class DemoLoop {
     String currentTime = "23:42:00";
     int secondsToAdd = 6500;
 
-    int currentHour = (currentTime.charAt(0) - '0') * 10 + currentTime.charAt(1) - '0';
-    int currentMinute = (currentTime.charAt(3) - '0') * 10 + currentTime.charAt(4) - '0';
-    int currentSecond = (currentTime.charAt(6) - '0') * 10 + currentTime.charAt(7) - '0';
-    
-    int currentTimeInSeconds = currentHour * 3600 + currentMinute * 60 + currentSecond;
+    int currentHour =
+        (currentTime.charAt(0) - '0') * 10 + currentTime.charAt(1) - '0';
+    int currentMinute =
+        (currentTime.charAt(3) - '0') * 10 + currentTime.charAt(4) - '0';
+    int currentSecond =
+        (currentTime.charAt(6) - '0') * 10 + currentTime.charAt(7) - '0';
+
+    int currentTimeInSeconds =
+        currentHour * 3600 + currentMinute * 60 + currentSecond;
     int finalTimeInSeconds = currentTimeInSeconds + secondsToAdd;
     System.out.println("Final time in seconds: " + finalTimeInSeconds);
     int todayTimeInSeconds = finalTimeInSeconds % (24 * 60 * 60);
     System.out.println("Today's time in seconds: " + todayTimeInSeconds);
-    
+
     int todayHour = todayTimeInSeconds / (60 * 60); // prefix 0
     int todayMinute = todayTimeInSeconds % (60 * 60) / 60; // prefix 0
     int todaySecond = todayTimeInSeconds % (60 * 60) % 60; // prefix 0
 
-    String todayHourInString = todayHour < 10 ? "0" + todayHour : "" + todayHour;
-    String todayMinuteInString = todayMinute < 10 ? "0" + todayMinute : "" + todayMinute;
-    String todaySecondInString = todaySecond < 10 ? "0" + todaySecond : "" + todaySecond;
+    String todayHourInString =
+        todayHour < 10 ? "0" + todayHour : "" + todayHour;
+    String todayMinuteInString =
+        todayMinute < 10 ? "0" + todayMinute : "" + todayMinute;
+    String todaySecondInString =
+        todaySecond < 10 ? "0" + todaySecond : "" + todaySecond;
 
-    String todayTime = todayHourInString + ":" + todayMinuteInString + ":" + todaySecondInString;
+    String todayTime = todayHourInString + ":" + todayMinuteInString + ":"
+        + todaySecondInString;
     System.out.println("Updated time: " + todayTime); // 01:30:20
 
     // Keep doubling a given number until > 10000
@@ -210,11 +222,11 @@ public class DemoLoop {
     }
 
     // while (true) {
-    //   if (target > 10000) {
-    //     break;
-    //   } else {
-    //     target *= 2;
-    //   }
+    // if (target > 10000) {
+    // break;
+    // } else {
+    // target *= 2;
+    // }
     // }
 
     System.out.println("Final number doubled until >10000 : " + target);
@@ -251,10 +263,10 @@ public class DemoLoop {
 
     // Outter loop
     // for (int i = 0; i < 3; i++) {
-    //   // Inner loop
-    //   for (int j = 0; j < 3; j++) {
-    //     System.out.println("i=" + i + ", " + "j=" + j);
-    //   }
+    // // Inner loop
+    // for (int j = 0; j < 3; j++) {
+    // System.out.println("i=" + i + ", " + "j=" + j);
+    // }
     // }
 
     // *
@@ -273,7 +285,7 @@ public class DemoLoop {
 
     System.out.println();
 
-    for (int i = 1; i <= k; i++) {      
+    for (int i = 1; i <= k; i++) {
       for (int j = 0; j < i; j++) {
         System.out.print("*");
       }
@@ -283,6 +295,29 @@ public class DemoLoop {
     // ..*..
     // .***.
     // *****
+    System.out.println();
+
+    // Loop: while vs for
+    int o = 0;
+    while (o < 1000) {
+      if (o % 2 == 0) {
+        o++; // flexible for modifier
+      }
+      if (o % 7 == 0) {
+        o++;
+      }
+      o++;
+      if (o > 20) {
+        break;
+      }
+    }
+    System.out.println("o = " + o);
+
+    // Explicitly you know the no. of iteration
+    for (int i = 0; i < 10; i++) {
+      // Normally won't use additional modifier within for loop
+    }
+
 
   }
 }
