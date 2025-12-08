@@ -16,13 +16,14 @@ public class JavaQuest6 {
     for (int i = 0; i < 15; i++) {
       if (i == 0) {
         now = first;
-      } else if (i == 1) {
-        before = first;
-        now = second;
-        next = before + now;
       } else {
-        before = now;
-        now = next;
+        if (i == 1) {
+          before = first;
+          now = second;
+        } else {
+          before = now;
+          now = next;
+        }
         next = before + now;
       }
       System.out.print(now + " ");
