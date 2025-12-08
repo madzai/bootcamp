@@ -12,5 +12,13 @@ public class JavaQuest5 {
     // if found, print "Found."
     // if not found, print "Not Found."
     // code here ...
+
+    // if (str.lastIndexOf("c") > -1) {
+    // if (str.lastIndexOf("" + target) > -1) {
+    if (str.lastIndexOf(target) > -1) {
+      System.out.println("Found");
+    } else {
+      System.out.println("Not Found");
+    }
   }
 }
