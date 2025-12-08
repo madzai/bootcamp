@@ -1,5 +1,7 @@
 package exercises;
 
+import java.util.Arrays;
+
 public class JavaQuest8 {
   public static void main(String[] args) {
     /**
@@ -13,6 +15,24 @@ public class JavaQuest8 {
     // Your program should be able to handle all the above test case.
     int secondMax;
     // code here ...
+    int[] testCase = testCase1;
+    System.out.println(Arrays.toString(testCase));
+    // int max = testCase[0];
+    int tool;
+
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < testCase.length - 1 - i; j++) {
+        if (testCase[j] > testCase[j + 1]) {
+          tool = testCase[j + 1];
+          testCase[j + 1] = testCase[j];
+          testCase[j] = tool;
+        }
+      }
+    }
+
+    System.out.println(Arrays.toString(testCase));
+    secondMax = testCase[testCase.length - 2];
+    System.out.println("2nd max: " + secondMax);
 
   }
 }
