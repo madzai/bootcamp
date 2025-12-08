@@ -12,8 +12,15 @@ public class JavaQuest4 {
     // 1. Even numbers
     // 2. Divisible by 3
     // 3. > 0
+    int count = 0;
     for (int i = 0; i < 100; i++) {
       // code here ...
+      if (count >= 10) {
+        break;
+      } else if ((i + 1) % 2 == 0 && (i + 1) % 3 == 0) {
+        count++;
+        System.out.print(i + 1 + " ");
+      }
     }
   }
 }
