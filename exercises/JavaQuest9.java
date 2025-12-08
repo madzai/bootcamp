@@ -1,3 +1,5 @@
+package exercises;
+
 import java.util.Scanner;
 
 public class JavaQuest9 {
@@ -63,7 +65,7 @@ public class JavaQuest9 {
         monthOfName = "April";
         break;
       case 5:
-        number_Of_DaysInMonth = 30;
+        number_Of_DaysInMonth = 31;
         monthOfName = "May";
         break;
       case 6:
