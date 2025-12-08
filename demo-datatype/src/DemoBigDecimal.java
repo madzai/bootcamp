@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class DemoBigDecimal {
   public static void main(String[] args) {
@@ -34,6 +35,19 @@ public class DemoBigDecimal {
     BigDecimal result3 = bd5.multiply(bd6);
     System.out.println("BigDecimal .multiply: " + result3);
     System.out.println("Double value: " + result3.doubleValue());
+
+    // 0.25123 * 0.15
+    System.out.println();
+    System.out.println("0.25123 * 0.15: " + (0.25123 * 0.15));
+    double x = 0.25123;
+    double y = 0.15;
+    System.out.print("0.25123 * 0.15 (rounded half up): ");
+    System.out.println(BigDecimal.valueOf(x).multiply(BigDecimal.valueOf(y))
+        .setScale(2, RoundingMode.HALF_UP).doubleValue()); // 0.04
+
+    System.out.println(BigDecimal.valueOf(0.5).multiply(BigDecimal.valueOf(0.5))
+        .setScale(1, RoundingMode.HALF_DOWN).doubleValue()); // 0.25 -> 0.2
+
 
   }
 }
