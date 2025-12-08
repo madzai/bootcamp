@@ -36,6 +36,7 @@ public class JavaQuest9 {
     switch (month) {
       case 1:
         number_Of_DaysInMonth = 31;
+        monthOfName = "January";
         break;
       case 2:
         if (year % 4 == 0) {
@@ -51,19 +52,48 @@ public class JavaQuest9 {
         } else { // 2023
           number_Of_DaysInMonth = 28;
         }
+        monthOfName = "February";
         break;
       case 3:
+        number_Of_DaysInMonth = 31;
+        monthOfName = "March";
+        break;
       case 4:
         number_Of_DaysInMonth = 30;
+        monthOfName = "April";
         break;
       case 5:
+        number_Of_DaysInMonth = 30;
+        monthOfName = "May";
+        break;
       case 6:
+        number_Of_DaysInMonth = 30;
+        monthOfName = "Jane";
+        break;
       case 7:
+        number_Of_DaysInMonth = 31;
+        monthOfName = "July";
+        break;
       case 8:
+        number_Of_DaysInMonth = 31;
+        monthOfName = "August";
+        break;
       case 9:
+        number_Of_DaysInMonth = 30;
+        monthOfName = "September";
+        break;
       case 10:
+        number_Of_DaysInMonth = 31;
+        monthOfName = "October";
+        break;
       case 11:
+        number_Of_DaysInMonth = 30;
+        monthOfName = "November";
+        break;
       case 12:
+        number_Of_DaysInMonth = 31;
+        monthOfName = "December";
+        break;
       default:
     }
     // Leap Year: The February has 29 days:
