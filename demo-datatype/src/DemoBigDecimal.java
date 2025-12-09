@@ -48,6 +48,52 @@ public class DemoBigDecimal {
     System.out.println(BigDecimal.valueOf(0.5).multiply(BigDecimal.valueOf(0.5))
         .setScale(1, RoundingMode.HALF_DOWN).doubleValue()); // 0.25 -> 0.2
 
+    // Chain method: 0.2 * 0.1 - 0.4 + 3.5
+    // BigDecimal x1 = BigDecimal.valueOf(0.2);
+    // BigDecimal x2 = BigDecimal.valueOf(0.1);
+    // BigDecimal x3 = BigDecimal.valueOf(0.4);
+    // BigDecimal x4 = BigDecimal.valueOf(3.5);
+    // BigDecimal result4 = x1.multiply(x2).subtract(x3).;
+    double r = BigDecimal.valueOf(0.2) //
+        .multiply(BigDecimal.valueOf(0.1)) //
+        .subtract(BigDecimal.valueOf(0.4)) //
+        .add(BigDecimal.valueOf(3.5)) //
+        .doubleValue();
+    System.out.println("0.2 * 0.1 - 0.4 + 3.5 = " + r); // 3.12
+
+    // Divide
+    // / zero
+    // non-termineated decimal places (i.e. 3.333333)
+    System.out.println(
+        BigDecimal.valueOf(9).divide(BigDecimal.valueOf(3)).doubleValue()); // 3.0
+    System.out.println(
+        BigDecimal.valueOf(9).divide(BigDecimal.valueOf(2)).doubleValue()); // 4.5
+
+    // ! Non-terminating Decimal Expansion
+    System.out.println(BigDecimal.valueOf(10)
+        .divide(BigDecimal.valueOf(3), 2, RoundingMode.HALF_UP).doubleValue()); // 3.33
+
+    // ! / zero
+    int count = 0;
+    int totalScore = 234;
+    double averageScore = 0;
+    if (count == 0) {
+      averageScore = 0;
+    } else {
+      averageScore = BigDecimal.valueOf(totalScore)
+          .divide(BigDecimal.valueOf(count), 2, RoundingMode.HALF_UP)
+          .doubleValue();
+    }
+    System.out.println("Average Score: " + averageScore);
+
+    // ! double * double -> floating point issue
+    // ! int * double -> floating point issue
+    int quantity = 3;
+    double price = 99.9; // Java stores 99.89999... (binary problem)
+    System.out.println("quantity * price = " + quantity * price); // 299.70000000000005
+    // solution
+    System.out.println("quantity * price = " + BigDecimal.valueOf(quantity)
+        .multiply(BigDecimal.valueOf(price)).doubleValue()); // 299.7
 
   }
 }

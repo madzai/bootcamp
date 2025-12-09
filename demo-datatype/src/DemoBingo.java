@@ -3,11 +3,6 @@ import java.util.Scanner;
 
 public class DemoBingo {
   public static void main(String[] args) {
-    // for (int i = 0; i < 10; i++) {
-    // System.out.println(new Random().nextInt(3)); // 0 - 2
-    // }
-
-
     // 1-100 (random number)
     // random: 73
     // One user
@@ -71,7 +66,7 @@ public class DemoBingo {
         } else {
           if (target > input) {
             min = input + 1;
-          } else {
+          } else if (target < input) {
             max = input - 1;
           }
           player *= -1;
