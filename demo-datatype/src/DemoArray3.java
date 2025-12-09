@@ -186,5 +186,43 @@ public class DemoArray3 {
     char[] chs = staff.toCharArray();
     System.out.println(Arrays.toString(chs));
 
+    // lowercase letter
+    char[] characters = new char[] {'b', 'z', 'z', 'z', 'c', 'a'};
+    // find the letter which has the max count
+
+    // Self
+    // // Step 1: new int[26], count each letter
+    // int[] counts = new int[26];
+    // for (char ch : characters) {
+    // counts[ch - 'a']++;
+    // }
+
+    // // Step 2: find max
+    // int maxIndex = 0;
+    // for (int i = 0; i < counts.length; i++) {
+    // if (counts[i] > counts[maxIndex])
+    // maxIndex = i;
+    // }
+    // System.out.println("Letter with most count: " + (char) ('a' + maxIndex));
+
+    // Lesson
+    // Step 1: new int[26], count each letter
+    int[] counts = new int[26];
+    for (int i = 0; i < characters.length; i++) {
+      counts[characters[i] - 'a']++;
+    }
+
+    // Step 2: find max
+    int max = counts[0];
+    int targetPos = 0;
+    for (int i = 0; i < counts.length; i++) {
+      if (counts[i] > max) {
+        max = counts[i];
+        targetPos = i;
+        System.out.println("t=" + targetPos);
+      }
+    }
+    System.out.println((char) (targetPos + 'a'));
+
   }
 }

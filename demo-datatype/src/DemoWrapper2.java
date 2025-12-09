@@ -19,7 +19,7 @@ public class DemoWrapper2 {
     Integer i1 = Integer.valueOf(127);
     Integer i2 = Integer.valueOf(127);
     System.out.println(i1.equals(i2)); // true
-    System.out.println(i1 == i2); // true: same address
+    System.out.println(i1 == i2); // true: same reference/address for [-128, 127] (internal cache)
 
     Integer i3 = Integer.valueOf(128);
     Integer i4 = Integer.valueOf(128);
@@ -40,5 +40,37 @@ public class DemoWrapper2 {
     Integer i6 = new Integer(127);
     System.out.println(i5.equals(i6)); // true
     System.out.println(i5 == i6); // false
+
+    // String
+    // Pool: "abc" / String.valueOf("abc")
+    // Heap: new String()
+    String s4 = "abc"; // Literal Pool: store same string value once
+    String s5 = "abc"; // Literal Pool: store same string value once
+    System.out.println(s4.equals(s5)); // true
+    System.out.println("s4 == s5: " + s4 == s5); // true
+
+    String s6 = new String("abc"); // heap memory
+    System.out.println("s4 == s6: " + s4 == s6); // false
+
+    String s7 = "abc";
+    System.out.println("s4 == s7: " + s4 == s7); // true
+
+    // s4.replace("bc", "xy"); // write operation? Produced a String object in heap, but did not write down its address
+    // System.out.println("s4: " + s4); // abc
+
+    String s10 = s4.replace("bc", "xy");
+    System.out.println("s4: " + s4); // abc
+    System.out.println("s10: " + s10); // axy
+
+    // s10.charAt(0); // useless
+
+    String studentName = "Peter";
+    if ("Peter".equals(studentName)) { // don't need to use new String("Peter")
+      System.out.println("He's Peter");
+    }
+
+    System.out.println("integer max value: " + Integer.MAX_VALUE); // 2.1b
+
+
   }
 }
