@@ -34,8 +34,8 @@ public class DemoBingo2Vincent {
       } else {
         user = "User B";
       }
-      System.out.println(
-          user + ", please input a number between " + min + " & " + max);
+      System.out.println("Round " + round + ": " + user
+          + ", please input a number between " + min + " & " + max);
       userInput = scanner.nextInt();
       if (userInput < min || userInput > max) {
         continue;

@@ -30,7 +30,7 @@ public class JavaQuest8 {
       }
     }
 
-    System.out.println(Arrays.toString(testCase));
+    // System.out.println(Arrays.toString(testCase));
     secondMax = testCase[testCase.length - 2];
     System.out.println("2nd max: " + secondMax);
 
