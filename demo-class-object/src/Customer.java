@@ -36,9 +36,9 @@ public class Customer {
 
 
   public double getOrderAmount(int orderId) {
-    for (Order o : this.orders) {
-      if (o.getId() == orderId)
-        return o.amount();
+    for (Order order : this.orders) {
+      if (order.getId() == orderId)
+        return order.amount();
     }
     return 0.0;
   }
@@ -49,22 +49,10 @@ public class Customer {
     BigDecimal total = BigDecimal.ZERO;
     for (Order order : this.orders)
       total = total.add(BigDecimal.valueOf(order.amount()));
-    if (total.doubleValue() >= 100_000)
-      return true;
-    else
-      return false;
+    return total.doubleValue() >= 100_000;
   }
 
   public Order getOrder(int orderId) {
-    // self
-    // Order theOrder = new Order();
-    // for (int i = 0; i < this.orders.length; i++) {
-    // if (this.orders[i].getId() == orderId)
-    // theOrder = this.orders[i];
-    // }
-    // return theOrder;
-
-    // Lesson
     for (Order o : this.orders) {
       if (o.getId() == orderId)
         return o;

@@ -24,10 +24,15 @@ public class Order {
     return bdTotal.doubleValue();
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public void clear() {
+     this.items = new Item[0];
   }
 
+  // public void setId(int id) {
+  //   this.id = id;
+  // }
+
+  // setItems()
   public void addItem(Item newItem) {
     Item[] newItems = new Item[this.items.length + 1];
     for (int i = 0; i < this.items.length; i++)
