@@ -1,45 +1,47 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+// ! Order Class
 public class Order {
   // id
   private int id;
-  private String[] items;
-  private String address;
-  private double price;
+  private Item[] items;
+  // private String address;
+  // private double price;
 
   // ! give up empty constructor: new Order(); -> error
   public Order(int id) {
     this.id = id;
+    this.items = new Item[0];
+  }
+
+  // presentation
+  public double amount() {
+    BigDecimal bdTotal = BigDecimal.ZERO;
+    for (Item item : this.items) {
+      bdTotal = bdTotal.add(BigDecimal.valueOf(item.amount()));
+    }
+    return bdTotal.doubleValue();
   }
 
   public void setId(int id) {
     this.id = id;
   }
 
-  public void setItems(String[] items) {
-    this.items = items;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public void setPrice(double price) {
-    this.price = price;
+  public void addItem(Item newItem) {
+    Item[] newItems = new Item[this.items.length + 1];
+    for (int i = 0; i < this.items.length; i++)
+      newItems[i] = this.items[i];
+    newItems[newItems.length - 1] = newItem;
+    this.items = newItems;
   }
 
   public int getId() {
     return this.id;
   }
 
-  public String[] getItems() {
+  public Item[] getItems() {
     return this.items;
-  }
-
-  public String getAddress() {
-    return this.address;
-  }
-
-  public double getPrice() {
-    return this.price;
   }
 
   public static void main(String[] args) {
@@ -57,6 +59,13 @@ public class Order {
     c1.add(o1);
     c1.add(o2);
     System.out.println(c1.getOrder(1).getId());
+
+    // Test
+    BigDecimal bdTotal = BigDecimal.valueOf(0.2);
+    bdTotal = bdTotal.add(BigDecimal.valueOf(0.1));
+    double bd = bdTotal.setScale(1, RoundingMode.HALF_DOWN).doubleValue();
+    System.out.println(bdTotal);
+    System.out.println(bd);
 
   }
 

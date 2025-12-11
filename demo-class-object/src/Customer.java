@@ -1,4 +1,5 @@
 // ! One to Many
+import java.math.BigDecimal;
 
 public class Customer {
   private Order[] orders; // ! Object Reference
@@ -33,6 +34,26 @@ public class Customer {
   // public Order getOrder(int order Id)
   // public Order getOrder(int orderId Id)
 
+
+  public double getOrderAmount(int orderId) {
+    for (Order o : this.orders) {
+      if (o.getId() == orderId)
+        return o.amount();
+    }
+    return 0.0;
+  }
+
+  // Presentation
+  // Vip: total order amount >= 100,000
+  public boolean isVip() {
+    BigDecimal total = BigDecimal.ZERO;
+    for (Order order : this.orders)
+      total = total.add(BigDecimal.valueOf(order.amount()));
+    if (total.doubleValue() >= 100_000)
+      return true;
+    else
+      return false;
+  }
 
   public Order getOrder(int orderId) {
     // self
