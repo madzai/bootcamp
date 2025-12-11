@@ -60,6 +60,10 @@ public class DemoStringBuilder {
     sb3.deleteCharAt(3);
     System.out.println("sb3: " + sb3); // helo
 
+    // .toString() - convert StringBuilder into String
+    String s3 = sb3.toString();
+    System.out.println("s3: " + s3);
+
     double d1 = 0.2;
     double result =
         BigDecimal.valueOf(d1).multiply(BigDecimal.valueOf(0.1)).doubleValue();
