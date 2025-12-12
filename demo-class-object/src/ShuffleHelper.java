@@ -27,49 +27,6 @@ public class ShuffleHelper { // class name -> noun
     }
   }
 
-  // public void shuffle() {
-  // // random -> int
-  // int[] order = new int[cards.length];
-  // for (int i = 0; i < order.length; i++) {
-  // order[i] = i;
-  // }
-  // int[] newOrder = order;
-  // Random rand = new Random();
-  // int idx = rand.nextInt(cards.length) + 1;
-  // int nCards = 10;
-  // int nShuffle = 100;
-  // // 1 - idx - 1 -> 1 - idx - 1
-  // // idx - idx + n -> idx + n + 1 - length
-  // // idx + n + 1 - length -> idx - idx + n
-
-  // for (int i = 0; i < nShuffle; i++) {
-  // do {
-  // idx = rand.nextInt(cards.length) + 1;
-  // } while (idx + nCards > cards.length);
-
-  // // for (int j = 0; j < cards.length; j++) {
-  // // if (j < idx) {
-
-  // // } else if () {
-
-  // // } else {
-
-  // // }
-  // }
-
-  // // for (int j = 0; j < idx; j++) {
-  // // newOrder[j] = order[j];
-  // // }
-
-  // // for (int j = idx; j < idx + nCards; j++) {
-  // // newOrder[j] = order[j];
-  // // }
-
-  // // for (int j = idx + nCards; j < cards.length; j++) {
-  // // newOrder[j] = order[j];
-  // // }
-  // }
-
   public Card[] getCards() {
     return this.cards;
   }

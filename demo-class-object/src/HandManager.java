@@ -21,36 +21,17 @@ public class HandManager {
     return true;
   }
 
-  // self
-  // public boolean isFullHouse() {
-  // if (this.cards.length != 5)
-  // return false;
-  // int[] counts = new int[13];
-  // for (int i = 0; i < 13; i++) {
-  // for (int j = 0; j < 5; j++) {
-  // if (this.cards[j].getRank() == RANKS[i])
-  // counts[i]++;
-  // }
-  // }
-  // int count3 = 0;
-  // int count2 = 0;
-  // for (int count : counts) {
-  // if (count == 3)
-  // count3++;
-  // if (count == 2)
-  // count2++;
-  // }
-  // return (count3 == 1 && count2 == 1);
-  // }
-
-  // lesson
+  // Test Case Design (IT test based on programming) vs BA test (based on requirement, user's perspective)
+  // 1. return statement
+  // 2. for loop (break, continue)
+  // 3. array (margin case)
   public boolean isFullHouse() {
     if (this.cards.length != 5)
       return false;
 
     int[] counts = new int[40];
     for (int i = 0; i < this.cards.length; i++) {
-      counts[this.cards[i].getRank() - '2']++;
+      counts[this.cards[i].getRank().getValue() - '2']++; // ! '2' is smallest ASCII
     }
     // 3 2
     boolean withThreeCount = false;
@@ -61,6 +42,16 @@ public class HandManager {
       if (counts[i] == 2)
         withTwoCount = true;
     }
-    return withThreeCount && withTwoCount;
+    return withThreeCount && withTwoCount; // 4 cases
+  }
+
+  public static void main(String[] args) {
+    Card[] cards = new Card[] {new Card('A', 12, 'D'), new Card('A', 12, 'S'),
+        new Card('A', 12, 'C'), new Card('8', 6, 'D'), new Card('8', 6, 'S')};
+    System.out.println(new HandManager(cards).isFullHouse());
+
+    Card[] cards2 = new Card[] {new Card('A', 12, 'D'), new Card('A', 12, 'S'),
+        new Card('K', 11, 'C'), new Card('8', 6, 'D'), new Card('8', 6, 'S')};
+    System.out.println(new HandManager(cards2).isFullHouse());
   }
 }

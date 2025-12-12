@@ -1,15 +1,25 @@
 public class Card {
-  private char rank; // A 2 3 4 5 6 7 8 9 0 J Q K
+  // private char rank; // A 2 3 4 5 6 7 8 9 0 J Q K
+  private Rank rank; // A 2 3 4 5 6 7 8 9 0 J Q K
   private char suit; // D C H S
 
   // constructor
-  public Card(char rank, char suit) {
+  public Card(Rank rank, char suit) {
     this.rank = rank;
     this.suit = suit;
   }
 
+  public Card(char rankValue, int seq, char suit) {
+    this.rank = new Rank(rankValue, seq);
+    this.suit = suit;
+  }
+
+  public static Card ofACE(char suit) {
+    return new Card('A', 12, suit);
+  }
+
   // get
-  public char getRank() {
+  public Rank getRank() {
     return this.rank;
   }
 
@@ -21,13 +31,17 @@ public class Card {
 
   public String toString() {
     return "Card(" //
-        + "rank=" + this.rank //
+        + "rank=" + this.rank.getValue() //
         + ", suit=" + this.suit //
         + ")";
   }
 
   // public String toString() {
-  // return (this.rank + this.suit);
+  // return (this.rank.getValue() + this.suit);
   // }
+
+  public static void main(String[] args) {
+    Card.ofACE('D');
+  }
 
 }
