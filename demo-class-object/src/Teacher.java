@@ -6,7 +6,12 @@ public class Teacher {
   }
 
   public void add(Candy candy) {
-
+    Candy[] newCandies = new Candy[this.candies.length + 1];
+    for (int i = 0; i < this.candies.length; i++) {
+      newCandies[i] = this.candies[i];
+    }
+    newCandies[this.candies.length] = candy;
+    this.candies = newCandies;
   }
 
   public void add(Candy[] candies) {
@@ -17,7 +22,39 @@ public class Teacher {
 
   public void distribute(Student student) {
     // ! Teacher object doesn't even know how student stores the candy
-    student.receive(x);
+    Candy candy = this.deductCandy();
+    if (candy != null) {
+      student.receive(candy);
+    }
+  }
+
+  public void distributeAll(Student[] students) {
+    int idx = 0;
+    while (true) {
+      Candy candy = this.deductCandy();
+      if (candy == null)
+        break;
+      idx = idx % students.length == 0 ? 0 : idx;
+      students[idx++].receive(candy);
+
+    }
+  }
+
+  public Candy deductCandy() {
+    if (this.candies.length <= 0)
+      return null;
+
+    Candy deductedCandy = this.candies[this.candies.length - 1];
+    Candy[] newCandies = new Candy[this.candies.length - 1];
+    for (int i = 0; i < this.candies.length - 1; i++) {
+      newCandies[i] = this.candies[i];
+    }
+    this.candies = newCandies;
+    return deductedCandy;
+  }
+
+  public int getNumOfCandies() {
+    return this.candies.length;
   }
 
   public static void main(String[] args) {
@@ -26,15 +63,36 @@ public class Teacher {
     // Finally, the teacher has no candies
     // Show all candies for each student
 
-    Candy[] candies = new Candy[] {new Candy.ofRed(), new Candy.ofRed(),
-        new Candy.ofRed(), new Candy.ofRed(), new Candy.ofBlue(),
-        new Candy.ofBlue(), new Candy.ofBlue(), new Candy.ofBlue(),
-        new Candy.ofYellow(), new Candy.ofYellow(), new Candy.ofYellow(),
-        new Candy.ofYellow(), new Candy.ofRed(), new Candy.ofRed(),
-        new Candy.ofRed(), new Candy.ofRed(), new Candy.ofBlue(),
-        new Candy.ofBlue(), new Candy.ofBlue(), new Candy.ofBlue(),
-        new Candy.ofYellow(), new Candy.ofYellow()};
-    System.out.println(candies.length);
+    Candy[] candies = new Candy[] {Candy.ofRed(), Candy.ofRed(), Candy.ofRed(),
+        Candy.ofRed(), Candy.ofBlue(), Candy.ofBlue(), Candy.ofBlue(),
+        Candy.ofBlue(), Candy.ofYellow(), Candy.ofYellow(), Candy.ofYellow(),
+        Candy.ofYellow(), Candy.ofRed(), Candy.ofRed(), Candy.ofRed(),
+        Candy.ofRed(), Candy.ofBlue(), Candy.ofBlue(), Candy.ofBlue(),
+        Candy.ofBlue(), Candy.ofYellow(), Candy.ofYellow()};
+    // System.out.println(candies.length);
+
+    Teacher teacher = new Teacher();
+    teacher.add(candies);
+    System.out
+        .println("Teacher's no. of candies: " + teacher.getNumOfCandies());
+
+    Student[] students = new Student[] {new Student(), new Student(),
+        new Student(), new Student(), new Student()};
+
+    teacher.distributeAll(students);
+    System.out
+        .println("Teacher's no. of candies: " + teacher.getNumOfCandies());
+    System.out.println(
+        "Student 1's no. of candies: " + students[0].getNumOfCandies());
+    System.out.println(
+        "Student 2's no. of candies: " + students[1].getNumOfCandies());
+    System.out.println(
+        "Student 3's no. of candies: " + students[2].getNumOfCandies());
+    System.out.println(
+        "Student 4's no. of candies: " + students[3].getNumOfCandies());
+    System.out.println(
+        "Student 5's no. of candies: " + students[4].getNumOfCandies());
+
   }
 
 }

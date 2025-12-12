@@ -1,5 +1,4 @@
 public class Candy {
-  private int id;
   private String color; // "RED", "YELLOW", "BLUE"
 
   // ! Private constructor
@@ -18,6 +17,11 @@ public class Candy {
   public static Candy ofYellow() {
     return new Candy("YELLOW");
   }
+
+  // public static void main(String[] args) {
+  // Candy c1 = new Candy.ofYellow();
+  // System.out.println(c1);
+  // }
 
 }
 
