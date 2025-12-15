@@ -30,3 +30,13 @@
 - LocalDate, LocalDateTime
 - StringBuilder
 
+## Week 2
+- Library + Librarian + Book (Class Relationship)
+- Student + Teacher + Candy (receiveCandy() in Student)
+- Deck + Card (Rank) + ShuffleHelper + HandManager (static)
+- Customer + Order[] + Item[]
+- Method Presentation (circle.area(), person.bmi(), customer.isVip())
+- String1.java
+
+
+

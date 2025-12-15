@@ -1,10 +1,12 @@
 public class Book {
-  private int id;
-  private String title;
+  public static int idCount = 0;
 
-  public Book(int id, String title) {
-    this.id = id;
-    this.title = title;
+  private int id;
+  // private String title;
+
+  public Book() {
+    this.id = ++Book.idCount;
+    // this.title = title;
   }
 
   public int getId() {
