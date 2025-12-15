@@ -26,13 +26,20 @@ public class DemoObject {
 
     System.out.println("d1 to string: " + d1); // Dog(Animal(name=Kenny, age=1))
 
-    Circle c1 = new Circle(3.2, "blue");
-    Circle c2 = new Circle(3.2, "blue");
+    Circle c1 = new Circle(3.2, "BLUE");
+    Circle c2 = new Circle(3.2, "BLUE");
     System.out.println("c1 equals to c2? " + c1.equals(c2));
     System.out.println(
         "c1 has same hashcode as c2? " + (c1.hashCode() == c2.hashCode()));
-    System.out.println("c1 to string: " + c1.toString());
+    System.out.println("c1: " + c1);
+    System.out.println("c2: " + c2);
 
+    Circle c3 = new Circle(3.2, "RED");
+    System.out.println("c1 equals to c3? " + c1.equals(c3));
+    System.out.println("c3: " + c3);
 
+    Circle c4 = new Circle(1.5, "RED");
+    System.out.println("c3 equals to c4? " + c3.equals(c4));
+    System.out.println("c4: " + c4);
   }
 }

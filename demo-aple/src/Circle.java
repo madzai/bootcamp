@@ -29,16 +29,17 @@ public class Circle extends Shape {
   public boolean equals(Object o) {
     if (this == o)
       return true;
-    if (!(o instanceof Shape))
+    if (!(o instanceof Circle))
       return false;
     Circle circle = (Circle) o;
-    return circle.getColor() == super.getColor() //
-        && circle.getRadius() == this.getRadius();
+    return circle.getRadius() == this.getRadius() //
+        // && circle.getColor() == super.getColor();
+        && super.equals(circle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.getColor(), this.radius);
+    return Objects.hash(this.radius, super.getColor());
   }
 
   @Override
@@ -47,7 +48,8 @@ public class Circle extends Shape {
         + "radius=" //
         + this.radius //
         + ", " //
-        + super.toString();
+        + super.toString() //
+        + ")";
   }
 
   public static void main(String[] args) {
