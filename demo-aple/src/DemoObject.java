@@ -7,7 +7,7 @@ public class DemoObject {
 
     String s = "hello";
     System.out.println(s.equals("hello")); // true
-
+    System.out.println();
     Dog d1 = new Dog("Kenny", 1);
     Dog d2 = new Dog("Kenny", 1);
     System.out.println("d1 = d2? " + d1.equals(d2)); // false (before override)
@@ -26,6 +26,7 @@ public class DemoObject {
 
     System.out.println("d1 to string: " + d1); // Dog(Animal(name=Kenny, age=1))
 
+    System.out.println();
     Circle c1 = new Circle(3.2, "BLUE");
     Circle c2 = new Circle(3.2, "BLUE");
     System.out.println("c1 equals to c2? " + c1.equals(c2));
@@ -41,5 +42,14 @@ public class DemoObject {
     Circle c4 = new Circle(1.5, "RED");
     System.out.println("c3 equals to c4? " + c3.equals(c4));
     System.out.println("c4: " + c4);
+
+    System.out.println();
+    Rectangle r1 = new Rectangle(2.1, 3.5, "YELLOW");
+    Rectangle r2 = new Rectangle(2.1, 3.5, "YELLOW");
+    System.out.println("r1 equals to r2? " + r1.equals(r2));
+    System.out.println("r1: " + r1);
+    System.out.println("r2: " + r2);
+    System.out.println(
+        "r1 has same hashcode as r2? " + (r1.hashCode() == r2.hashCode()));
   }
 }
