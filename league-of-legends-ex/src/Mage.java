@@ -56,6 +56,7 @@ public class Mage extends Hero implements Playable {
 
   @Override
   public void levelUp() {
+    System.out.println("Mage " + this.getId() + " levels up");
     super.levelUp();
     this.maxHP += incMaxHP;
     this.maxMP += incMaxMP;
@@ -74,12 +75,18 @@ public class Mage extends Hero implements Playable {
   }
 
   @Override
+  public void usePhysicalAttack() {
+    System.out.println("Mage " + this.getId() + " uses physical attack");
+  }
+
+  @Override
   public void receivePhysicalAttack(int pa) {
     this.HP = Math.max(0, this.HP - pa);
   }
 
   @Override
   public void useMagicAttack() {
+    System.out.println("Mage " + this.getId() + " uses magical attack");
     this.MP = Math.max(0, this.MP - deductMP);
   }
 
@@ -134,22 +141,27 @@ public class Mage extends Hero implements Playable {
     Mage m2 = new Mage(2);
     System.out.println(m1);
     System.out.println(m2);
+    System.out.println();
     // Level up
     m1.levelUp();
-    System.out.println("m1 level up");
+    // System.out.println("m1 level up");
     System.out.println(m1);
     System.out.println(m2);
+    System.out.println();
     // Physical Attack
-    System.out.println("m1 uses physical attack");
+    // System.out.println("m1 uses physical attack");
+    m1.usePhysicalAttack();
     m2.receivePhysicalAttack(m1.getPA());
     System.out.println(m1);
     System.out.println(m2);
+    System.out.println();
     // Magical Attack
-    System.out.println("m2 uses magical attack");
+    // System.out.println("m2 uses magical attack");
     m1.receiveMagicAttack(m2.getMA());
     m2.useMagicAttack();
     System.out.println(m1);
     System.out.println(m2);
+    System.out.println();
 
   }
 }

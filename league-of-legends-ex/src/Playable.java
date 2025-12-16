@@ -2,7 +2,7 @@ public interface Playable {
 
   void levelUp();
 
-  // void usePhysicalAttack();
+  void usePhysicalAttack();
 
   void receivePhysicalAttack(int pa);
 
