@@ -1,7 +1,18 @@
 public class Archer extends Hero {
+  private String name;
 
   public Archer() {
     super(1, Heros.maxHp(Heros.ARCHER, 1));
+  }
+
+  public Archer(String name) {
+    super(1, Heros.maxHp(Heros.ARCHER, 1));
+    this.name = name;
+  }
+
+  @Override
+  public String getName() {
+    return this.name;
   }
 
   @Override

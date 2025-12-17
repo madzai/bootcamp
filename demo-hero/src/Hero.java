@@ -13,7 +13,9 @@ public abstract class Hero {
   // ! Learn how Parent Class get the Child information
   abstract int getRole();
 
-  abstract void attack(Hero hero);
+  abstract String getName();
+
+  // abstract void attack(Hero hero);
 
   public int getHp() {
     return this.hp;
@@ -52,6 +54,7 @@ public abstract class Hero {
 
   // ! this vs hero
   public void attack(Hero hero) {
+    System.out.println(getName() + " is attacking " + hero.getName());
     double toBeDeducted = this.isCD() ? this.getCD() : this.getPa();
     hero.deductHp((int) (toBeDeducted));
   }

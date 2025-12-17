@@ -1,13 +1,29 @@
 public class Warrior extends Hero {
   private static final int STARTING_LEVEL = Heros.STARTING_LEVEL;
+  private String name;
 
   public Warrior() {
     super(STARTING_LEVEL, Heros.maxHp(Heros.WARRIOR, STARTING_LEVEL));
   }
 
+  public Warrior(String name) {
+    super(STARTING_LEVEL, Heros.maxHp(Heros.WARRIOR, STARTING_LEVEL));
+    this.name = name;
+  }
+
+  @Override
+  public String getName() {
+    return this.name;
+  }
+
   @Override
   public int getRole() {
     return Heros.WARRIOR;
+  }
+
+  // Defense x 2, (deduct MP)
+  public void superDefense() {
+    System.out.println(this.name + " -> Warrior special skill");
   }
 
   // // ! Presentation
@@ -51,13 +67,14 @@ public class Warrior extends Hero {
     // Archer a2 = new Hero(); // Error
 
     // ! Why do we need Parent Class?
-    Hero[] myHeros = new Hero[2];
-    myHeros[0] = new Warrior();
-    myHeros[1] = new Archer();
+    Hero[] myHeros = new Hero[3];
+    myHeros[0] = new Warrior("Tommy");
+    myHeros[1] = new Archer("Jenny");
+    myHeros[2] = new Warrior("Stephen");
 
     // Object Reference Type -> Hero
     // Object Type -> Warrior
-    Hero target = new Warrior();
+    Hero target = new Warrior("Enemy");
 
     for (Hero h : myHeros) {
       // ! 1. During compile time, Java won't confirm the actual object type.
@@ -85,8 +102,14 @@ public class Warrior extends Hero {
     heros2[1] = new Archer();
     heros2[1].attack(hero); // Hero extends Object class implicitly, Object > Hero > Warrior
 
+    // Case for using Downcasting
+    for (Hero h : myHeros) {
+      if (h instanceof Warrior) {
+        Warrior w1 = (Warrior) h;
+        w1.superDefense();
+      }
+      h.attack(target); // h is w1
+    }
 
   }
-
-
 }
