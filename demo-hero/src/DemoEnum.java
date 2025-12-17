@@ -3,7 +3,7 @@ public class DemoEnum {
     // Ball b1 = new Ball(); // error
     Ball b1 = Ball.ofRed();
     Ball b2 = Ball.ofRed();
-    // Ball b2 = b1;
+    // Ball b2 = b1; // b1 == b2 true
 
     // ! Use "==" to check enum value
     if (b1.getColor() == Color.RED) {
