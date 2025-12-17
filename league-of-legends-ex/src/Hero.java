@@ -4,11 +4,18 @@
 // CD calculated by critical damage multiplier (by role)
 
 public class Hero {
+  public static int idCount = 0;
+
   private int id;
   private int level;
 
-  public Hero(int id) {
-    this.id = id;
+  // public Hero(int id) {
+  // this.id = id;
+  // this.level = 1;
+  // }
+
+  public Hero() {
+    this.id = ++idCount;
     this.level = 1;
   }
 

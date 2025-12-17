@@ -3,6 +3,7 @@
 // CD calculated by critical damage multiplier (by role)
 
 import java.math.BigDecimal;
+// import java.util.Random;
 
 public class Mage extends Hero implements Playable {
   private static final int baseMaxHP = 90;
@@ -36,20 +37,19 @@ public class Mage extends Hero implements Playable {
   private double CC;
   private double CD;
 
-  public Mage(int id) {
-    super(id);
-    this.maxHP = baseMaxHP + super.getLevel() * incMaxHP;
-    this.maxMP = baseMaxMP + super.getLevel() * incMaxMP;
+  public Mage() {
+    super();
+    this.maxHP += incMaxHP;
+    this.maxMP += incMaxMP;
     this.HP = this.maxHP;
     this.MP = this.maxMP;
-    this.PA = basePA + super.getLevel() * incPA;
-    this.PD = basePD + super.getLevel() * incPD;
-    this.MA = baseMA + super.getLevel() * incMA;
-    this.MD = baseMD + super.getLevel() * incMD;
-    this.AG = baseAG + super.getLevel() * incAG;
-    this.CC =
-        BigDecimal.valueOf(baseCC).add(BigDecimal.valueOf(super.getLevel())
-            .multiply(BigDecimal.valueOf(incCC))).doubleValue();
+    this.PA += incPA;
+    this.PD += incPD;
+    this.MA += incMA;
+    this.MD += incMD;
+    this.AG += incAG;
+    this.CC = BigDecimal.valueOf(this.CC).add(BigDecimal.valueOf(incCC))
+        .doubleValue();
     this.CD = BigDecimal.valueOf(critMultiplier)
         .multiply(BigDecimal.valueOf(this.PA)).doubleValue();
   }
@@ -105,6 +105,15 @@ public class Mage extends Hero implements Playable {
 
   public int getPA() {
     return this.PA;
+
+    // int critical = new Random().nextInt(99) + 1; // (0-99) + 1 -> (1-100)
+
+    // double critical = Math.random();
+    // if (critical > this.CC) {
+    // return this.CD;
+    // } else {
+    // return this.PA;
+    // }
   }
 
   public int getMA() {
@@ -124,7 +133,7 @@ public class Mage extends Hero implements Playable {
   }
 
   public String toString() {
-    return "Mage " + super.getId() + ": " //
+    return "Mage: ID= " + super.getId() + ", " //
         + "HP=" + this.getHP() + ", " //
         + "MP=" + this.getMP() + ", " //
         + "PA=" + this.getPA() + ", " //
@@ -137,8 +146,8 @@ public class Mage extends Hero implements Playable {
 
   public static void main(String[] args) {
     // Create heros
-    Mage m1 = new Mage(1);
-    Mage m2 = new Mage(2);
+    Mage m1 = new Mage();
+    Mage m2 = new Mage();
     System.out.println(m1);
     System.out.println(m2);
     System.out.println();
@@ -162,6 +171,13 @@ public class Mage extends Hero implements Playable {
     System.out.println(m1);
     System.out.println(m2);
     System.out.println();
+
+    // int c = 100;
+    // double d = 1.2;
+    // for (int i = 0; i < 10; i++) {
+    // System.out.println(c * d);
+    // }
+    // System.out.println((int) (103 * 1.2)); // no error
 
   }
 }
