@@ -1,6 +1,6 @@
 public class HandManager {
-  // public static char[] RANKS = new char[] //
-  // {'A', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'};
+  public static char[] RANKS = new char[] //
+  {'A', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'};
 
   private Card[] cards;
 
@@ -29,9 +29,9 @@ public class HandManager {
     if (this.cards.length != 5)
       return false;
 
-    int[] counts = new int[13];
+    int[] counts = new int[40];
     for (int i = 0; i < this.cards.length; i++) {
-      counts[this.cards[i].getRank().ordinal() - '2']++; // ! '2' is smallest ASCII
+      counts[this.cards[i].getRank().getValue() - '2']++; // ! '2' is smallest ASCII
     }
     // 3 2
     boolean withThreeCount = false;
@@ -46,14 +46,12 @@ public class HandManager {
   }
 
   public static void main(String[] args) {
-    Card[] cards = new Card[] {new Card(Rank.ACE, 'D'), new Card(Rank.ACE, 'S'),
-        new Card(Rank.ACE, 'C'), new Card(Rank.EIGHT, 'D'),
-        new Card(Rank.EIGHT, 'S')};
+    Card[] cards = new Card[] {new Card('A', 12, 'D'), new Card('A', 12, 'S'),
+        new Card('A', 12, 'C'), new Card('8', 6, 'D'), new Card('8', 6, 'S')};
     System.out.println(new HandManager(cards).isFullHouse());
 
-    Card[] cards2 = new Card[] {new Card(Rank.ACE, 'D'),
-        new Card(Rank.ACE, 'S'), new Card(Rank.KING, 'C'),
-        new Card(Rank.EIGHT, 'D'), new Card(Rank.EIGHT, 'S')};
+    Card[] cards2 = new Card[] {new Card('A', 12, 'D'), new Card('A', 12, 'S'),
+        new Card('K', 11, 'C'), new Card('8', 6, 'D'), new Card('8', 6, 'S')};
     System.out.println(new HandManager(cards2).isFullHouse());
   }
 }

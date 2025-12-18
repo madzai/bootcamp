@@ -12,6 +12,11 @@ public class Human implements Eatable, Sleepable {
     // this.maxHp = 100;
   }
 
+  // ! cannot be overwritten by child
+  public final void run() {
+    System.out.println("Running");
+  }
+
   @Override
   public void eat() {
     this.hp = Math.min(Human.MAX_HP, this.hp + 10);
@@ -25,15 +30,10 @@ public class Human implements Eatable, Sleepable {
 
   public void deductHp(int delta) {
     this.hp = Math.max(0, this.hp - delta); // common method
+  }
 
-    // if (this.hp <= delta) {
-    // this.hp = 0;
-    // } else {
-    // this.hp -= delta;
-    // }
-
-    // this.hp -= (this.hp <= delta) ? this.hp : delta;
-
+  public String getName() {
+    return this.name;
   }
 
   public static void main(String[] args) {
@@ -46,5 +46,6 @@ public class Human implements Eatable, Sleepable {
     s1.eat();
     s1.sleep();
     s1.fly();
+    s1.run();
   }
 }

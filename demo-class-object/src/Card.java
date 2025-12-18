@@ -9,13 +9,8 @@ public class Card {
     this.suit = suit;
   }
 
-  public Card(char rankValue, int seq, char suit) {
-    this.rank = new Rank(rankValue, seq);
-    this.suit = suit;
-  }
-
   public static Card ofACE(char suit) {
-    return new Card('A', 12, suit);
+    return new Card(Rank.ACE, suit);
   }
 
   // get
@@ -31,7 +26,7 @@ public class Card {
 
   public String toString() {
     return "Card(" //
-        + "rank=" + this.rank.getValue() //
+        + "rank=" + this.rank //
         + ", suit=" + this.suit //
         + ")";
   }

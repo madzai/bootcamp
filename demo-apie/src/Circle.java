@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Circle extends Shape {
+public final class Circle extends Shape {
   private double radius;
 
   public Circle(double radius, String color) {
