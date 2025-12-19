@@ -51,7 +51,7 @@ public class DemoPassByReference {
   // }
 
   // ! variable
-  public void doubleTheCats(ArrayList<Cat> cats) { // ! Pass By Reference
+  public static void doubleTheCats(ArrayList<Cat> cats) { // ! Pass By Reference
     ArrayList<Cat> doubleCats = new ArrayList<>();
     for (Cat cat : cats) { // lock arraylist
       // cat.setName("John"); // can't change the elements in for each loop
