@@ -15,6 +15,6 @@ public class Person extends Human {
 
   public static void main(String[] args) {
     System.out.println(Person.FLY_SPEED);
-    // System.out.println(Person.leader.getName());
+    System.out.println(Person.leader.getName());
   }
 }

@@ -1,8 +1,3 @@
-# md -> Markdown
-
-# head 1
-## head 2
-
 ## Week 1 + 2
 - 8 Primitives (4 + 2 + 1 + 1)
   - Overflow
@@ -37,6 +32,25 @@
 - Customer + Order[] + Item[]
 - Method Presentation (circle.area(), person.bmi(), customer.isVip())
 - String1.java
+
+## Week 3
+- APIE
+  - Inheritance (extends, abstract class/ class)
+  - Object.class (equal, hashCode, toString)
+  - Superman extends Human
+- Interface (implements, Contract & Skills)
+  - class can implement many interfaces, but can extend only one parent class
+- Polymorphism (Inheritance + Interface)
+  - Hero, Warrior, Archer, Mage (Static Polymorphism, Dynamic Polymorphism)
+  - hero.attack(target) -> Polymorphism
+- Encapsulation (封裝 -> private + public -> read + write)
+- Static + Final
+  - variable/method/class
+- enum
+  - Direction (with attribute, isOpposite), Color
+  - Revise Code Example (Rank, Card)
+  - BigTwoRule/PokerRule implement GameRule (INSTANCE) 
+  - Ball + Color
 
 
 
