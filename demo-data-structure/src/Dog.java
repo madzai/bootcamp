@@ -76,20 +76,18 @@ public class Dog {
     System.out.println("After removing the last dog, the 3rd dog is ");
     System.out.println(d1.getNext().getNext());
 
-    // error
-    // public static Dog remove(Dog dog, Dog target) {
-    // Dog head = dog;
-    // while (head != null) {
-    // if (head.equals(target)) {
-    // if (head.getNext() != null) {
-    // dog = head.getNext();
-    // break;
-    // }
-    // dog = head.getNext();
-    // }
-    // }
-    // }
+  }
 
-
+  public static Dog remove(Dog dog, Dog target) {
+    Dog head = dog;
+    while (head != null) {
+      if (head.equals(target)) {
+        if (head.getNext() != null) {
+          dog = head.getNext();
+          break;
+        }
+        dog = head.getNext();
+      }
+    }
   }
 }

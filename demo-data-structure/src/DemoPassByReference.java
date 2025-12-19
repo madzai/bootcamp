@@ -18,7 +18,7 @@ public class DemoPassByReference {
     cats.add(new Cat("Sue"));
 
     doubleTheCats(cats);
-    System.out.println(cats);
+    System.out.println(cats); // no change, still only one cat named Sue
 
   }
 
