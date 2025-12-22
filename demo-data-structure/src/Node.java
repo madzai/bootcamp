@@ -14,8 +14,12 @@ public class Node {
     this.next = next;
   }
 
-  @Override
-  public boolean equals(Object o) {
-
+  public String getName() {
+    return this.name;
   }
+
+  // @Override
+  // public boolean equals(Object o) {
+
+  // }
 }

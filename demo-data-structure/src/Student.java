@@ -16,8 +16,8 @@ public class Student {
     if (!(o instanceof Student))
       return false;
     Student student = (Student) o;
-    return Objects.equals(student.getName(), this.name) //
-        && Objects.equals(student.getScore(), this.score);
+    return Objects.equals(this.name, student.getName()) //
+        && Objects.equals(this.score, student.getScore());
   }
 
   @Override

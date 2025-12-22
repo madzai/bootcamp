@@ -32,11 +32,14 @@ public class DemoHashSet {
 
     // // John 80, Jenny 70, John 80
     HashSet<Student> students = new HashSet<>();
-    students.add("John", 80); // equals() and hashCode()
-    students.add("Jenny", 70);
-    students.add("John", 80);
-    System.out.println(students.size()); // 2
-    System.out.println(students);
+    students.add(new Student("John", 80)); // equals() and hashCode()
+    students.add(new Student("Jenny", 70));
+    students.add(new Student("John", 80));
+    System.out.println();
+    System.out.println("Students size: " + students.size()); // 2
+    // System.out.println(students);
+    for (Student s : students)
+      System.out.println(s.getName());
 
 
     // contains()
