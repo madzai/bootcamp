@@ -23,9 +23,6 @@ public class DemoArrayList {
     scores.add(100);
     System.out.println(scores);
 
-    // Class (name, score) -> ArrayList of the Class
-    // John 83, Elsa 25, Steve 100
-
     // 2. remove() (equals, remove the first element)
     names.remove("Mary"); // remove() -> String.equals()
     // still works if there's another names.add(new String("Mary"))
@@ -33,7 +30,19 @@ public class DemoArrayList {
     names.remove(new String("Mary"));
     System.out.println(names);
 
+    names.remove(1); // array index
 
+    // Class (name, score) -> ArrayList of the Class
+    // John 83, Elsa 25, Steve 100
+    Student s1 = new Student("John", 80);
+    ArrayList<Student> students = new ArrayList<>();
+    students.add(s1);
+    students.add(new Student("Steve", 25));
+    students.add(new Student("Mary", 100));
+
+    //
+    s1.setScore(90);
+    System.out.println(students.get(0).getScore()); // 90
 
   }
 }

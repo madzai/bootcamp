@@ -41,6 +41,7 @@ public class DemoStringBuilder {
     webUrl += "www.apple.com";
 
     // Other methods
+    System.out.println("sb2: ");
     System.out.println(sb2.length());
     System.out.println(sb2.charAt(0));
     System.out.println(sb2.isEmpty());
