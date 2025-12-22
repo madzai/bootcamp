@@ -6,12 +6,16 @@ public class Node {
     this.name = name;
   }
 
-  public Node getNext() {
+  public Node next() {
     return this.next;
   }
 
-  // setNext
   public void setNext(Node next) {
     this.next = next;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+
   }
 }

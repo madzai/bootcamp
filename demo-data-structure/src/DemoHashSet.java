@@ -31,21 +31,22 @@ public class DemoHashSet {
 
 
     // // John 80, Jenny 70, John 80
-    // HashSet<Student> students = new HashSet<>();
-    // students.add("John", 80); // equals() and hashCode()
-    // students.add("Jenny", 70);
-    // students.add("John", 80);
-    // System.out.println(students.size()); // 2
-    // System.out.println(students);
+    HashSet<Student> students = new HashSet<>();
+    students.add("John", 80); // equals() and hashCode()
+    students.add("Jenny", 70);
+    students.add("John", 80);
+    System.out.println(students.size()); // 2
+    System.out.println(students);
 
-    HashSet<Integer> age3 = new HashSet<>(ages);
-    System.out.println();
-    System.out.println("HashSet(ages ArrayList): " + age3);
 
     // contains()
     // isEmpty()
     // size()
     // remove()
+    HashSet<Integer> age3 = new HashSet<>(ages);
+    System.out.println();
+    System.out.println("HashSet(ages ArrayList): " + age3);
+
     System.out.println("Contains 30? " + age3.contains(30));
     System.out.println("Contains 80? " + age3.contains(80));
     System.out.println("isEmpty? " + age3.isEmpty()); // false
@@ -57,24 +58,24 @@ public class DemoHashSet {
     age3.remove(30);
     System.out.println("Removed 30: " + age3);
 
-    // HashSet<Integer> hs = new HashSet<>();
-    // hs.add(14);
-    // hs.add(23);
-    // hs.add(49);
-    // hs.add(58);
-    // hs.add(100);
-    // hs.add(120);
-    // // ! HashSet -> No Ordering
-    // // hashset has natural order (usually different from user's input order)
-    // System.out.println("hs: " + hs);
+    HashSet<Integer> hs = new HashSet<>();
+    hs.add(14);
+    hs.add(23);
+    hs.add(49);
+    hs.add(58);
+    hs.add(100);
+    hs.add(120);
+    // ! HashSet -> No Ordering
+    // hashset has natural order (usually different from user's input order)
+    System.out.println("hs: " + hs);
 
-    // ArrayList<Integer> al = new ArrayList<>();
-    // al.add(14);
-    // al.add(23);
-    // al.add(49);
-    // al.add(58);
-    // al.add(100);
-    // al.add(120);
-    // System.out.println("al: " + al);
+    ArrayList<Integer> al = new ArrayList<>();
+    al.add(14);
+    al.add(23);
+    al.add(49);
+    al.add(58);
+    al.add(100);
+    al.add(120);
+    System.out.println("al: " + al);
   }
 }
