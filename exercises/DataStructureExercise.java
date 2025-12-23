@@ -11,8 +11,8 @@ public class DataStructureExercise {
     // 1a. Create an ArrayList of integers.
     ArrayList<Integer> numbers = new ArrayList<>();
     // 1b. Add the following numbers: 10, 20, 30, 40, and 50.
-    for (int i = 10; i < 60; i += 10)
-      numbers.add(i);
+    for (int i = 1; i < 6; i++)
+      numbers.add(i * 10);
     // 1c. Print all the elements in the list.
     System.out.println(numbers);
     // 1d. Remove the number 30 from the list.
@@ -29,28 +29,55 @@ public class DataStructureExercise {
     for (String f : fruitsStr)
       fruits.add(f);
     // 2b. Check if "Grapes" exists in the list.
+    System.out.println(fruits.contains("Grapes"));
     // 2c. If it doesn’t exist, add it to the list.
+    if (!fruits.contains("Grapes"))
+      fruits.add("Grapes");
     // 2d. Update "Mango" to "Peach".
+    fruits.set(2, "Peach");
     // 2e. Print the final list.
     System.out.println(fruits);
 
     // Exercise 3: Remove Duplicates
 
     // 3a. Create an ArrayList with the following numbers: 10, 20, 10, 30, 40, 20, 50.
+    ArrayList<Integer> q3 = new ArrayList<>();
+    q3.add(10);
+    q3.add(20);
+    q3.add(10);
+    q3.add(30);
+    q3.add(40);
+    q3.add(20);
+    q3.add(50);
+    // System.out.println(q3);
     // 3b. Remove duplicates from the list using a HashSet.
+    HashSet<Integer> q3Hs = new HashSet<>(q3);
     // 3c. Print the list after removing duplicates.
+    System.out.println(q3Hs);
 
 
     // Exercise 4: HashSet Basic Operations
 
     // 4a. Create a HashSet of strings to store country names: "USA", "India", "China", "Japan".
+    HashSet<String> q4 = new HashSet<>();
+    q4.add("USA");
+    q4.add("India");
+    q4.add("China");
+    q4.add("Japan");
     // 4b. Add "Canada" to the set.
+    q4.add("Canada");
     // 4c. Add "India" again. Print the result.
+    System.out.println(q4.add("India"));
     // 4d. Print all elements in the set.
+    System.out.println(q4);
 
     // Exercise 5: Check the numbers
 
     // 5a. Create a HashSet of numbers: 1.1, 2.2, 3.3, 4.4, 5.5
+    HashSet<Double> q5 = new HashSet<>();
+    for (int i = 1; i < 6; i++)
+      q5.add(i * 1.1);
+    System.out.println(q5);
     // 5b. Check if the set contains the number 3.3
     // 5c. Remove the number 2.2 from the set.
     // 5d. Print the size of the set.
