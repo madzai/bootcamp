@@ -146,16 +146,13 @@ public class DataStructureExercise {
     // 8d. Write a static method to search for a student by ID and return their name. If the student is
     // not found,
     // return "Student not found".
-    // System.out.println(Student.findStudent(1, students));
-    public static String findStudent(int id, Student[] students) {
-      for (Student s : students)
-        if (s.getId() == id)
-          return s.getName();
-      return "Student not found";
-    }
+    System.out.println(findStudent(1, students));
+    System.out.println(findStudent(3, students));
+    System.out.println(findStudent(5, students));
     // 8e. Create another ArrayList to store student with name starts with 'A'
-
-
+    ArrayList<Student> namesA = new ArrayList<>();
+    findNamesStartWith('A', students, namesA);
+    System.out.println(namesA);
 
     // Exercise 9: HashSet of Students
     // 9a. Create two HashSets of Student objects:
@@ -164,6 +161,20 @@ public class DataStructureExercise {
     // 9b. Find the common students of the two sets
     // 9c. Print the result.
 
+  }
+
+  public static void findNamesStartWith(char ch, ArrayList<Student> students,
+      ArrayList<Student> matches) {
+    for (Student s : students)
+      if (s.getName().charAt(0) == ch)
+        matches.add(students.getName());
+  }
+
+  public static String findStudent(int id, ArrayList<Student> students) {
+    for (Student s : students)
+      if (s.getId() == id)
+        return s.getName();
+    return "Student not found";
   }
 
   public static class Student {
@@ -177,13 +188,6 @@ public class DataStructureExercise {
       this.id = id;
       this.name = name;
     }
-
-    // public static String findStudent(int id, Student[] students) {
-    // for (Student s : students)
-    // if (s.getId() == id)
-    // return s.getName();
-    // return "Student not found";
-    // }
 
     public int getId() {
       return this.id;
