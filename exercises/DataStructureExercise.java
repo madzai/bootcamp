@@ -1,5 +1,6 @@
 package exercises;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -75,39 +76,86 @@ public class DataStructureExercise {
 
     // 5a. Create a HashSet of numbers: 1.1, 2.2, 3.3, 4.4, 5.5
     HashSet<Double> q5 = new HashSet<>();
-    for (int i = 1; i < 6; i++)
-      q5.add(i * 1.1);
+    q5.add(1.1);
+    q5.add(2.2);
+    q5.add(3.3);
+    q5.add(4.4);
+    q5.add(5.5);
     System.out.println(q5);
     // 5b. Check if the set contains the number 3.3
+    System.out.println(q5.contains(3.3));
     // 5c. Remove the number 2.2 from the set.
+    q5.remove(2.2);
     // 5d. Print the size of the set.
+    System.out.println(q5.size());
 
     // Exercise 6: Intersection of Sets
 
     // 6a. Create two HashSets:
     // 6b. Set 1: 10, 20, 30, 40
     // 6c. Set 2: 30, 40, 50, 60
+    HashSet<Integer> q6a = new HashSet<>();
+    HashSet<Integer> q6b = new HashSet<>();
+    for (int i = 1; i < 5; i++)
+      q6a.add(i * 10);
+
+    for (int i = 3; i < 7; i++)
+      q6b.add(i * 10);
+
+    // System.out.println(q6a);
+    // System.out.println(q6b);
     // 6d. Find the common numbers of the two sets.
+    HashSet<Integer> q6 = new HashSet<>();
+    for (int i = 1; i < 7; i++)
+      if (q6a.contains(10 * i) && q6b.contains(10 * i))
+        q6.add(i * 10);
     // 6e. Print the resulting set.
+    System.out.println(q6);
 
     // Exercise 7: Convert HashSet to ArrayList
 
     // 7a. Create a HashSet with the following String: "Cherry", "Steve", "Chole", "Jenny", "Vicky".
+    HashSet<String> q7a = new HashSet<>();
+    q7a.add("Cherry");
+    q7a.add("Steve");
+    q7a.add("Chole");
+    q7a.add("Jenny");
+    q7a.add("Vicky");
     // 7b. Convert the HashSet to an ArrayList.
+    ArrayList<String> q7b = new ArrayList<>(q7a);
     // 7c. Print the converted list.
+    System.out.println(q7b);
 
     // Exercise 8: ArrayList of Students
     // 8a. Create an ArrayList to store Student objects.
+    ArrayList<Student> students = new ArrayList<>();
     // Add the following students:
     // ID: 1, Name: Alice
     // ID: 2, Name: Bob
     // ID: 3, Name: Charlie
+    students.add(new Student(1, "Alice"));
+    students.add(new Student(2, "Bob"));
+    students.add(new Student(3, "Charlie"));
     // 8b. Iterate over the ArrayList and print each student's details.
+    for (Student s : students)
+      System.out.println(s.getId() + ": " + s.getName());
     // 8c. Remove the student Bob.
+    for (Student s : students)
+      if (s.getName() == "Bob")
+        students.remove(s);
     // 8d. Write a static method to search for a student by ID and return their name. If the student is
     // not found,
     // return "Student not found".
+    // System.out.println(Student.findStudent(1, students));
+    public static String findStudent(int id, Student[] students) {
+      for (Student s : students)
+        if (s.getId() == id)
+          return s.getName();
+      return "Student not found";
+    }
     // 8e. Create another ArrayList to store student with name starts with 'A'
+
+
 
     // Exercise 9: HashSet of Students
     // 9a. Create two HashSets of Student objects:
@@ -129,6 +177,13 @@ public class DataStructureExercise {
       this.id = id;
       this.name = name;
     }
+
+    // public static String findStudent(int id, Student[] students) {
+    // for (Student s : students)
+    // if (s.getId() == id)
+    // return s.getName();
+    // return "Student not found";
+    // }
 
     public int getId() {
       return this.id;
