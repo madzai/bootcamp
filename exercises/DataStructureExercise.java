@@ -170,7 +170,20 @@ public class DataStructureExercise {
     // 9b. Find the common students of the two sets
     HashSet<Student> q9b = new HashSet<>();
     // 9c. Print the result.
+    findCommonStudents(q9b, q9a1, q9a2);
+    System.out.println(q9b);
 
+  }
+
+  public static void findCommonStudents(HashSet<Student> c, HashSet<Student> h1,
+      HashSet<Student> h2) {
+    for (Student s1 : h1) {
+      for (Student s2 : h2) {
+        if (s1.equals(s2)) {
+          c.add(new Student(s1.getId(), s1.getName()));
+        }
+      }
+    }
   }
 
   public static void findNamesStartWith(char ch, ArrayList<Student> students,
@@ -205,6 +218,17 @@ public class DataStructureExercise {
 
     public String getName() {
       return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o)
+        return true;
+      if (!(o instanceof Student))
+        return false;
+      Student student = (Student) o;
+      return Objects.equals(this.id, student.getId()) //
+          && Objects.equals(this.name, student.getName());
     }
 
     @Override
