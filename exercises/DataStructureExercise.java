@@ -158,7 +158,17 @@ public class DataStructureExercise {
     // 9a. Create two HashSets of Student objects:
     // Set 1: Alice (ID: 1), Bob (ID: 2), Charlie (ID: 3)
     // Set 2: Bob (ID: 2), Charlie (ID: 3), David (ID: 4)
+    HashSet<Student> q9a1 = new HashSet<>();
+    HashSet<Student> q9a2 = new HashSet<>();
+    q9a1.add(new Student(1, "Alice"));
+    q9a1.add(new Student(2, "Bob"));
+    q9a1.add(new Student(3, "Charlie"));
+
+    q9a2.add(new Student(2, "Bob"));
+    q9a2.add(new Student(3, "Charlie"));
+    q9a2.add(new Student(4, "David"));
     // 9b. Find the common students of the two sets
+    HashSet<Student> q9b = new HashSet<>();
     // 9c. Print the result.
 
   }
@@ -167,7 +177,7 @@ public class DataStructureExercise {
       ArrayList<Student> matches) {
     for (Student s : students)
       if (s.getName().charAt(0) == ch)
-        matches.add(students.getName());
+        matches.add(new Student(s.getId(), s.getName()));
   }
 
   public static String findStudent(int id, ArrayList<Student> students) {
@@ -195,6 +205,12 @@ public class DataStructureExercise {
 
     public String getName() {
       return this.name;
+    }
+
+    @Override
+    public String toString() {
+      return "Student(id=" + this.id //
+          + ",name=" + this.name + ")";
     }
   }
 }
