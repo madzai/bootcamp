@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Objects;
 
 public class DataStructureExercise {
   public static void main(String[] args) {
     // Exercise 1: Array List Basic Operations
-
+    System.out.println("Q1");
     // 1a. Create an ArrayList of integers.
     ArrayList<Integer> numbers = new ArrayList<>();
     // 1b. Add the following numbers: 10, 20, 30, 40, and 50.
@@ -22,7 +23,7 @@ public class DataStructureExercise {
     System.out.println(numbers.size());
 
     // Exercise 2: Search and Update
-
+    System.out.println("\nQ2");
     // 2a. Create an ArrayList of strings to store names of fruits: "Apple", "Banana", "Mango", and
     // "Orange".
     ArrayList<String> fruits = new ArrayList<>();
@@ -40,7 +41,7 @@ public class DataStructureExercise {
     System.out.println(fruits);
 
     // Exercise 3: Remove Duplicates
-
+    System.out.println("\nQ3");
     // 3a. Create an ArrayList with the following numbers: 10, 20, 10, 30, 40, 20, 50.
     ArrayList<Integer> q3 = new ArrayList<>();
     q3.add(10);
@@ -58,7 +59,7 @@ public class DataStructureExercise {
 
 
     // Exercise 4: HashSet Basic Operations
-
+    System.out.println("\nQ4");
     // 4a. Create a HashSet of strings to store country names: "USA", "India", "China", "Japan".
     HashSet<String> q4 = new HashSet<>();
     q4.add("USA");
@@ -73,7 +74,7 @@ public class DataStructureExercise {
     System.out.println(q4);
 
     // Exercise 5: Check the numbers
-
+    System.out.println("\nQ5");
     // 5a. Create a HashSet of numbers: 1.1, 2.2, 3.3, 4.4, 5.5
     HashSet<Double> q5 = new HashSet<>();
     q5.add(1.1);
@@ -90,7 +91,7 @@ public class DataStructureExercise {
     System.out.println(q5.size());
 
     // Exercise 6: Intersection of Sets
-
+    System.out.println("\nQ6");
     // 6a. Create two HashSets:
     // 6b. Set 1: 10, 20, 30, 40
     // 6c. Set 2: 30, 40, 50, 60
@@ -113,7 +114,7 @@ public class DataStructureExercise {
     System.out.println(q6);
 
     // Exercise 7: Convert HashSet to ArrayList
-
+    System.out.println("\nQ7");
     // 7a. Create a HashSet with the following String: "Cherry", "Steve", "Chole", "Jenny", "Vicky".
     HashSet<String> q7a = new HashSet<>();
     q7a.add("Cherry");
@@ -127,6 +128,7 @@ public class DataStructureExercise {
     System.out.println(q7b);
 
     // Exercise 8: ArrayList of Students
+    System.out.println("\nQ8");
     // 8a. Create an ArrayList to store Student objects.
     ArrayList<Student> students = new ArrayList<>();
     // Add the following students:
@@ -155,6 +157,7 @@ public class DataStructureExercise {
     System.out.println(namesA);
 
     // Exercise 9: HashSet of Students
+    System.out.println("\nQ9");
     // 9a. Create two HashSets of Student objects:
     // Set 1: Alice (ID: 1), Bob (ID: 2), Charlie (ID: 3)
     // Set 2: Bob (ID: 2), Charlie (ID: 3), David (ID: 4)
