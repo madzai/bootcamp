@@ -1,6 +1,7 @@
 // Role, Level -> MAX_HP
 
 // public abstract class Hero extends Object {
+
 public abstract class Hero {
   private int level;
   private int hp;
@@ -43,20 +44,18 @@ public abstract class Hero {
     return Heros.pa(getRole(), this.level);
   }
 
-  // ! Presentation
-  public boolean isCD() {
-    return Math.random() <= Heros.cc(this.getRole(), this.level);
-  }
-
   public double getCD() {
     return this.getPa() * Heros.cdMultipler(this.getRole(), this.level);
   }
 
-  // ! this vs hero
+  public boolean isCD() {
+    return Math.random() <= Heros.cc(this.getRole(), this.level);
+  }
+
   public void attack(Hero hero) {
     System.out.println(getName() + " is attacking " + hero.getName());
     double toBeDeducted = this.isCD() ? this.getCD() : this.getPa();
     hero.deductHp((int) (toBeDeducted));
   }
-
 }
+

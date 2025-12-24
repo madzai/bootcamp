@@ -1,6 +1,7 @@
 public class Warrior extends Hero {
   private static final int STARTING_LEVEL = Heros.STARTING_LEVEL;
   private String name;
+  private Sword sword;
 
   public Warrior() {
     super(STARTING_LEVEL, Heros.maxHp(Heros.WARRIOR, STARTING_LEVEL));
@@ -9,6 +10,10 @@ public class Warrior extends Hero {
   public Warrior(String name) {
     super(STARTING_LEVEL, Heros.maxHp(Heros.WARRIOR, STARTING_LEVEL));
     this.name = name;
+  }
+
+  public void equip(Sword sword) {
+    this.sword = sword;
   }
 
   @Override
@@ -21,30 +26,10 @@ public class Warrior extends Hero {
     return Heros.WARRIOR;
   }
 
-  // Defense x 2, (deduct MP)
+  // defense x 2 扣mp
   public void superDefense() {
-    System.out.println(this.name + " -> Warrior special skill");
+    System.out.println(this.name + " -> Warrior special skill.");
   }
-
-  // // ! Presentation
-  // public int getPa() {
-  // return Heros.pa(getRole(), super.getLevel());
-  // }
-
-  // // ! Presentation
-  // public boolean isCD() {
-  // return Math.random() <= Heros.cc(this.getRole(), super.getLevel());
-  // }
-
-  // public double getCD() {
-  // return this.getPa() * Heros.cdMultipler(this.getRole(), super.getLevel());
-  // }
-
-  // // ! this vs hero
-  // public void attack(Hero hero) {
-  // double toBeDeducted = this.isCD() ? this.getCD() : this.getPa();
-  // hero.deductHp((int) (toBeDeducted));
-  // }
 
   public static void main(String[] args) {
     Archer archer = new Archer();
@@ -53,7 +38,7 @@ public class Warrior extends Hero {
 
     System.out.println(Math.random()); // 0-1
 
-    Warrior warrior = new Warrior();
+    Warrior warrior = new Warrior("John");
 
     System.out.println(warrior.getHp()); // 10
     archer.attack(warrior);
@@ -68,13 +53,13 @@ public class Warrior extends Hero {
 
     // ! Why do we need Parent Class?
     Hero[] myHeros = new Hero[3];
-    myHeros[0] = new Warrior("Tommy");
-    myHeros[1] = new Archer("Jenny");
-    myHeros[2] = new Warrior("Stephen");
+    myHeros[0] = new Warrior("Jenny");
+    myHeros[1] = new Archer("Steven");
+    myHeros[2] = new Warrior("Tommy");
 
     // Object Reference Type -> Hero
     // Object Type -> Warrior
-    Hero target = new Warrior("Enemy");
+    Hero target = new Warrior("Leo");
 
     for (Hero h : myHeros) {
       // ! 1. During compile time, Java won't confirm the actual object type.
@@ -94,22 +79,26 @@ public class Warrior extends Hero {
     Object[] heros = new Object[2];
     heros[0] = new Warrior();
     heros[1] = new Archer();
+
     // Based on Object Reference Type for calling method
-    // heros[0].attack(hero); // error as Object class doesn't have attack method
+    // heros[1].attack(hero);
 
     Hero[] heros2 = new Hero[2];
     heros2[0] = new Warrior();
     heros2[1] = new Archer();
-    heros2[1].attack(hero); // Hero extends Object class implicitly, Object > Hero > Warrior
 
-    // Case for using Downcasting
+    heros2[1].attack(hero);
+
+    // ! Downcasting
     for (Hero h : myHeros) {
       if (h instanceof Warrior) {
         Warrior w1 = (Warrior) h;
-        w1.superDefense();
+        w1.superDefense(); // Jenny Tommy
       }
-      h.attack(target); // h is w1
+      h.attack(target); // Jenny Steven Tommy
     }
 
   }
+
+
 }

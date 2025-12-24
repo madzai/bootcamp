@@ -1,5 +1,6 @@
 public class Archer extends Hero {
   private String name;
+  private Bow bow;
 
   public Archer() {
     super(1, Heros.maxHp(Heros.ARCHER, 1));
@@ -8,6 +9,16 @@ public class Archer extends Hero {
   public Archer(String name) {
     super(1, Heros.maxHp(Heros.ARCHER, 1));
     this.name = name;
+  }
+
+  public void equip(Bow bow) {
+    this.bow = bow;
+  }
+
+  @Override
+  public int getPa() {
+    int bowPa = this.bow == null ? 0 : this.bow.getPa();
+    return super.getPa() + bowPa;
   }
 
   @Override
@@ -24,25 +35,19 @@ public class Archer extends Hero {
     return super.getHp();
   }
 
-  // // ! Presentation
-  // public int getPa() {
-  // return Heros.pa(getRole(), super.getLevel());
-  // }
+  public int getLevel() {
+    return super.getLevel();
+  }
 
-  // // ! Presentation
-  // public boolean isCD() {
-  // return Math.random() <= Heros.cc(this.getRole(), super.getLevel());
-  // }
+  public int getPa() {
+    return super.getPa();
+  }
 
-  // public double getCD() {
-  // return this.getPa() * Heros.cdMultipler(this.getRole(), super.getLevel());
-  // }
-
-  // // ! this vs hero
-  // public void attack(Hero hero) {
-  // double toBeDeducted = this.isCD() ? this.getCD() : this.getPa();
-  // hero.deductHp((int) (toBeDeducted));
-  // }
+  @Override
+  public boolean isCD() {
+    double bowCc = this.bow == null ? 0.0 : this.bow.getCc();
+    return Math.random() <= Heros.cc(this.getRole(), super.getLevel()) + bowCc;
+  }
 
   public static void main(String[] args) {
     Archer archer = new Archer();

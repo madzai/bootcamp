@@ -25,6 +25,7 @@ public class Mage extends Hero {
   private static final double incCC = 0.05;
   private static final double critMultiplier = 1.2;
 
+  private String name;
   private int HP;
   private int MP;
   private int maxHP;
@@ -37,19 +38,19 @@ public class Mage extends Hero {
   private double CC;
   private double CD;
 
-  public Mage() {
+  public Mage(String name) {
     super();
-    this.maxHP += incMaxHP;
-    this.maxMP += incMaxMP;
+    this.name = name;
+    this.maxHP = baseMaxHP;
+    this.maxMP = baseMaxMP;
     this.HP = this.maxHP;
     this.MP = this.maxMP;
-    this.PA += incPA;
-    this.PD += incPD;
-    this.MA += incMA;
-    this.MD += incMD;
-    this.AG += incAG;
-    this.CC = BigDecimal.valueOf(this.CC).add(BigDecimal.valueOf(incCC))
-        .doubleValue();
+    this.PA = basePA;
+    this.PD = basePD;
+    this.MA = baseMA;
+    this.MD = baseMD;
+    this.AG = baseAG;
+    this.CC = baseCC;
     this.CD = BigDecimal.valueOf(critMultiplier)
         .multiply(BigDecimal.valueOf(this.PA)).doubleValue();
   }
@@ -68,14 +69,18 @@ public class Mage extends Hero {
     this.MD += incMD;
     this.AG += incAG;
     this.CC =
-        BigDecimal.valueOf(baseCC).add(BigDecimal.valueOf(super.getLevel())
-            .multiply(BigDecimal.valueOf(incCC))).doubleValue();
+        BigDecimal.valueOf(baseCC).add(BigDecimal.valueOf(incCC)).doubleValue();
     this.CD = BigDecimal.valueOf(critMultiplier)
         .multiply(BigDecimal.valueOf(this.PA)).doubleValue();
   }
 
-  public void usePhysicalAttack() {
+  // public void usePhysicalAttack() {
+  // System.out.println("Mage " + this.getId() + " uses physical attack");
+  // }
+
+  public void usePhysicalAttack(Mage enemy) {
     System.out.println("Mage " + this.getId() + " uses physical attack");
+    enemy.receivePhysicalAttack(this.PA);
   }
 
   public void receivePhysicalAttack(int pa) {
@@ -89,6 +94,10 @@ public class Mage extends Hero {
 
   public void receiveMagicAttack(int ma) {
     this.HP = Math.max(0, this.HP - ma);
+  }
+
+  public String getName() {
+    return this.name;
   }
 
   public int getHP() {
@@ -165,12 +174,12 @@ public class Mage extends Hero {
     System.out.println(m2);
     System.out.println();
 
-    // int c = 100;
-    // double d = 1.2;
-    // for (int i = 0; i < 10; i++) {
-    // System.out.println(c * d);
-    // }
-    // System.out.println((int) (103 * 1.2)); // no error
+    int c = 100;
+    double d = 1.2;
+    for (int i = 0; i < 10; i++) {
+      System.out.println(Math.round((c + i) * d));
+    }
+    System.out.println((int) (103 * 1.2)); // no error
 
   }
 }

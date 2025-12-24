@@ -8,19 +8,26 @@ public class Hero {
 
   private int id;
   private int level;
-
-  // public Hero(int id) {
-  // this.id = id;
-  // this.level = 1;
-  // }
+  private boolean equipWeapon;
 
   public Hero() {
     this.id = ++idCount;
     this.level = 1;
+    this.equipWeapon = false;
+
   }
 
   public void levelUp() {
     this.level += 1;
+  }
+
+  public void PhysicalAttack(Hero enemy) {
+    System.out
+        .println(getName() + " uses physical attack on " + enemy.getName());
+  }
+
+  public void receiveAttack(int deductHP) {
+    this.HP = Math.max(0, this.HP - deductHP);
   }
 
   public int getId() {
@@ -31,4 +38,7 @@ public class Hero {
     return this.level;
   }
 
+  public boolean equipWeapon() {
+    return this.equipWeapon;
+  }
 }
