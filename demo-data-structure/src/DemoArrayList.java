@@ -31,6 +31,7 @@ public class DemoArrayList {
     System.out.println(names);
 
     names.remove(1); // array index
+    System.out.println(names);
 
     // Class (name, score) -> ArrayList of the Class
     // John 83, Elsa 25, Steve 100
@@ -39,6 +40,7 @@ public class DemoArrayList {
     students.add(s1);
     students.add(new Student("Steve", 25));
     students.add(new Student("Mary", 100));
+    System.out.println(students);
 
     //
     s1.setScore(90);

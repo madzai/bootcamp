@@ -12,7 +12,7 @@ public class DemoPriorityQueue {
     names.add("Alex");
 
     // ordering: when happen? (not when add)
-    // ! Every poll -> perform sorting (therefore slow)
+    // ! Every poll -> perform sorting -> then remove (therefore slow)
     System.out.println(names.poll()); // Alex
     System.out.println(names.poll()); // Anson
     System.out.println(names.poll()); // Ben

@@ -25,6 +25,12 @@ public class Student {
     return Objects.hash(this.name, this.score);
   }
 
+  @Override
+  public String toString() {
+    return "Student(name=" + this.name //
+        + ",score=" + this.score + ")";
+  }
+
   public String getName() {
     return this.name;
   }
