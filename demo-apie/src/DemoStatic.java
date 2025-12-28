@@ -34,6 +34,7 @@ public class DemoStatic {
 
 
   public static void main(String[] args) {
+    System.out.println(sum(2, 5)); // 7
     DemoStatic d1 = new DemoStatic();
     System.out.println(d1.getName("!!!")); // John!!!
   }

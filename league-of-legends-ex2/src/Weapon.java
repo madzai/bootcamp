@@ -4,7 +4,8 @@ public abstract class Weapon {
   private int pa;
   private int ma;
   private double cc;
-  private boolean isEquipped;
+
+  abstract int getTier();
 
   abstract int getRole();
 
@@ -23,9 +24,5 @@ public abstract class Weapon {
   public double getCc() {
     return this.cc;
   }
-
-  // public boolean getIsEquipped() {
-  // return this.isEquipped;
-  // }
 
 }

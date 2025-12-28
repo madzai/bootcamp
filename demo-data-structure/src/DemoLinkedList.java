@@ -10,7 +10,6 @@ public class DemoLinkedList {
   public static void main(String[] args) {
 
     // ! Java LinkedList: Double LinkedList
-
     LinkedList<String> names = new LinkedList<>();
     names.add("John");
     names.add("Sally");

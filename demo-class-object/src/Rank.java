@@ -1,6 +1,6 @@
 public enum Rank {
-  THREE, //
-  FOUR, //
+  THREE, // ordinal() = 0
+  FOUR, // ordinal() = 1
   FIVE, //
   SIX, //
   SEVEN, //
@@ -11,6 +11,6 @@ public enum Rank {
   QUEEN, //
   KING, //
   ACE, //
-  TWO, //
+  TWO, // ordinal() = 12
   ;
 }

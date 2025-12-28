@@ -1,12 +1,12 @@
 public class Bow extends Weapon {
-  private int type;
+  private int tier;
 
-  public Bow(int type) {
-    this.type = type;
+  public Bow(int tier) {
+    this.tier = tier;
   }
 
   public int getRole() {
-    return Heros.ARCHER;
+    return Settings.ARCHER;
   }
 
   public int getLevel() {
@@ -25,7 +25,4 @@ public class Bow extends Weapon {
     return super.getCc();
   }
 
-  // public boolean getIsEquipped() {
-  // return super.getIsEquipped();
-  // }
 }

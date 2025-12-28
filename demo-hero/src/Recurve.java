@@ -18,6 +18,6 @@ public class Recurve extends Bow {
   }
 
   public static void main(String[] args) {
-    Recurve.LEVEL_ONE.getPa();
+    System.out.println(Recurve.LEVEL_ONE.getPa());
   }
 }

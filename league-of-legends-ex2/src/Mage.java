@@ -2,184 +2,153 @@
 // constants (role and level): Max HP, Max MP, PA, PD, MA, MD, AG, CC, CD
 // CD calculated by critical damage multiplier (by role)
 
-import java.math.BigDecimal;
-// import java.util.Random;
-
 public class Mage extends Hero {
-  private static final int baseMaxHP = 90;
-  private static final int incMaxHP = 10;
-  private static final int baseMaxMP = 40;
-  private static final int incMaxMP = 10;
-  private static final int deductMP = 10;
-  private static final int basePA = 40;
-  private static final int incPA = 10;
-  private static final int basePD = 20;
-  private static final int incPD = 10;
-  private static final int baseMA = 40;
-  private static final int incMA = 10;
-  private static final int baseMD = 20;
-  private static final int incMD = 10;
-  private static final int baseAG = 40;
-  private static final int incAG = 10;
-  private static final double baseCC = 0.1;
-  private static final double incCC = 0.05;
-  private static final double critMultiplier = 1.2;
 
   private String name;
-  private int HP;
-  private int MP;
-  private int maxHP;
-  private int maxMP;
-  private int PA;
-  private int PD;
-  private int MA;
-  private int MD;
-  private int AG;
-  private double CC;
-  private double CD;
+  private Stave stave;
 
   public Mage(String name) {
     super();
     this.name = name;
-    this.maxHP = baseMaxHP;
-    this.maxMP = baseMaxMP;
-    this.HP = this.maxHP;
-    this.MP = this.maxMP;
-    this.PA = basePA;
-    this.PD = basePD;
-    this.MA = baseMA;
-    this.MD = baseMD;
-    this.AG = baseAG;
-    this.CC = baseCC;
-    this.CD = BigDecimal.valueOf(critMultiplier)
-        .multiply(BigDecimal.valueOf(this.PA)).doubleValue();
   }
 
-  @Override
   public void levelUp() {
-    System.out.println("Mage " + this.getId() + " levels up");
     super.levelUp();
-    this.maxHP += incMaxHP;
-    this.maxMP += incMaxMP;
-    this.HP = this.maxHP;
-    this.MP = this.maxMP;
-    this.PA += incPA;
-    this.PD += incPD;
-    this.MA += incMA;
-    this.MD += incMD;
-    this.AG += incAG;
-    this.CC =
-        BigDecimal.valueOf(baseCC).add(BigDecimal.valueOf(incCC)).doubleValue();
-    this.CD = BigDecimal.valueOf(critMultiplier)
-        .multiply(BigDecimal.valueOf(this.PA)).doubleValue();
   }
 
-  // public void usePhysicalAttack() {
-  // System.out.println("Mage " + this.getId() + " uses physical attack");
-  // }
-
-  public void usePhysicalAttack(Mage enemy) {
-    System.out.println("Mage " + this.getId() + " uses physical attack");
-    enemy.receivePhysicalAttack(this.PA);
+  public void usePA(Hero enemy) {
+    super.usePA(enemy);
   }
 
-  public void receivePhysicalAttack(int pa) {
-    this.HP = Math.max(0, this.HP - pa);
+  public void useMA(Hero enemy) {
+    super.useMA(enemy);
   }
 
-  public void useMagicAttack() {
-    System.out.println("Mage " + this.getId() + " uses magical attack");
-    this.MP = Math.max(0, this.MP - deductMP);
+  public void takeDamage(int deductHP) {
+    super.takeDamage(deductHP);
   }
 
-  public void receiveMagicAttack(int ma) {
-    this.HP = Math.max(0, this.HP - ma);
+  public Stave getWeapon() {
+    return this.stave;
   }
 
+  public void createWeapon(int tier, int level) {
+    this.stave = new Stave(tier, level);
+    this.toEquip();
+  }
+
+  public void toEquip() {
+    super.toEquip();
+  }
+
+  public void toUnequip() {
+    super.toUnequip();
+  }
+
+  public boolean isEquipped() {
+    return super.isEquipped();
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Getter
   public String getName() {
     return this.name;
   }
 
+  public int getRole() {
+    return Settings.MAGE;
+  }
+
   public int getHP() {
-    return this.HP;
+    return super.getHP();
   }
 
   public int getMP() {
-    return this.MP;
+    return super.getMP();
   }
 
   public int getPA() {
-    return this.PA;
-
-    // int critical = new Random().nextInt(99) + 1; // (0-99) + 1 -> (1-100)
-
-    // double critical = Math.random();
-    // if (critical > this.CC) {
-    // return this.CD;
-    // } else {
-    // return this.PA;
-    // }
+    return super.getPA();
   }
 
   public int getMA() {
-    return this.MA;
+    return super.getMA();
   }
 
   public int getAG() {
-    return this.AG;
+    return super.getAG();
   }
 
   public double getCC() {
-    return this.CC;
+    return super.getCC();
   }
 
-  public double getCD() {
-    return this.CD;
+  public int getCD() {
+    return super.getCD();
   }
 
   public String toString() {
     return "Mage: ID= " + super.getId() + ", " //
+        + "name=" + this.name + ", " //
         + "HP=" + this.getHP() + ", " //
         + "MP=" + this.getMP() + ", " //
         + "PA=" + this.getPA() + ", " //
         + "AG=" + this.getAG() + ", " //
         + "CC=" + this.getCC() + ", " //
-        + "CD=" + this.getCD();
+        + "CD=" + this.getCD() + ", " //
+        + "equipped=" + this.isEquipped() + ", " //
+        + "weapon=" + this.stave;
   }
 
 
 
   public static void main(String[] args) {
     // Create heros
-    Mage m1 = new Mage();
-    Mage m2 = new Mage();
+    Mage m1 = new Mage("Anna");
+    Mage m2 = new Mage("Roy");
     System.out.println(m1);
     System.out.println(m2);
     System.out.println();
-    // Level up
-    m1.levelUp();
+    // weapons
+    m1.createWeapon(2, 1);
+    System.out.println("m1's weapon: " + m1.getWeapon());
+    System.out.println("m2's weapon: " + m2.getWeapon());
     System.out.println(m1);
     System.out.println(m2);
-    System.out.println();
-    // Physical Attack
-    m1.usePhysicalAttack();
-    m2.receivePhysicalAttack(m1.getPA());
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println();
-    // Magical Attack
-    m1.receiveMagicAttack(m2.getMA());
-    m2.useMagicAttack();
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println();
+    // // Level up
+    // m1.levelUp();
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
+    // // Physical Attack
+    // m1.usePhysicalAttack();
+    // m2.receivePhysicalAttack(m1.getPA());
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
+    // // Magical Attack
+    // m1.receiveMagicAttack(m2.getMA());
+    // m2.useMagicAttack();
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
 
-    int c = 100;
-    double d = 1.2;
-    for (int i = 0; i < 10; i++) {
-      System.out.println(Math.round((c + i) * d));
-    }
-    System.out.println((int) (103 * 1.2)); // no error
+    // double rand = Math.random();
+    // System.out.println(rand);
+
+    // int c = 130;
+    // double d = 1.2;
+    // if (rand <= 0.4)
+    // System.out.println((int) (c * d));
+    // else
+    // System.out.println(c);
+
+
+    // for (int i = 0; i < 10; i++) {
+    // System.out.println(Math.round((c + i) * d));
+    // }
+    // System.out.println((int) (103 * 1.2)); // no error
 
   }
 }

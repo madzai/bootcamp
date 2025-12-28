@@ -37,8 +37,7 @@ public class Ball implements Comparable<Ball> { // ! Cert (Interface) to prove t
 
   @Override
   public String toString() {
-    return "Ball(color=" + //
-        this.color + ")";
+    return "Ball(color=" + this.color + ")";
   }
 
   public static void main(String[] args) {

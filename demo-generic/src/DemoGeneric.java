@@ -8,7 +8,7 @@ public class DemoGeneric {
     ArrayList<String> strings = new ArrayList<>();
 
     // before Java 5
-    List emails = new ArrayList(); // ! Java: type is not ensured in compile time
+    List emails = new ArrayList(); // ! Java: data type (e.g.int, char, String) is not ensured in compile time
     // List<Object> obejcts = new ArrayList<>(); // ! smilar to List<Object>
     // Parent class is Object -> can't call child class methods
     emails.add("leo@gmail.com");

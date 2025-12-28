@@ -10,6 +10,7 @@ public class DemoPriorityQueue {
     names.add("Ben");
     names.add("Peter");
     names.add("Alex");
+    System.out.println("names: " + names);
 
     // ordering: when happen? (not when add)
     // ! Every poll -> perform sorting -> then remove (therefore slow)
