@@ -37,6 +37,27 @@ public class Mage extends Hero {
     this.toEquip();
   }
 
+  @Override
+  public int getWeaponPA() {
+    if (this.stave == null)
+      return 0;
+    return this.stave.getPA();
+  }
+
+  @Override
+  public int getWeaponMA() {
+    if (this.stave == null)
+      return 0;
+    return this.stave.getMA();
+  }
+
+  @Override
+  public double getWeaponCC() {
+    if (this.stave == null)
+      return 0.0;
+    return this.stave.getCC();
+  }
+
   public void toEquip() {
     super.toEquip();
   }
@@ -94,11 +115,12 @@ public class Mage extends Hero {
         + "HP=" + this.getHP() + ", " //
         + "MP=" + this.getMP() + ", " //
         + "PA=" + this.getPA() + ", " //
+        + "MA=" + this.getMA() + ", " //
         + "AG=" + this.getAG() + ", " //
         + "CC=" + this.getCC() + ", " //
         + "CD=" + this.getCD() + ", " //
-        + "equipped=" + this.isEquipped() + ", " //
-        + "weapon=" + this.stave;
+        // + "equipped=" + this.isEquipped() + ", " //
+        + "weapon=" + (this.stave == null ? "None" : this.stave.getName());
   }
 
 
@@ -111,9 +133,12 @@ public class Mage extends Hero {
     System.out.println(m2);
     System.out.println();
     // weapons
+    // if (m1.stave == null) {
+    // System.out.println("m1 has no weapon");
+    // }
     m1.createWeapon(2, 1);
-    System.out.println("m1's weapon: " + m1.getWeapon());
-    System.out.println("m2's weapon: " + m2.getWeapon());
+    // System.out.println("m1's weapon: " + m1.getWeapon());
+    // System.out.println("m2's weapon: " + m2.getWeapon());
     System.out.println(m1);
     System.out.println(m2);
     // // Level up

@@ -33,7 +33,6 @@ public abstract class Hero {
   private int incAG;
   private double incCC;
 
-
   public Hero() {
     this.id = ++idCount;
     this.level = Settings.LEVEL_INIT;
@@ -104,11 +103,22 @@ public abstract class Hero {
   }
 
   public void toEquip() {
-    this.isEquipped = true;
+    if (this.isEquipped == false) {
+      this.isEquipped = true;
+      this.PA += this.getWeaponPA();
+      this.MA += this.getWeaponMA();
+      this.CC += this.getWeaponCC();
+    }
+
   }
 
   public void toUnequip() {
-    this.isEquipped = false;
+    if (this.isEquipped == true) {
+      this.isEquipped = false;
+      this.PA -= this.getWeaponPA();
+      this.MA -= this.getWeaponMA();
+      this.CC -= this.getWeaponCC();
+    }
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -117,6 +127,12 @@ public abstract class Hero {
   abstract String getName();
 
   abstract int getRole();
+
+  abstract int getWeaponPA();
+
+  abstract int getWeaponMA();
+
+  abstract double getWeaponCC();
 
   public int getId() {
     return this.id;
