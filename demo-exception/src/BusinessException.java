@@ -1,12 +1,15 @@
 // ! Java: Exception Class or Normal Class
 // Exception.class has an attribute, called "message"
 // 1. Unchecked Exception (Parent -> RuntimeExeption.class)
+// Java Built-in RuntimeException: ArrayIndexOutofBound, ... etc
+// Compile-time has NO checking for RuntimeException
 
 // 2. Checked Exception (Parent -> Exception.class)
 // throw checked exception object, method signature has "throws"
 // method callers has to try-catch for recovery
 // e.g. useful for opening a file or connecting to a database
 public class BusinessException extends Exception { // ! checked exception
+  // public class BusinessException extends RuntimeException { // no need to try, catch?
   private int code;
 
   public static BusinessException of(SysCode sysCode) {
@@ -29,6 +32,9 @@ public class BusinessException extends Exception { // ! checked exception
     } catch (BusinessException e) {
       System.out.println(e.getMessage());
     }
+
+    int[] arr = new int[] {3, 4};
+    // System.out.println(arr[-1]); // runtime exception, try-catch is not required
   }
 
   public static String fullName(String firstName, String lastName)

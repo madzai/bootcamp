@@ -29,6 +29,7 @@ public class DemoException {
       System.out.println(fullName("John", lastName)); // method caller -> return exception object
       System.out.println("Check point 2"); // not printed if error
     } catch (IllegalArgumentException e) { // ! e -> Exception Object Reference
+      // IllegalArgumentException extends RuntimeException
       // recovery action ...
       System.out
           .println("Recover fullName Exception. message=" + e.getMessage()); // printed
