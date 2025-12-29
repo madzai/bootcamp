@@ -1,3 +1,8 @@
+import java.math.BigDecimal;
+import java.util.List;
+
+// Line 4 - 22 -> Object (The Ts describe the same thing)
+// Line 25 -> Static method has NO relationship with Box<T>
 public class Box<T> {
   private T value;
 
@@ -17,6 +22,15 @@ public class Box<T> {
     return this.value;
   }
 
+  // Static method is independent of the Object
+  // public static <T extends Shape> double totalArea2(List<T> shapes) {
+  // BigDecimal total = BigDecimal.ZERO;
+  // // ! We confirmed the type of T is <T extends Shape>
+  // for (Shape shape : shapes)
+  // total = total.add(BigDecimal.valueOf(shape.area()));
+  // return total.doubleValue();
+  // }
+
   // ! When do we confirm the T?
   public static void main(String[] args) {
     // ! Compile Time -> confirm T
@@ -29,6 +43,8 @@ public class Box<T> {
     // integerBox.setValue("John"); // error
     integerBox.setValue(100);
     System.out.println(integerBox.getValue() + 1);
+    System.out.println(integerBox.getValue().longValue()); // 100
+    System.out.println(integerBox.getValue().doubleValue()); // 100.0
 
     // ! Compile time -> didn't confirm the type
     // can store any type, but can't assign methods to use for the data type
