@@ -28,7 +28,14 @@ public class DemoBingoVincent {
 
     while (userInput != bingo) {
       System.out.println("Please input a number between " + min + " & " + max);
-      userInput = scanner.nextInt();
+      // userInput = scanner.nextInt();
+      try {
+        String inputString = scanner.nextLine();
+        userInput = Integer.valueOf(inputString);
+      } catch (NumberFormatException e) {
+        continue;
+      }
+
       if (userInput < min || userInput > max) {
         continue;
       }
