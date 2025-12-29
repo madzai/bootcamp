@@ -35,12 +35,16 @@ public class ExceptionExercise4 {
   public static void registerUser(String username, String password,
       String email) {
     // code here ...
+
+    System.out.println("User registered successfully: " + username);
   }
 
   // Throw IllegalArgumentException if String username is null or empty string
   private static void validateUsername(String username) {
     // code here ...
-
+    if (username == "" || username == null) {
+      throw new IllegalArgumentException("username cannot be empty.");
+    }
   }
 
   // Throw IllegalArgumentException
@@ -48,10 +52,19 @@ public class ExceptionExercise4 {
   // any special characters of !@$&_
   private static void validatePassword(String password) {
     // code here ...
+    if (password == null || password.length() < 8)
+      throw new IllegalArgumentException("password must be of length >= 8");
+    if (!(password.indexOf('!') != -1 || password.indexOf('@') != -1 //
+        || password.indexOf('$') != -1 || password.indexOf('&') != -1 //
+        || password.indexOf('_') != -1))
+      throw new IllegalArgumentException(
+          "password must contain at least one special character of ! @ $ & _");
   }
 
   // Throw IllegalArgumentException if String email is null or it does not contain character @
   private static void validateEmail(String email) {
     // code here ...
+    if (email.indexOf('@') == -1)
+      throw new IllegalArgumentException("Invalid email address");
   }
 }

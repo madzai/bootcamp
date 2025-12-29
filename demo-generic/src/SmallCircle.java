@@ -11,6 +11,7 @@ public class SmallCircle extends Circle {
   // 1. List<Shape>
   // 2. List<Circle>
   // but List<Square> not allowed (because List can be List<Circle>)
+  // Shape, Circle, SmallCircle are allowed
   public static void add(List<? super Circle> circles) {
     circles.add(new SmallCircle(4));
     circles.add(new Circle(2));

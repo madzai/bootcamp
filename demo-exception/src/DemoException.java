@@ -50,7 +50,7 @@ public class DemoException {
     // In practice, use if else to avoid divided by zero error (can be avoided by developer alone)
     try {
       double averageAmount = totalAmount / count;
-      // ! Divided by 0.0 -> No Exception (give Infinity)
+      // ! Divided by 0.0 -> No Exception (gives Infinity)
       System.out.println("Average amount: " + averageAmount);
     } catch (ArithmeticException e) {
       System.out.println("Count cannot be 0");
