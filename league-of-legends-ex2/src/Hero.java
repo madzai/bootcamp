@@ -64,18 +64,37 @@ public abstract class Hero {
   }
 
   public void levelUp() {
+    // this.level += 1;
+    // this.MaxHP = this.MaxHP + this.incMaxHP;
+    // this.MaxMP = this.MaxMP + this.incMaxMP;
+    // this.PA = this.PA + this.incPA;
+    // this.PD = this.PD + this.incPD;
+    // this.MA = this.MA + this.incMA;
+    // this.MD = this.MD + this.incMD;
+    // this.AG = this.AG + this.incAG;
+    // this.CC = this.CC + this.incCC;
+    // this.CD = (int) (this.PA * this.critMultiplier);
+    // this.HP = this.MaxHP;
+    // this.MP = this.MaxMP;
+
     this.level += 1;
-    this.MaxHP = this.MaxHP + this.incMaxHP;
-    this.MaxMP = this.MaxMP + this.incMaxMP;
-    this.PA = this.PA + this.incPA;
-    this.PD = this.PD + this.incPD;
-    this.MA = this.MA + this.incMA;
-    this.MD = this.MD + this.incMD;
-    this.AG = this.AG + this.incAG;
-    this.CC = this.CC + this.incCC;
+
+    this.MaxHP =
+        Settings.baseMaxHP[this.getRole()] + this.incMaxHP * (this.level - 1);
+    this.MaxMP =
+        Settings.baseMaxMP[this.getRole()] + this.incMaxMP * (this.level - 1);
+    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1);
+    this.PD = Settings.basePD[this.getRole()] + this.incPD * (this.level - 1);
+    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1);
+    this.MD = Settings.baseMD[this.getRole()] + this.incMD * (this.level - 1);
+    this.AG = Settings.baseAG[this.getRole()] + this.incAG * (this.level - 1);
+    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1);
+
     this.CD = (int) (this.PA * this.critMultiplier);
+
     this.HP = this.MaxHP;
     this.MP = this.MaxMP;
+
   }
 
   public void usePA(Hero enemy) {
@@ -86,7 +105,7 @@ public abstract class Hero {
       enemy.takeDamage(this.PA);
     } else {
       System.out.println(getName() + //
-          " uses critical physical attack on " + enemy.getName());
+          " uses physical attack (critical damage) on " + enemy.getName());
       enemy.takeDamage(this.CD);
     }
   }
@@ -103,22 +122,34 @@ public abstract class Hero {
   }
 
   public void toEquip() {
-    if (this.isEquipped == false) {
-      this.isEquipped = true;
-      this.PA += this.getWeaponPA();
-      this.MA += this.getWeaponMA();
-      this.CC += this.getWeaponCC();
-    }
-
+    // if (this.isEquipped == false) {
+    // this.isEquipped = true;
+    // this.PA += this.getWeaponPA();
+    // this.MA += this.getWeaponMA();
+    // this.CC += this.getWeaponCC();
+    // }
+    this.isEquipped = true;
+    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1)
+        + this.getWeaponPA();
+    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1)
+        + this.getWeaponMA();
+    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1)
+        + this.getWeaponCC();
+    this.CC = Math.round(this.CC * 100.0) / 100.0;
   }
 
   public void toUnequip() {
-    if (this.isEquipped == true) {
-      this.isEquipped = false;
-      this.PA -= this.getWeaponPA();
-      this.MA -= this.getWeaponMA();
-      this.CC -= this.getWeaponCC();
-    }
+    // if (this.isEquipped == true) {
+    // this.isEquipped = false;
+    // this.PA -= this.getWeaponPA();
+    // this.MA -= this.getWeaponMA();
+    // this.CC -= this.getWeaponCC();
+    // }
+    this.isEquipped = false;
+    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1);
+    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1);
+    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1);
+    this.CC = Math.round(this.CC * 100.0) / 100.0;
   }
 
   /////////////////////////////////////////////////////////////////////////////

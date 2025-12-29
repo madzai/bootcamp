@@ -110,8 +110,9 @@ public class Mage extends Hero {
   }
 
   public String toString() {
-    return "Mage: ID= " + super.getId() + ", " //
+    return "Mage: ID=" + super.getId() + ", " //
         + "name=" + this.name + ", " //
+        + "Lv=" + super.getLevel() + ", " //
         + "HP=" + this.getHP() + ", " //
         + "MP=" + this.getMP() + ", " //
         + "PA=" + this.getPA() + ", " //
@@ -120,7 +121,8 @@ public class Mage extends Hero {
         + "CC=" + this.getCC() + ", " //
         + "CD=" + this.getCD() + ", " //
         // + "equipped=" + this.isEquipped() + ", " //
-        + "weapon=" + (this.stave == null ? "None" : this.stave.getName());
+        + "weapon=" + (this.stave == null ? "None" : this.stave.getName())
+        + ", " + "equipped=" + this.isEquipped();
   }
 
 
@@ -133,47 +135,36 @@ public class Mage extends Hero {
     System.out.println(m2);
     System.out.println();
     // weapons
-    // if (m1.stave == null) {
-    // System.out.println("m1 has no weapon");
-    // }
+    System.out.println("Create and equip weapon");
     m1.createWeapon(2, 1);
-    // System.out.println("m1's weapon: " + m1.getWeapon());
-    // System.out.println("m2's weapon: " + m2.getWeapon());
     System.out.println(m1);
     System.out.println(m2);
-    // // Level up
-    // m1.levelUp();
-    // System.out.println(m1);
-    // System.out.println(m2);
-    // System.out.println();
-    // // Physical Attack
-    // m1.usePhysicalAttack();
-    // m2.receivePhysicalAttack(m1.getPA());
-    // System.out.println(m1);
-    // System.out.println(m2);
-    // System.out.println();
-    // // Magical Attack
-    // m1.receiveMagicAttack(m2.getMA());
-    // m2.useMagicAttack();
-    // System.out.println(m1);
-    // System.out.println(m2);
-    // System.out.println();
-
-    // double rand = Math.random();
-    // System.out.println(rand);
-
-    // int c = 130;
-    // double d = 1.2;
-    // if (rand <= 0.4)
-    // System.out.println((int) (c * d));
-    // else
-    // System.out.println(c);
-
-
-    // for (int i = 0; i < 10; i++) {
-    // System.out.println(Math.round((c + i) * d));
-    // }
-    // System.out.println((int) (103 * 1.2)); // no error
+    System.out.println("Unequip weapon");
+    m1.toUnequip();
+    System.out.println(m1);
+    // Level up
+    System.out.println("Level up");
+    m1.levelUp();
+    System.out.println(m1);
+    System.out.println(m2);
+    System.out.println();
+    // weapons
+    System.out.println("Create and equip weapon");
+    m2.createWeapon(1, 1);
+    System.out.println(m1);
+    System.out.println(m2);
+    // Physical Attack
+    System.out.println("Physical Attack");
+    m1.usePA(m2);
+    System.out.println(m1);
+    System.out.println(m2);
+    System.out.println();
+    // Magical Attack
+    System.out.println("Magical Attack");
+    m2.useMA(m1);
+    System.out.println(m1);
+    System.out.println(m2);
+    System.out.println();
 
   }
 }
