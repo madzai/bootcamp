@@ -27,14 +27,13 @@ public class ExceptionExercise1 {
       int denominator = scanner.nextInt();
       scanner.close();
 
-      // double divisor = BigDecimal.valueOf(numerator)
-      // .divide(BigDecimal.valueOf(denominator)).doubleValue();
-      int divisor = numerator / denominator;
+      double divisor = BigDecimal.valueOf(numerator)
+          .divide(BigDecimal.valueOf(denominator)).doubleValue();
+      // int divisor = numerator / denominator;
       System.out.println("Result: " + divisor);
     } catch (ArithmeticException e) {
       System.out.println("Error: Cannot divide by zero.");
-      // continue;
     }
-    // System.out.println("Division operation completed.");
+    System.out.println("Division operation completed.");
   }
 }
