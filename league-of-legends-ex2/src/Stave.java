@@ -1,7 +1,6 @@
 public class Stave {
   private int tier;
   private int level;
-  private boolean isEquipped;
 
   public Stave(int tier, int level) {
     this.tier = tier;

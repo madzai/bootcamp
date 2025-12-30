@@ -16,7 +16,7 @@ public class BusinessException extends Exception { // ! checked exception
     return new BusinessException(sysCode);
   }
 
-  private BusinessException(SysCode sysCode) {
+  public BusinessException(SysCode sysCode) {
     super(sysCode.getMessage());
     this.code = sysCode.getCode();
   }

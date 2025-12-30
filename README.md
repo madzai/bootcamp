@@ -52,5 +52,34 @@
   - BigTwoRule/PokerRule implement GameRule (INSTANCE) 
   - Ball + Color
 
+## Week 4
+- Data Structure
+  - List -> ArrayList, LinkedList
+  - Set -> HashSet
+  - Map -> HashMap
+  - Queue -> PriorityQueue, LinkedList, ArrayDeque
+  - Deque -> LinkedList, ArrayDeque
+- Example: UndoRedo (Deque)
+- Pass by Reference
+- LinkedList Concept (Dog.class)
+- Comparable/Comparator (Collection.sort(), Arrays.sort()) -> PriorityQueue
+
+## Week 5
+- Generic
+  - Write less classes
+  - static method -> define the range of T
+  - Examples: Zoo, Shape
+- Exception
+  - Unchecked & checked Exception
+  - throw, throws
+  - try-catch-finally
+  - Runtime Exception, Exception
+  - Java Built-in Exception (ArrayIndexOutOfBound ...)
+  - Custom Exception 
+  - BusinessException
+- Big O Notation
+- Recursion
+
+
 
 

@@ -10,30 +10,26 @@ public class ExceptionExercise1 {
   // 1. If exception is caught, print "Error: Cannot divide by zero.", otherwise print "Result: X"
   // 2. No matter if the exception is caught, finally print "Division operation completed."
   public static void main(String[] args) {
-    // Scanner scanner = new Scanner(System.in);
-    // System.out.print("Enter numerator: ");
-    // int numerator = scanner.nextInt();
-    // System.out.print("Enter denominator: ");
-    // int denominator = scanner.nextInt();
-    // scanner.close();
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter numerator: ");
+    int numerator = scanner.nextInt();
+    System.out.print("Enter denominator: ");
+    int denominator = scanner.nextInt();
+    scanner.close();
 
     // code here ...
     // try, catch
     try {
-      Scanner scanner = new Scanner(System.in);
-      System.out.print("Enter numerator: ");
-      int numerator = scanner.nextInt();
-      System.out.print("Enter denominator: ");
-      int denominator = scanner.nextInt();
-      scanner.close();
-
-      double divisor = BigDecimal.valueOf(numerator)
-          .divide(BigDecimal.valueOf(denominator)).doubleValue();
-      // int divisor = numerator / denominator;
-      System.out.println("Result: " + divisor);
+      // double divisor = BigDecimal.valueOf(numerator)
+      // .divide(BigDecimal.valueOf(denominator)).doubleValue();
+      int divisor = numerator / denominator;
+      System.out.println("Result: " + divisor); // skip if error
     } catch (ArithmeticException e) {
       System.out.println("Error: Cannot divide by zero.");
+    } finally {
+      System.out.println("Division operation completed.");
+      // event
     }
-    System.out.println("Division operation completed.");
+
   }
 }

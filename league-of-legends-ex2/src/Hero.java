@@ -165,6 +165,10 @@ public abstract class Hero {
 
   abstract double getWeaponCC();
 
+  public boolean isAlive() {
+    return this.HP > 0;
+  }
+
   public int getId() {
     return this.id;
   }

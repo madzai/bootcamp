@@ -14,45 +14,61 @@ public class ExceptionExercise3 {
   // input again later."
 
   public static void main(String[] args) {
-    // Scanner scanner = new Scanner(System.in);
-    // System.out.println("Please input an age for checking:");
-    // String input = scanner.nextLine();
-    // scanner.close();
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Please input an age for checking:");
+    String input = scanner.nextLine();
+    scanner.close();
     // code here for the caller...
     // try, catch
     try {
-      Scanner scanner = new Scanner(System.in);
-      System.out.println("Please input an age for checking:");
-      String input = scanner.nextLine();
-      scanner.close();
-      int age = Integer.parseInt(input);
+      // int age = Integer.parseInt(input);
+      int age = Integer.valueOf(input);
       checkAge(age);
+      System.out.println("Age " + age + " is accepted");
+    } catch (NumberFormatException e) {
+      System.out.println("Error: Please enter a valid number");
     } catch (InvalidAgeException e) {
       System.out.println(e.getMessage());
     }
   }
 
+
   // code here for the method
-  public static class InvalidAgeException extends Exception {
-    private String message;
-
-    private InvalidAgeException() {
-      this.message = "Ineligible age. Please input age >= 18";
-    }
-
-    public static InvalidAgeException of() {
-      return new InvalidAgeException();
-    }
-
-    public String getMessage() {
-      return this.message;
+  public static class InvalidAgeException extends RuntimeException {
+    public InvalidAgeException(String message) {
+      super(message);
     }
   }
 
   public static void checkAge(int age) throws InvalidAgeException {
-    if (age < 18) {
-      throw InvalidAgeException.of();
-    }
-    System.out.println("Age " + age + " is accepted");
+    if (age < 18)
+      throw new InvalidAgeException(
+          "Age is invalid. Please input again later.");
   }
+
+
+  // public static class InvalidAgeException extends Exception {
+  // private String message;
+
+  // private InvalidAgeException() {
+  // this.message = "Ineligible age. Please input age >= 18";
+  // }
+
+  // public static InvalidAgeException of() {
+  // return new InvalidAgeException();
+  // }
+
+  // public String getMessage() {
+  // return this.message;
+  // }
+  // }
+
+  // public static void checkAge(int age) throws InvalidAgeException {
+  // if (age < 18) {
+  // throw InvalidAgeException.of();
+  // }
+  // System.out.println("Age " + age + " is accepted");
+  // }
+
+
 }

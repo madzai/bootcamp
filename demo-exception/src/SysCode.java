@@ -1,8 +1,12 @@
 public enum SysCode {
   NULL_PARAM(10000, "Parameter cannot be NULL"), //
-  NOT_FOUND(10001, "Not Found."), //
+  USERNAME_NOT_FOUND(10001, "Username Not Found."), //
   CONNECT_FAIL(10002, "Connection Fail."), //
   ;
+
+  // public static enum NotFound {
+  // USERNAME,;
+  // }
 
   private String message;
   private int code;

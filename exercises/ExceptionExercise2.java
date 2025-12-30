@@ -11,23 +11,19 @@ public class ExceptionExercise2 {
   // 3. If no exception is caught, print "Element at index X: Y"
   // 4. No matter if the exception is caught, finally print "Array retrieval attempt completed."
   public static void main(String[] args) {
-    // int[] numbers = {10, 20, 30, 40, 50};
-    // Scanner scanner = new Scanner(System.in);
-    // System.out.print("Enter the index to retrieve: ");
-    // String input = scanner.nextLine(); // read String
-    // scanner.close();
+    int[] numbers = {10, 20, 30, 40, 50};
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter the index to retrieve: ");
+    String input = scanner.nextLine(); // read String
+    scanner.close();
 
     // code here ...
     // try, catch, finally
-    int[] numbers = {10, 20, 30, 40, 50};
 
     try {
-      Scanner scanner = new Scanner(System.in);
-      System.out.print("Enter the index to retrieve: ");
-      String input = scanner.nextLine(); // read String
-      scanner.close();
-      int index = Integer.parseInt(input);
-      System.out.println("Element at index " + input + ": " + numbers[index]);
+      // int index = Integer.parseInt(input);
+      int index = Integer.valueOf(input);
+      System.out.println("Element at index " + index + ": " + numbers[index]);
     } catch (NumberFormatException e) {
       System.out.println("Error: Please enter a valid number.");
     } catch (ArrayIndexOutOfBoundsException e) {

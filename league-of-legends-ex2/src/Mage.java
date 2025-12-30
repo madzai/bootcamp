@@ -117,6 +117,8 @@ public class Mage extends Hero {
         + "MP=" + this.getMP() + ", " //
         + "PA=" + this.getPA() + ", " //
         + "MA=" + this.getMA() + ", " //
+        + "PD=" + this.getPD() + ", " //
+        + "MD=" + this.getMD() + ", " //
         + "AG=" + this.getAG() + ", " //
         + "CC=" + this.getCC() + ", " //
         + "CD=" + this.getCD() + ", " //
