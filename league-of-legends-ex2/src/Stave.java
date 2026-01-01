@@ -5,7 +5,6 @@ public class Stave {
   public Stave(int tier, int level) {
     this.tier = tier;
     this.level = level;
-    // this.isEquipped = false;
   }
 
   public void levelUp() {
@@ -26,19 +25,23 @@ public class Stave {
   }
 
   public String getName() {
-    return Settings.STAVE_NAMES[this.tier - 1];
+    // return Settings.STAVE_NAMES[this.tier - 1];
+    return Settings.WEAPON_NAMES[this.tier - 1][this.getRole()];
   }
 
   public int getPA() {
-    return Settings.STAVE_PA[this.tier - 1][this.level - 1];
+    // return Settings.STAVE_PA[this.tier - 1][this.level - 1];
+    return Settings.WEAPON_PA[this.tier - 1][this.getRole()];
   }
 
   public int getMA() {
-    return Settings.STAVE_MA[this.tier - 1][this.level - 1];
+    // return Settings.STAVE_MA[this.tier - 1][this.level - 1];
+    return Settings.WEAPON_MA[this.tier - 1][this.getRole()];
   }
 
   public double getCC() {
-    return Settings.STAVE_CC[this.tier - 1][this.level - 1];
+    // return Settings.STAVE_CC[this.tier - 1][this.level - 1];
+    return Settings.WEAPON_CC[this.tier - 1][this.getRole()];
   }
 
   public String toString() {

@@ -1,8 +1,8 @@
-public class Bow {
+public class Sword {
   private int tier;
   private int level;
 
-  public Bow(int tier, int level) {
+  public Sword(int tier, int level) {
     this.tier = tier;
     this.level = level;
   }
@@ -21,37 +21,35 @@ public class Bow {
   }
 
   public int getRole() {
-    return Settings.ARCHER;
+    return Settings.WARRIOR;
   }
 
   public String getName() {
-    // return Settings.BOW_NAMES[this.tier - 1];
+    // return Settings.SWORD_NAMES[this.tier - 1];
     return Settings.WEAPON_NAMES[this.tier - 1][this.getRole()];
   }
 
   public int getPA() {
-    // return Settings.BOW_PA[this.tier - 1][this.level - 1];
+    // return Settings.SWORD_PA[this.tier - 1][this.level - 1];
     return Settings.WEAPON_PA[this.tier - 1][this.getRole()];
   }
 
   public int getMA() {
-    // return Settings.BOW_MA[this.tier - 1][this.level - 1];
+    // return Settings.SWORD_MA[this.tier - 1][this.level - 1];
     return Settings.WEAPON_MA[this.tier - 1][this.getRole()];
   }
 
   public double getCC() {
-    // return Settings.BOW_CC[this.tier - 1][this.level - 1];
+    // return Settings.SWORD_CC[this.tier - 1][this.level - 1];
     return Settings.WEAPON_CC[this.tier - 1][this.getRole()];
   }
 
   public String toString() {
-    return "Bow: name=" + this.getName() + ", " //
+    return "Sword: name=" + this.getName() + ", " //
         + "tier=" + this.tier + ", " //
         + "level=" + this.level + ", " //
         + "PA=" + this.getPA() + ", " //
         + "MA=" + this.getMA() + ", " //
         + "CC=" + this.getCC();
   }
-
-
 }

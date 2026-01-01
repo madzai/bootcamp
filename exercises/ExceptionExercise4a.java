@@ -2,7 +2,7 @@ package exercises;
 
 import java.util.Scanner;
 
-public class ExceptionExercise4 {
+public class ExceptionExercise4a {
   // Follow the instructions below to complete the User Registration Process.
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class ExceptionExercise4 {
       registerUser(username, password, email);
       System.out.println("User registration successful");
     } catch (UserRegistrationException e) {
-      // System.out.println("User registration failed");
+      System.out.println("User registration failed: " + e.getMessage());
     }
 
   }
@@ -42,64 +42,65 @@ public class ExceptionExercise4 {
   // if anyone of the above throw exception, this method registerUser() should throw custom
   // exception UserRegistrationException.
   // otherwise, print "User registered successfully: jackywong", where jackywong is the username.
-
-  // public static void registerUser(String username, String password,
-  // String email) throws UserRegistrationException {
-  // // code here ...
-  // try {
-  // validateUsername(username);
-  // validatePassword(password);
-  // validateEmail(email);
-  // System.out.println("User registered successfully: " + username);
-  // } catch (IllegalArgumentException e) {
-  // throw new UserRegistrationException("User registration failed");
-  // }
-
-  // }
-
   public static void registerUser(String username, String password,
       String email) throws UserRegistrationException {
     // code here ...
     try {
-      validateUsername(username);
-    } catch (IllegalArgumentException e) {
-      System.out.println(e.getMessage());
-    }
-    try {
-      validatePassword(password);
-    } catch (IllegalArgumentException e) {
-      System.out.println(e.getMessage());
-    }
-    try {
+      // Process: user registration process
       validateEmail(email);
+      validateUsername(username);
+      validatePassword(password);
+      System.out.println("User registered successfully: " + username);
     } catch (IllegalArgumentException e) {
-      System.out.println(e.getMessage());
+      // throw new UserRegistrationException("User Registration failed");
+      throw new UserRegistrationException(e.getMessage());
     }
 
+    System.out.println("User registered successfully: " + username);
   }
 
   // Throw IllegalArgumentException if String username is null or empty string
   private static void validateUsername(String username) {
-    if (username == null || username.length() == 0)
-      throw new IllegalArgumentException("Invalid username");
+    // code here ...
+    // if (username == "" || username == null) {
+    if (username == null || "".equals(username)) {
+      throw new IllegalArgumentException("username cannot be empty.");
+    }
   }
 
   // Throw IllegalArgumentException
   // if password is null or password length < 8 or it does not contain
   // any special characters of !@$&_
   private static void validatePassword(String password) {
-    boolean hasSpecialChar =
-        (password.indexOf('!') != -1 || password.indexOf('@') != -1 || //
-            password.indexOf('$') != -1 || password.indexOf('$') != -1
-            || password.indexOf('&') != -1);
+    // code here ...
 
-    if (password == null || password.length() < 8 || !hasSpecialChar)
+    // if (password == null || password.length() < 8)
+    // throw new IllegalArgumentException("password must be of length >= 8");
+    // if (!(password.indexOf('!') != -1 || password.indexOf('@') != -1 //
+    // || password.indexOf('$') != -1 || password.indexOf('&') != -1 //
+    // || password.indexOf('_') != -1))
+    // throw new IllegalArgumentException(
+    // "password must contain at least one special character of ! @ $ & _");
+
+    if (password == null)
+      throw new IllegalArgumentException("Error: Password can't be null");
+
+    boolean containSpecialChar = password.contains("!") //
+        || password.contains("@") || password.contains("$") //
+        || password.contains("&") || password.contains("_");
+
+    if (password == null || password.length() < 8 || !containSpecialChar)
       throw new IllegalArgumentException("Invalid password");
   }
 
   // Throw IllegalArgumentException if String email is null or it does not contain character @
   private static void validateEmail(String email) {
-    if (email == null || email.indexOf('@') == -1)
+    // code here ...
+
+    // if (email.indexOf('@') == -1)
+    // throw new IllegalArgumentException("Invalid email address");
+
+    if (email == null || !email.contains("@"))
       throw new IllegalArgumentException("Invalid email address");
   }
 }

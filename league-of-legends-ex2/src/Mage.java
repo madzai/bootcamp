@@ -109,6 +109,7 @@ public class Mage extends Hero {
     return super.getCD();
   }
 
+  @Override
   public String toString() {
     return "Mage: ID=" + super.getId() + ", " //
         + "name=" + this.name + ", " //
@@ -122,9 +123,22 @@ public class Mage extends Hero {
         + "AG=" + this.getAG() + ", " //
         + "CC=" + this.getCC() + ", " //
         + "CD=" + this.getCD() + ", " //
-        // + "equipped=" + this.isEquipped() + ", " //
         + "weapon=" + (this.stave == null ? "None" : this.stave.getName())
         + ", " + "equipped=" + this.isEquipped();
+  }
+
+  @Override
+  public String toString(boolean simplified) {
+    if (simplified) {
+      return "Mage: ID=" + super.getId() + ", " //
+          + "name=" + this.name + ", " //
+          + "Lv=" + super.getLevel() + ", " //
+          + "HP=" + this.getHP() + ", " //
+          + "MP=" + this.getMP() + //
+          (this.isEquipped() ? ", weapon=" + this.stave.getName() : "");
+    } else {
+      return toString();
+    }
   }
 
 

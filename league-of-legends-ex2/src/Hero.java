@@ -97,6 +97,11 @@ public abstract class Hero {
 
   }
 
+  public void restore() {
+    this.HP = this.MaxHP;
+    this.MP = this.MaxMP;
+  }
+
   public void usePA(Hero enemy) {
     double r = Math.random();
     if (r > this.CC) {
@@ -151,6 +156,8 @@ public abstract class Hero {
     this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1);
     this.CC = Math.round(this.CC * 100.0) / 100.0;
   }
+
+  public abstract String toString(boolean simplied);
 
   /////////////////////////////////////////////////////////////////////////////
   // Getter
