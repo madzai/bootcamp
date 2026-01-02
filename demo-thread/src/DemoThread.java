@@ -1,19 +1,22 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class DemoThread {
   // ! int -> non-thread-safe
   // ! Primitive, ArrayList, LinkedList, HashSet, HashMap, Array, Wrapper Class
 
-  private int x;
+  // private int x;
+  private AtomicInteger x = new AtomicInteger(0);
 
   public int getX() {
-    return this.x;
+    // return this.x;
+    return this.x.get();
   }
 
   // ! sychronized method supports mutli-threading
-  // public void addOne() {
-  public synchronized void addOne() {
-    System.out.println("before: " + x); // read
-    this.x++; // x++ -> read and write
-    System.out.println("after: " + x); // read
+  public void addOne() {
+    // public synchronized void addOne() {
+    // this.x++; // x++ -> read and write
+    this.x.getAndIncrement(); // x++ for AtomicInteger
   }
 
   public static void main(String[] args) {
