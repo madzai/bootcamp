@@ -116,10 +116,15 @@ public abstract class Hero {
   }
 
   public void useMA(Hero enemy) {
-    System.out.println(getName() + //
-        " uses magical attack on " + enemy.getName());
-    enemy.takeDamage(this.MA);
-    this.MP -= this.consumeMP;
+    if (this.MP >= this.consumeMP) {
+      System.out.println(getName() + //
+          " uses magical attack on " + enemy.getName());
+      enemy.takeDamage(this.MA);
+      this.MP -= this.consumeMP;
+    } else {
+      System.out.println(getName() + //
+          " doesn't have enough MP for magical attack");
+    }
   }
 
   public void takeDamage(int deductHP) {
