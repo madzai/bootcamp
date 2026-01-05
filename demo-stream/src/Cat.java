@@ -41,6 +41,13 @@ public class Cat {
       return new Cat(this.name, this.age);
     }
 
+    // @Override
+    // public String toString() {
+    // return "Cat(name=" + this.getName() //
+    // + ", age=" + this.getAge() //
+    // + ")";
+    // }
+
     public static void main(String[] args) {
       // new Cat.Builder("John", 19); // can be confusing if too many attributes
 

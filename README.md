@@ -76,7 +76,7 @@
   - Runtime Exception, Exception
   - Java Built-in Exception (ArrayIndexOutOfBound ...)
   - Custom Exception 
-  - BusinessException
+  - Business Exception
 - Big O Notation
 - Recursion
 

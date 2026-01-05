@@ -1,14 +1,4 @@
-// public class TrimAndUppercase {
-
-// public class TrimAndUppercase implements Function<String, String> {
-// @Override
-// public String apply(String s) {
-// return s.trim().toUpperCase();
-// }
-// }
-// }
-
-
+import java.util.function.Function;
 
 public class TrimAndUppercase implements Function<String, String> {
   @Override
@@ -16,4 +6,5 @@ public class TrimAndUppercase implements Function<String, String> {
     return s.trim().toUpperCase();
   }
 }
+
 

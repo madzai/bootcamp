@@ -12,4 +12,9 @@ public class Person {
   public boolean isElderly() {
     return this.age >= 65;
   }
+
+  @Override
+  public String toString() {
+    return "Person(age=" + this.age + ")";
+  }
 }

@@ -31,8 +31,8 @@ public class DemoLambda {
     System.out.println(trimAndUppercase.apply("  helloAbC  "));
 
     // Before Java 8
-    // TrimAndUppercase trimAndUpperCase2 = new TrimAndUppercase();
-    // System.out.println(trimAndUpperCase2.apply(" Hello World .. "));
+    TrimAndUppercase trimAndUpperCase2 = new TrimAndUppercase();
+    System.out.println(trimAndUpperCase2.apply(" Hello World .. "));
 
     Function<String, String> trimAndUpperCase3 = new Function<>() {
       @Override

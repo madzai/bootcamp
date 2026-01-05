@@ -40,7 +40,9 @@ public class DemoHashTable {
 
     }
 
-    System.out.println(map.size());
+    System.out.println(map.size()); // HashMap: 105559 vs HashTable: 100000
+    // t1 & t2 are adding the same keys to map (1 - 100_000)
+    // so final map only has keys 1 - 100_000 and corresponding values
 
 
   }

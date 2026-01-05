@@ -12,7 +12,7 @@ public class DemoThread {
 
   public int getX() {
     return this.x;
-    // return this.x.get();
+    // return this.x.get(); // for AtomicInteger
   }
 
   // ! sychronized method supports mutli-threading

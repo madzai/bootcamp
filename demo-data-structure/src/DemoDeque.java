@@ -1,14 +1,16 @@
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class DemoDeque {
   public static void main(String[] args) {
+    // Queue<Student> studentQueue = new LinkedList<>();
     Deque<Student> studentQueue = new LinkedList<>();
     studentQueue.add(new Student("Leo", 50));
     studentQueue.add(new Student("Sally", 10));
     studentQueue.add(new Student("Peter", 99));
-    studentQueue.addLast(new Student("Steve", 55));
-    studentQueue.addFirst(new Student("Oscar", 93));
+    studentQueue.addLast(new Student("Steve", 55)); // not available for Queue
+    studentQueue.addFirst(new Student("Oscar", 93)); // not available for Queue
 
     System.out.println(studentQueue.poll().getName()); // pollFirst()
     System.out.println(studentQueue.pollLast().getName()); // ! Deque
