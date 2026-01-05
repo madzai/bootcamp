@@ -118,9 +118,14 @@ public class StreamExercise {
     // into a Map<Integer, List<String>> where the key is the age and the value is a list of names.
 
     // Create Person Class
-    // new Person("Alice", 30),
-    // new Person("Bob", 25),
-    // new Person("Charlie", 30)
+    Person p1 = new Person("Alice", 30);
+    Person p2 = new Person("Bob", 25);
+    Person p3 = new Person("Charlie", 30);
+
+    List<Person> q9a = new ArrayList<>();
+    q9a.add(p1);
+    q9a.add(p2);
+    q9a.add(p3);
 
     // Output: {30=[Alice, Charlie], 25=[Bob]} (Map)
     // System.out.println("Q9: " + q9);
@@ -316,6 +321,46 @@ public class StreamExercise {
 
     public int getSalary() {
       return this.salary;
+    }
+  }
+
+  public static class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public int getAge() {
+      return this.age;
+    }
+  }
+
+  public static class Staff {
+    public static enum Gender {
+      MALE, FEMALE;
+    }
+
+    private String name;
+    private Gender gender;
+
+    public Staff(String name, Gender gender) {
+      this.name = name;
+      this.gender = gender;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public Gender getGender() {
+      return this.gender;
     }
   }
 
