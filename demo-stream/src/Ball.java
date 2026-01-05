@@ -2,7 +2,7 @@ public class Ball {
   // enum Color (RED, YELLOW, BLUE)
   // int num
 
-  public enum Color {
+  public static enum Color {
     RED, BLUE, YELLOW;
   }
 
@@ -25,8 +25,9 @@ public class Ball {
   // toString
   @Override
   public String toString() {
-    return "Ball(color=" + this.color //
-        + ", num=" + this.num + ")";
+    return "Ball(" //
+        + "color=" + this.color //
+        + ",num=" + this.num + ")";
   }
 
 }
