@@ -2,6 +2,7 @@ package exercises;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -10,6 +11,83 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
+
+  public static class Student {
+    private String name;
+    private int score;
+
+    public Student(String name, int score) {
+      this.name = name;
+      this.score = score;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public int getScore() {
+      return this.score;
+    }
+  }
+
+  public static class Employee {
+    private String name;
+    private int salary;
+
+    public Employee(String name, int salary) {
+      this.name = name;
+      this.salary = salary;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public int getSalary() {
+      return this.salary;
+    }
+  }
+
+  public static class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public int getAge() {
+      return this.age;
+    }
+  }
+
+  public static class Staff {
+    public static enum Gender {
+      MALE, FEMALE;
+    }
+
+    private String name;
+    private Gender gender;
+
+    public Staff(String name, Gender gender) {
+      this.name = name;
+      this.gender = gender;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public Gender getGender() {
+      return this.gender;
+    }
+  }
+
   public static void main(String[] args) {
     // 1. Basic Stream Operations
     // Task: Given a list of integers, use a stream to find all the even numbers, square them, and then
@@ -19,8 +97,8 @@ public class StreamExercise {
     List<Integer> q1 = numbers.stream() //
         .filter(n -> n % 2 == 0) //
         .map(n -> n * n) //
-        .sorted((n1, n2) -> n1 > n2 ? -1 : 1) //
-        .collect(Collectors.toList());
+        // .sorted((n1, n2) -> n1 > n2 ? -1 : 1) //
+        .sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     System.out.println("Q1: " + q1);
 
     // 2. Filtering and Collecting
@@ -29,7 +107,8 @@ public class StreamExercise {
         Arrays.asList("Alice", "Bob", "Annie", "David", "Alex");
     // Output: [Alice, Annie, Alex]
     List<String> q2 = names.stream() //
-        .filter(n -> n.charAt(0) == 'A') //
+        // .filter(n -> n.charAt(0) == 'A') //
+        .filter(e -> e.startsWith("A")) //
         .collect(Collectors.toList());
     System.out.println("Q2: " + q2);
 
@@ -38,12 +117,25 @@ public class StreamExercise {
     List<Integer> numbers2 = Arrays.asList(10, 20, 5, 30, 15);
     // Output: Max: 30
     // Output: Min: 5
-    List<Integer> q3 = numbers2.stream() //
-        .sorted((n1, n2) -> n1 > n2 ? -1 : 1) //
-        .collect(Collectors.toList());
-    System.out.println("Q3: " + q3);
-    System.out.println("Q3 max: " + q3.get(0));
-    System.out.println("Q3 min: " + q3.get(q3.size() - 1));
+
+    // List<Integer> q3 = numbers2.stream() //
+    // .sorted((n1, n2) -> n1 > n2 ? -1 : 1) //
+    // .collect(Collectors.toList());
+    // System.out.println("Q3: " + q3);
+    // System.out.println("Q3 max: " + q3.get(0));
+    // System.out.println("Q3 min: " + q3.get(q3.size() - 1));
+
+    int max = numbers2.stream() //
+        .mapToInt(e -> e.intValue()) // Primitive -> max/min
+        .max() //
+        .getAsInt(); //
+
+    int min = numbers2.stream() //
+        .mapToInt(e -> e.intValue()) // Primitive -> max/min
+        .min() //
+        .getAsInt(); //
+
+    System.out.println("Q3 (max, min): " + max + ", " + min);
 
     // 4. Mapping to a List of Lengths
     // Task: Given a list of strings, map each string to its length and collect the lengths into a
@@ -60,9 +152,10 @@ public class StreamExercise {
     List<String> words =
         Arrays.asList("hi", "hello", "world", "java", "stream");
     // Output: 4
-    List<String> q5 = words.stream() //
+    // ! Terminal Operation (collect, count) / Intermediate operation (filter, map)
+    long q5 = words.stream() //
         .filter(w -> w.length() > 3) //
-        .collect(Collectors.toList());
+        .count();
     System.out.println("Q5: " + q5);
 
     // 6. Filtering and Collecting to a Set
@@ -70,12 +163,21 @@ public class StreamExercise {
     // Set.
     List<Integer> numbers3 = Arrays.asList(5, 10, 15, 20, 10, 5);
     // Output: [15, 20]
-    List<Integer> numbers3b = numbers3.stream() //
+
+    // List<Integer> numbers3b = numbers3.stream() //
+    // .filter(n -> n > 10) //
+    // .collect(Collectors.toList());
+    // Set<Integer> q6 = new HashSet<>();
+    // q6.addAll(numbers3b);
+
+    // ! collect(Collectors.toSet())
+    Set<Integer> q6 = numbers3.stream() //
         .filter(n -> n > 10) //
-        .collect(Collectors.toList());
-    Set<Integer> q6 = new HashSet<>();
-    q6.addAll(numbers3b);
+        .collect(Collectors.toSet()); // new HashSet()
+
     System.out.println("Q6: " + q6);
+
+
 
     // 7. Mapping to a Map (Key-Value Pairs)
     // Task: Given a list of students with their names and scores, map them to a Map<String, Integer>,
@@ -84,11 +186,15 @@ public class StreamExercise {
     // Create Student Class
     Student s1 = new Student("Alice", 85);
     Student s2 = new Student("Bob", 75);
+    List<Student> students = Arrays.asList(s1, s2);
+    Map<String, Integer> q7 = students.stream() //
+        .collect(Collectors.toMap(stu -> stu.getName(), stu -> stu.getScore()));
 
     // Output: {Alice=85, Bob=75}
-    Map<String, Integer> q7 = new HashMap<>();
-    q7.put(s1.getName(), s1.getScore());
-    q7.put(s2.getName(), s2.getScore());
+    // Map<String, Integer> q7 = new HashMap<>();
+    // q7.put(s1.getName(), s1.getScore());
+    // q7.put(s2.getName(), s2.getScore());
+
     System.out.println("Q7: " + q7);
 
     // 8. Filtering and Mapping to a List of Objects
@@ -126,6 +232,10 @@ public class StreamExercise {
     q9a.add(p1);
     q9a.add(p2);
     q9a.add(p3);
+
+    Map<Integer, List<String>> q9 = new HashMap<>();
+    // q9.put(p1);
+
 
     // Output: {30=[Alice, Charlie], 25=[Bob]} (Map)
     // System.out.println("Q9: " + q9);
@@ -288,80 +398,6 @@ public class StreamExercise {
     // Output: 28
   }
 
-  public static class Student {
-    private String name;
-    private int score;
 
-    public Student(String name, int score) {
-      this.name = name;
-      this.score = score;
-    }
-
-    public String getName() {
-      return this.name;
-    }
-
-    public int getScore() {
-      return this.score;
-    }
-  }
-
-  public static class Employee {
-    private String name;
-    private int salary;
-
-    public Employee(String name, int salary) {
-      this.name = name;
-      this.salary = salary;
-    }
-
-    public String getName() {
-      return this.name;
-    }
-
-    public int getSalary() {
-      return this.salary;
-    }
-  }
-
-  public static class Person {
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-      this.name = name;
-      this.age = age;
-    }
-
-    public String getName() {
-      return this.name;
-    }
-
-    public int getAge() {
-      return this.age;
-    }
-  }
-
-  public static class Staff {
-    public static enum Gender {
-      MALE, FEMALE;
-    }
-
-    private String name;
-    private Gender gender;
-
-    public Staff(String name, Gender gender) {
-      this.name = name;
-      this.gender = gender;
-    }
-
-    public String getName() {
-      return this.name;
-    }
-
-    public Gender getGender() {
-      return this.gender;
-    }
-  }
 
 }
