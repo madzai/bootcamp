@@ -294,6 +294,7 @@ public class StreamExercise {
     // Map<Integer, List<String>> q9 = persons.stream() //
     // .collect(Collectors.groupingBy(Person::getAge, //
     // Collectors.mapping(Person::getName, Collectors.toList())));
+
     Map<Integer, List<String>> q9 = persons.stream() //
         .collect(Collectors.groupingBy(e -> e.getAge(), //
             Collectors.mapping(e -> e.getName(), Collectors.toList())));
@@ -514,10 +515,21 @@ public class StreamExercise {
 
     List<String> animals = Arrays.asList("cat", "tiger", "panda", "dog");
     // Output: Optional[tiger]
-    // System.out.println("Q25: " + q25);
+    Optional<String> q25a = animals.stream() //
+        .filter(e -> e.length() > 4) //
+        .findAny();
+    if (q25a.isPresent())
+      System.out.println("Q25a: " + q25a);
 
     List<String> animals2 = Arrays.asList("cat", "dog", "bird");
     // Output: Optional.empty
+    Optional<String> q25b = animals2.stream() //
+        .filter(e -> e.length() > 4) //
+        .findAny();
+    if (q25b.isPresent())
+      System.out.println("Q25b: " + q25b);
+    else
+      System.out.println("Q25b: no match");
 
     // 26. Custom Collector
     // Task: Create a custom collector that collects the elements of a stream and remove all duplicates
@@ -527,6 +539,7 @@ public class StreamExercise {
         .collect(Collectors.toSet());
     // Output: [1, 2, 3, 4, 5, 6] (Set)
     System.out.println("Q26: " + q26);
+
 
     // Custom Collector.of() method (advanced)
     Set<Integer> uniqueNums = duplicates.stream() //
