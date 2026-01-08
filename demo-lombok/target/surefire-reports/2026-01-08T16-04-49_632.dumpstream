@@ -1,0 +1,5 @@
+# Created at 2026-01-08T16:04:49.779
+Boot Manifest-JAR contains absolute paths in classpath 'E:\Java\VenturenixLab_Java\bootcamp\demo-lombok\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

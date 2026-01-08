@@ -70,8 +70,5 @@ public class Account {
     System.out.println(a2.equals(a3));
     System.out.println(a2.hashCode() == a3.hashCode());
 
-    // System.out.println(a2.equals(a3));
-    // System.out.println(a2.hashCode() == a1.hashCode());
-    // System.out.println(a2.hashCode() == a3.hashCode());
   }
 }
