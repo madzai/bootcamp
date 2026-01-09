@@ -1,15 +1,10 @@
 -------------------------------------------------------------------------------
-Test set: com.bootcamp.demo.CatTest
+Test set: com.bootcamp.demo.StudentTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! -- in com.bootcamp.demo.CatTest
-com.bootcamp.demo.CatTest.testAttack -- Time elapsed: 0.005 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <6> but was: <Optional[6]>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at com.bootcamp.demo.CatTest.testAttack(CatTest.java:48)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! -- in com.bootcamp.demo.StudentTest
+com.bootcamp.demo.StudentTest.testOperate -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.bootcamp.demo.Calculator.sum()" because "this.calculator" is null
+	at com.bootcamp.demo.StudentTest.testOperate(StudentTest.java:14)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)

@@ -2,6 +2,8 @@ package com.bootcamp.demo;
 
 import lombok.Getter;
 
+// ! Developer B
+
 @Getter
 public class Gun {
   private int bullet;

@@ -2,10 +2,40 @@ package com.bootcamp.demo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 // ! Cat -> Gun
 
 public class CatTest {
+  // ! testAttack() and testAttack2() are integration tests
+  // Cat Test depends on Gun completeness
+
+  @Mock // ! behavior (method) doesn't exist by default
+  private Gun gun; // object reference
+
+  // ! Unit Test (Testing Env.)
+  void testAttack3() {
+    Mockito.when(this.gun.shoot()).thenReturn(true);
+    Cat c1 = new Cat();
+    c1.setGun(this.gun);
+    // Testing ...
+    Cat c2 = new Cat();
+    c1.attack(c2);
+    Assertions.assertEquals(false, c2.isAlive());
+  }
+
+  // ! Unit Test (Testing Env.)
+  void testAttack4() {
+    Mockito.when(this.gun.shoot()).thenReturn(false);
+    Cat c1 = new Cat();
+    c1.setGun(this.gun);
+    // Testing ...
+    Cat c2 = new Cat();
+    c1.attack(c2);
+    Assertions.assertEquals(true, c2.isAlive());
+  }
+
   @Test
   void testAttack() {
     Cat c1 = new Cat();

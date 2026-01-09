@@ -9,6 +9,10 @@ import lombok.ToString;
 // Customer -> Orders -> Items
 // Item -> Order -> Customer
 
+// ! Developer A (depends on Developer B)
+
+// ! Required a tool to test Cat, withoute completing Gun development
+
 @ToString
 @EqualsAndHashCode
 public class Cat {
