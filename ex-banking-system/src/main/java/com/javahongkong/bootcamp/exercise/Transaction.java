@@ -1,6 +1,6 @@
 package com.javahongkong.bootcamp.exercise;
 
-public class Transaction implements AccountInterface {
+public class Transaction implements TransactionInterface {
 	private Long accountNumber;
 	private Bank bank;
 

@@ -19,9 +19,9 @@ public class Bank {
 			double startingDeposit) {
 		// complete the function
 		// return -1L;
-		Long accountNumber = (Long) this.accounts.size() + 1;
+		Long accountNumber = this.accounts.size() + 1L;
 		CommercialAccount newAccount =
-				CommercialAccount(company, accountNumber, pin, startingDeposit);
+				new CommercialAccount(company, accountNumber, pin, startingDeposit);
 		this.accounts.put(accountNumber, newAccount);
 		return accountNumber;
 	}
@@ -29,13 +29,11 @@ public class Bank {
 	public Long openConsumerAccount(Person person, int pin,
 			double startingDeposit) {
 		// complete the function
-		Long accountNumber = (Long) this.accounts.size() + 1;
+		Long accountNumber = this.accounts.size() + 1L;
 		ConsumerAccount newAccount =
 				new ConsumerAccount(person, accountNumber, pin, startingDeposit);
 		this.accounts.put(accountNumber, newAccount);
 		return accountNumber;
-
-		// return -1L;
 
 	}
 

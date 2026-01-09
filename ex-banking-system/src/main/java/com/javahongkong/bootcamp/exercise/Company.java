@@ -5,8 +5,8 @@ public class Company extends AccountHolder {
 
 	public Company(String companyName, int taxId) {
 		// complete the function
+		super(taxId);
 		this.companyName = companyName;
-		this.taxId = super.getIdNumber();
 	}
 
 	public String getCompanyName() {

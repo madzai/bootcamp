@@ -7,9 +7,9 @@ public class Person extends AccountHolder {
 
 	public Person(String firstName, String lastName, int idNumber) {
 		// complete the function
+		super(idNumber);
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.idNumber = super.getIdNumber();
 	}
 
 	public String getFirstName() {

@@ -57,7 +57,7 @@ public abstract class Account implements AccountInterface {
 		if (this.balance < amount)
 			return false;
 		this.balance = BigDecimal.valueOf(this.balance)
-				.substract(BigDecimal.valueOf(amount)).doubleValue();
+				.subtract(BigDecimal.valueOf(amount)).doubleValue();
 		return true;
 	}
 }
