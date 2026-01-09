@@ -2,7 +2,7 @@ package com.javahongkong.bootcamp.exercise;
 
 import java.math.BigDecimal;
 
-public abstract class Account {
+public abstract class Account implements AccountInterface {
 	private AccountHolder accountHolder;
 	private Long accountNumber;
 	private int pin;
