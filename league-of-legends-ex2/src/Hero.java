@@ -1,8 +1,3 @@
-// Hero, role: Archer, Mage, Warrior
-// ID, Level, HP, MP, PA, PD, MA, MD, AG, CC, CD
-// constants (role and level): Max HP, Max MP, PA, PD, MA, MD, AG, CC, CD
-// CD calculated by critical damage multiplier (by role)
-
 public abstract class Hero {
   public static int idCount = 0;
 

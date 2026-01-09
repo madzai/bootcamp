@@ -1,7 +1,3 @@
-// ID, Level, HP, MP, PA< PD, MA, MD, AG, CC, CD
-// constants (role and level): Max HP, Max MP, PA, PD, MA, MD, AG, CC, CD
-// CD calculated by critical damage multiplier (by role)
-
 public class Mage extends Hero {
 
   private String name;

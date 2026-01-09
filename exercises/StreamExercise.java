@@ -229,20 +229,11 @@ public class StreamExercise {
     // Set.
     List<Integer> numbers3 = Arrays.asList(5, 10, 15, 20, 10, 5);
     // Output: [15, 20]
-
-    // List<Integer> numbers3b = numbers3.stream() //
-    // .filter(n -> n > 10) //
-    // .collect(Collectors.toList());
-    // Set<Integer> q6 = new HashSet<>();
-    // q6.addAll(numbers3b);
-
     // ! collect(Collectors.toSet())
     Set<Integer> q6 = numbers3.stream() //
         .filter(n -> n > 10) //
         .collect(Collectors.toSet()); // new HashSet()
-
     System.out.println("Q6: " + q6);
-
 
 
     // 7. Mapping to a Map (Key-Value Pairs)

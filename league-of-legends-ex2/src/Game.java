@@ -68,8 +68,8 @@ public class Game {
     Warrior p1 = new Warrior("Sam");
     Archer p2 = new Archer("Jane");
 
-    p1.createWeapon(1, 1);
-    p2.createWeapon(2, 1);
+    // p1.createWeapon(1, 1);
+    // p2.createWeapon(2, 1);
 
     oneVsOne(p1, p2);
 
