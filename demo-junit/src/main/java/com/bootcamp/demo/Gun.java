@@ -12,6 +12,10 @@ public class Gun {
     this.bullet = 7;
   }
 
+  public void clearBullet() {
+    this.bullet = 0;
+  }
+
   public boolean shoot() {
     if (this.bullet > 0) {
       this.bullet--;
