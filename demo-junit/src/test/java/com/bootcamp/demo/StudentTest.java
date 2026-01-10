@@ -2,9 +2,12 @@ package com.bootcamp.demo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class StudentTest {
   @Mock
   private Calculator calculator;
@@ -12,9 +15,7 @@ public class StudentTest {
   @Test
   void testOperate() {
     Mockito.when(this.calculator.sum()).thenReturn(100);
-
     Student s1 = new Student(this.calculator);
-    Assertions.assertEquals(150, s1.operate(8, 10));
+    Assertions.assertEquals(150, s1.operate(3, 8));
   }
-
 }

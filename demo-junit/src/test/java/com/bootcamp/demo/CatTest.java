@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 // ! Cat -> Gun
 
 public class CatTest {
-  // ! testAttack() and testAttack2() are integration tests
+  // ! testAttack() and testAttack2() are integration test
   // Cat Test depends on Gun completeness
 
   @Mock // ! behavior (method) doesn't exist by default
@@ -19,7 +19,7 @@ public class CatTest {
     Mockito.when(this.gun.shoot()).thenReturn(true);
     Cat c1 = new Cat();
     c1.setGun(this.gun);
-    // Testing ...
+    // Testing...
     Cat c2 = new Cat();
     c1.attack(c2);
     Assertions.assertEquals(false, c2.isAlive());
@@ -30,12 +30,14 @@ public class CatTest {
     Mockito.when(this.gun.shoot()).thenReturn(false);
     Cat c1 = new Cat();
     c1.setGun(this.gun);
-    // Testing ...
+    // Testing...
     Cat c2 = new Cat();
     c1.attack(c2);
     Assertions.assertEquals(true, c2.isAlive());
   }
 
+
+  // attack
   @Test
   void testAttack() {
     Cat c1 = new Cat();
@@ -46,9 +48,7 @@ public class CatTest {
     Assertions.assertEquals(true, c2.isAlive());
     c1.attack(c2);
     Assertions.assertEquals(false, c2.isAlive());
-    Assertions.assertEquals(6, c1.checkBullet());
-
-    c1.attack(c2);
+    Assertions.assertEquals(6, c1.checkBullet().orElse(-1));
     c1.attack(c2);
     c1.attack(c2);
     c1.attack(c2);
@@ -65,9 +65,9 @@ public class CatTest {
     Assertions.assertEquals(7, c1.checkBullet().orElse(-1));
     c1.clearBullet();
     Assertions.assertEquals(0, c1.checkBullet().orElse(-1));
+
     Cat c2 = new Cat();
     c1.attack(c2);
     Assertions.assertEquals(true, c2.isAlive());
   }
-
 }
