@@ -25,9 +25,7 @@ public abstract class Account implements AccountInterface {
 
 	public boolean validatePin(int attemptedPin) {
 		// complete the function
-		if (this.pin == attemptedPin)
-			return true;
-		return false;
+		return this.pin == attemptedPin;
 	}
 
 	public double getBalance() {
@@ -47,17 +45,22 @@ public abstract class Account implements AccountInterface {
 
 	public void creditAccount(double amount) {
 		// complete the function
+		// double
+		// this.balance += amount;
+
 		// BigDecimal
-		this.balance = BigDecimal.valueOf(this.balance)
-				.add(BigDecimal.valueOf(amount)).doubleValue();
+		this.balance = BigDecimal.valueOf(this.balance) //
+				.add(BigDecimal.valueOf(amount)) //
+				.doubleValue();
 	}
 
 	public boolean debitAccount(double amount) {
 		// complete the function
 		if (this.balance < amount)
 			return false;
-		this.balance = BigDecimal.valueOf(this.balance)
-				.subtract(BigDecimal.valueOf(amount)).doubleValue();
+		this.balance = BigDecimal.valueOf(this.balance) //
+				.subtract(BigDecimal.valueOf(amount)) //
+				.doubleValue();
 		return true;
 	}
 }

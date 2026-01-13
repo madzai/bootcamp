@@ -11,21 +11,31 @@ public class Transaction implements TransactionInterface {
 	 * @param attemptedPin The PIN entered by the customer.
 	 * @throws Exception Account validation failed.
 	 */
-	public Transaction(Bank bank, Long accountNumber, int attemptedPin)
-			throws Exception {
-		// complete the function
-		if (bank.getAccount(accountNumber) == null
-				|| !bank.authenticateUser(accountNumber, attemptedPin))
-			throw new Exception("Transaction failed");
+	// public Transaction(Bank bank, Long accountNumber, int attemptedPin)
+	// throws Exception {
+	// // complete the function
+	// if (bank.getAccount(accountNumber) == null
+	// || !bank.authenticateUser(accountNumber, attemptedPin))
+	// throw new Exception("Transaction failed");
 
+	// this.bank = bank;
+	// this.accountNumber = accountNumber;
+
+	// }
+
+	public Transaction(Bank bank, Long accountNumber, int attemptedPin)
+			throws Exception { // ! Checked Exception
+		// complete the function
+		if (!bank.authenticateUser(accountNumber, attemptedPin))
+			throw new Exception("The account number is invalid");
 		this.bank = bank;
 		this.accountNumber = accountNumber;
-
 	}
 
 	public double getBalance() {
 		// complete the function
-		return this.bank.getBalance(this.accountNumber);
+		// return this.bank.getBalance(this.accountNumber);
+		return this.bank.getAccount(this.accountNumber).getBalance();
 	}
 
 	public void credit(double amount) {

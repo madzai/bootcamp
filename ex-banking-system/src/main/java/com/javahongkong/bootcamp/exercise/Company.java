@@ -13,4 +13,6 @@ public class Company extends AccountHolder {
 		// complete the function
 		return this.companyName;
 	}
+
+	// TBC equals & hash
 }

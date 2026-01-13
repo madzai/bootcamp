@@ -1,5 +1,7 @@
 package com.javahongkong.bootcamp.exercise;
 
+import java.util.Objects;
+
 public class Person extends AccountHolder {
 	private String firstName;
 	private String lastName;
@@ -20,5 +22,23 @@ public class Person extends AccountHolder {
 	public String getLastName() {
 		// complete the function
 		return this.lastName;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof Person))
+			return false;
+		Person person = (Person) o;
+		return Objects.equals(person.getFirstName(), this.firstName) //
+				&& Objects.equals(person.getLastName(), this.lastName) //
+				&& Objects.equals(person.getIdNumber(), this.getIdNumber());
+
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.firstName, this.lastName, this.getIdNumber());
 	}
 }
