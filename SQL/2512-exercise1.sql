@@ -84,4 +84,31 @@ insert into employees1 values (2, 'Mary', 'Wong', 'yyy', '23123', '2002-12-31', 
 insert into employees1 values (3, 'Steve', 'Chan', 'www', '5555', '2019-02-28', 'RECR_M', 40000, 0, null, 2);
 insert into employees1 values (4, 'Kelly', 'Lau', 'vvv', '21321222', '1999-03-09', 'RECR', 19000, 0, 3, 2);
 
+insert into job_history1 values (1, '2012-01-31', '2012-02-23', 'DEV', 1);
+insert into job_history1 values (3, '2012-06-30', '2010-02-23', 'RECR', 2);
+insert into job_history1 values (4, '2002-03-30', null, 'RECR_M', 2);
+insert into job_history1 values (2, '2012-10-31', null, 'DEV_M', 1);
+
 select * from employees1;
+
+-- UK employees -> show first_name, last_name, salary, job_title
+-- employees (department_id) -> departments (location_id) -> locations (country_id) -> countries
+select e.first_name, e.last_name, e.salary, j.job_title
+from jobs1 j
+	inner join employees1 e on j.job_id = e.job_id
+    inner join departments1 d on e.department_id = d.department_id
+    inner join locations1 l on l.location_id = d.location_id
+where l.country_id = 'UK';
+
+select l.country_id, e.first_name, e.last_name, e.salary, j.job_title
+from locations1 l
+	inner join departments1 d on l.location_id = d.location_id
+    inner join employees1 e on d.department_id = e.department_id
+    inner join jobs1 j on e.job_id = j.job_id
+where l.country_id = 'UK';
+
+
+
+
+
+ 

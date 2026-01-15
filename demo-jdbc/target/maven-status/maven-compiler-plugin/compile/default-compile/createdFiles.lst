@@ -1,0 +1,6 @@
+com\bootcamp\demo\UpdateStudent.class
+com\bootcamp\demo\DeleteStudent.class
+com\bootcamp\demo\SelectStudents.class
+com\bootcamp\demo\App.class
+com\bootcamp\demo\DBUtil.class
+com\bootcamp\demo\InsertStudent.class
