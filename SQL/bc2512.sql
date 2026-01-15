@@ -236,3 +236,86 @@ group by dept_code, gender;
 select distinct gender, dept_code
 from employees;
 
+-- Join (One-to-Many)
+select * from customers;
+select * from orders;
+
+-- Add customer_id in table orders
+alter table orders add customer_id int;
+update orders set customer_id = 1 where id < 3;
+update orders set customer_id = 2 where id > 2 and id < 5;
+update orders set customer_id = 3 where id > 4;
+-- update orders set customer_id = 4 where id = 4;
+-- update orders set customer_id = 5 where id = 5;
+-- update orders set customer_id = 6 where id = 6;
+
+-- INNER JOIN
+select c.*, o.* from customers c inner join orders o;
+
+-- Customers who have orders (Customer + Order Data)
+select 
+    c.id as customer_id,
+    c.first_name as cust_first_name,
+    c.last_name as cust_last_name,
+    o.order_no as order_no,
+    o.amount as order_amount,
+    c.smoker as smoker,
+    c.district as district
+from customers c inner join orders o on o.customer_id = c.id;
+
+-- Customers who have no order (Customer data)
+-- Not Exist
+select c.*
+from customers c
+where not exists (select 1 from orders o where o.customer_id = c.id);
+
+-- Customers who have orders + Customers who have no order (customers who have null order details)
+select c.*, o.*
+from customers c left join orders o on o.customer_id = c.id;
+
+-- In this case, right join === inner join (non-nullable one-to-many)
+select c.*, o.*
+from customers c right join orders o on o.customer_id = c.id;
+
+-- Exists
+select c.*
+from customers c
+where exists (select * from orders o where o.customer_id = c.id);
+
+
+-- One-to-One (User Login + Profile)
+-- One-to-Many (Customer + Order) (Post + Comment) (Department + Employee) 
+	-- a. Nullable: (Adopter + Pet)
+    -- b. Non-nullable: (Customer + Order) (Post + Comment) (Department + Employee)
+-- Many-to-Many (Student + Subject) (Doctor + Hospital) (Teams + Users) (Book Authors)
+
+
+-- Foreign Key -> ensure the value exists in another table
+
+-- Primary Key
+create table authors (
+    id int primary key,
+    name varchar(20)
+);
+
+create table books (
+    id int primary key,
+    name varchar(100),
+    bar_code varchar(50),
+    author_id int not null,
+    foreign key (author_id) references authors(id)
+);
+
+select * from authors;
+select * from books;
+
+insert into authors values (1, 'J K Rowling');
+insert into authors values (2, 'Stephen King');
+insert into authors values (3, 'Stephen Hawking');
+insert into books values (1, 'Harry Potter 1', 'HP1', 1);
+insert into books values (2, 'Harry Potter 2', 'HP2', 1);
+insert into books values (3, 'Harry Potter 3', 'HP3', 1);
+insert into books values (4, 'A Brief History of Time', 'ABHOF_sh', 3);
+insert into books values (5, 'The Shining', 'TS_sk', 2);
+insert into books values (6, 'It', 'IT_sk', 2);
+insert into books values (7, 'The Mist', 'TM_sk', 2);
