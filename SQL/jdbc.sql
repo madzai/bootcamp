@@ -1,6 +1,8 @@
+-- Active: 1768356546460@@127.0.0.1@3306
 create database bootcamp_db;
 
 use bootcamp_db;
+use bootcamp_2512;
 
 create table students (
   id int primary key auto_increment,

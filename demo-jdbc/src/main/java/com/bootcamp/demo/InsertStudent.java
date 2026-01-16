@@ -8,8 +8,10 @@ public class InsertStudent {
     try (Connection conn = DBUtil.getConnection()) {
       String sql = "INSERT INTO students (name, email) VALUES (?, ?)";
       PreparedStatement stmt = conn.prepareStatement(sql);
-      stmt.setString(1, "Alice");
-      stmt.setString(2, "alice@example.com");
+      // stmt.setString(1, "Alice");
+      // stmt.setString(2, "alice@example.com");
+      stmt.setString(1, "Rob");
+      stmt.setString(2, "rob@example.com");
       int rows = stmt.executeUpdate();
       System.out.println("Inserted: " + rows);
     } catch (Exception e) {
