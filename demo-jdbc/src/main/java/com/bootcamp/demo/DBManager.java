@@ -101,13 +101,13 @@ public class DBManager {
     String userName = "root";
     String password = "admin1234";
     DBManager dbManager = new DBManager(url, userName, password);
-    dbManager.insert(new StudentEntity(null, "John", "john@gmail.com"));
-    dbManager.insert(new StudentEntity(null, "Peter", "peter@gmail.com"));
+    // dbManager.insert(new StudentEntity(null, "John", "john@gmail.com"));
+    // dbManager.insert(new StudentEntity(null, "Peter", "peter@gmail.com"));
 
     // ! Before Delete and Update
     System.out.println(dbManager.getStudents());
 
-    dbManager.updateEmailByName("john123@hotmail.com", "John");
+    // dbManager.updateEmailByName("john123@hotmail.com", "John");
     dbManager.deleteByName("Peter");
 
     // ! After Delete and Update

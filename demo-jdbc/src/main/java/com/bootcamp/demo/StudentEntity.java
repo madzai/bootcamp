@@ -6,6 +6,7 @@ import lombok.ToString;
 
 @Getter
 @Builder
+@ToString
 public class StudentEntity {
   private Integer id;
   private String name;
