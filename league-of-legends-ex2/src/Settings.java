@@ -26,52 +26,6 @@ public final class Settings {
         public static final int[] incAG = new int[] {10, 10, 10};
         public static final double[] incCC = new double[] {0.05, 0.05, 0.05};
 
-        // public static final String[] BOW_NAMES = new String[] { //
-        // "Recurve", "Guinsoo"};
-
-        // public static final String[] STAVE_NAMES = new String[] { //
-        // "Archangel", "Liandry"};
-
-        // public static final String[] SWORD_NAMES = new String[] { //
-        // "Doran", "Hexdrinker"};
-
-        // public static final int[][] BOW_PA = new int[][] { //
-        // {20, 30, 40}, // Recurve
-        // {30, 40, 50} // Guinsoo
-        // };
-        // public static final int[][] BOW_MA = new int[][] { //
-        // {30, 40, 50}, //
-        // {40, 50, 60} //
-        // };
-        // public static final double[][] BOW_CC = new double[][] { //
-        // {0.1, 0.2, 0.3}, //
-        // {0.2, 0.3, 0.4} //
-        // };
-        // public static final int[][] SWORD_PA = new int[][] { //
-        // {20, 30, 40}, // Doran
-        // {30, 40, 50} // Hexdrinker
-        // };
-        // public static final int[][] SWORD_MA = new int[][] { //
-        // {30, 40, 50}, //
-        // {40, 50, 60} //
-        // };
-        // public static final double[][] SWORD_CC = new double[][] { //
-        // {0.1, 0.2, 0.3}, //
-        // {0.2, 0.3, 0.4} //
-        // };
-        // public static final int[][] STAVE_PA = new int[][] { //
-        // {20, 30, 40}, // Archangel
-        // {30, 40, 50} // Liandry
-        // };
-        // public static final int[][] STAVE_MA = new int[][] { //
-        // {30, 40, 50}, //
-        // {40, 50, 60} //
-        // };
-        // public static final double[][] STAVE_CC = new double[][] { //
-        // {0.1, 0.2, 0.3}, //
-        // {0.2, 0.3, 0.4} //
-        // };
-
         public static final String[] WEAPON_TYPES =
                         new String[] {"Bow", "Stave", "Sword"};
 

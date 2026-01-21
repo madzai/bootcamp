@@ -59,19 +59,6 @@ public abstract class Hero {
   }
 
   public void levelUp() {
-    // this.level += 1;
-    // this.MaxHP = this.MaxHP + this.incMaxHP;
-    // this.MaxMP = this.MaxMP + this.incMaxMP;
-    // this.PA = this.PA + this.incPA;
-    // this.PD = this.PD + this.incPD;
-    // this.MA = this.MA + this.incMA;
-    // this.MD = this.MD + this.incMD;
-    // this.AG = this.AG + this.incAG;
-    // this.CC = this.CC + this.incCC;
-    // this.CD = (int) (this.PA * this.critMultiplier);
-    // this.HP = this.MaxHP;
-    // this.MP = this.MaxMP;
-
     this.level += 1;
 
     this.MaxHP =

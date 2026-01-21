@@ -1,5 +1,4 @@
 public abstract class Weapon {
-  // PA, MA, CC
   private int tier;
   private int level;
   private int pa;
