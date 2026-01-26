@@ -1,11 +1,11 @@
 public class Mage extends Hero {
 
-  private String name;
+  // private String name;
   private Stave stave;
 
   public Mage(String name) {
-    super();
-    this.name = name;
+    super(name);
+    // this.name = name;
   }
 
   public void levelUp() {
@@ -70,7 +70,7 @@ public class Mage extends Hero {
   /////////////////////////////////////////////////////////////////////////////
   // Getter
   public String getName() {
-    return this.name;
+    return super.getName();
   }
 
   public int getRole() {
@@ -108,7 +108,7 @@ public class Mage extends Hero {
   @Override
   public String toString() {
     return "Mage: ID=" + super.getId() + ", " //
-        + "name=" + this.name + ", " //
+        + "name=" + this.getName() + ", " //
         + "Lv=" + super.getLevel() + ", " //
         + "HP=" + this.getHP() + ", " //
         + "MP=" + this.getMP() + ", " //
@@ -146,37 +146,37 @@ public class Mage extends Hero {
     System.out.println(m1);
     System.out.println(m2);
     System.out.println();
-    // weapons
-    System.out.println("Create and equip weapon");
-    m1.createWeapon(2, 1);
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println("Unequip weapon");
-    m1.toUnequip();
-    System.out.println(m1);
-    // Level up
-    System.out.println("Level up");
-    m1.levelUp();
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println();
-    // weapons
-    System.out.println("Create and equip weapon");
-    m2.createWeapon(1, 1);
-    System.out.println(m1);
-    System.out.println(m2);
-    // Physical Attack
-    System.out.println("Physical Attack");
-    m1.usePA(m2);
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println();
-    // Magical Attack
-    System.out.println("Magical Attack");
-    m2.useMA(m1);
-    System.out.println(m1);
-    System.out.println(m2);
-    System.out.println();
+    // // weapons
+    // System.out.println("Create and equip weapon");
+    // m1.createWeapon(2, 1);
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println("Unequip weapon");
+    // m1.toUnequip();
+    // System.out.println(m1);
+    // // Level up
+    // System.out.println("Level up");
+    // m1.levelUp();
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
+    // // weapons
+    // System.out.println("Create and equip weapon");
+    // m2.createWeapon(1, 1);
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // // Physical Attack
+    // System.out.println("Physical Attack");
+    // m1.usePA(m2);
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
+    // // Magical Attack
+    // System.out.println("Magical Attack");
+    // m2.useMA(m1);
+    // System.out.println(m1);
+    // System.out.println(m2);
+    // System.out.println();
 
   }
 }

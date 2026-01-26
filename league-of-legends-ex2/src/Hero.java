@@ -1,82 +1,27 @@
 public abstract class Hero {
   public static int idCount = 0;
 
+  private String name;
   private int id;
   private int level;
   private boolean isEquipped;
   private int HP;
   private int MP;
 
-  private int MaxHP;
-  private int MaxMP;
-  private int consumeMP;
-  private int PA;
-  private int PD;
-  private int MA;
-  private int MD;
-  private int AG;
-  private double CC;
-  private double critMultiplier;
-  private int CD;
-
-  private int incMaxHP;
-  private int incMaxMP;
-  private int incPA;
-  private int incPD;
-  private int incMA;
-  private int incMD;
-  private int incAG;
-  private double incCC;
-
-  public Hero() {
+  public Hero(String name) {
+    this.name = name;
     this.id = ++idCount;
     this.level = Settings.LEVEL_INIT;
     this.isEquipped = false;
 
-    this.MaxHP = Settings.baseMaxHP[this.getRole()];
-    this.MaxMP = Settings.baseMaxMP[this.getRole()];
-    this.consumeMP = Settings.consumeMP[this.getRole()];
-    this.PA = Settings.basePA[this.getRole()];
-    this.PD = Settings.basePD[this.getRole()];
-    this.MA = Settings.baseMA[this.getRole()];
-    this.MD = Settings.baseMD[this.getRole()];
-    this.AG = Settings.baseAG[this.getRole()];
-    this.CC = Settings.baseCC[this.getRole()];
-    this.critMultiplier = Settings.critMultiplier[this.getRole()];
-    this.CD = (int) (this.PA * this.critMultiplier);
-
-    this.incMaxHP = Settings.incMaxHP[this.getRole()];
-    this.incMaxMP = Settings.incMaxMP[this.getRole()];
-    this.incPA = Settings.incPA[this.getRole()];
-    this.incPD = Settings.incPD[this.getRole()];
-    this.incMA = Settings.incMA[this.getRole()];
-    this.incMD = Settings.incMD[this.getRole()];
-    this.incAG = Settings.incAG[this.getRole()];
-    this.incCC = Settings.incCC[this.getRole()];
-
-    this.HP = this.MaxHP;
-    this.MP = this.MaxMP;
+    // this.HP = this.MaxHP;
+    // this.MP = this.MaxMP;
   }
 
   public void levelUp() {
     this.level += 1;
-
-    this.MaxHP =
-        Settings.baseMaxHP[this.getRole()] + this.incMaxHP * (this.level - 1);
-    this.MaxMP =
-        Settings.baseMaxMP[this.getRole()] + this.incMaxMP * (this.level - 1);
-    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1);
-    this.PD = Settings.basePD[this.getRole()] + this.incPD * (this.level - 1);
-    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1);
-    this.MD = Settings.baseMD[this.getRole()] + this.incMD * (this.level - 1);
-    this.AG = Settings.baseAG[this.getRole()] + this.incAG * (this.level - 1);
-    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1);
-
-    this.CD = (int) (this.PA * this.critMultiplier);
-
-    this.HP = this.MaxHP;
-    this.MP = this.MaxMP;
-
+    // this.HP = this.MaxHP;
+    // this.MP = this.MaxMP;
   }
 
   public void restore() {
@@ -114,34 +59,11 @@ public abstract class Hero {
   }
 
   public void toEquip() {
-    // if (this.isEquipped == false) {
-    // this.isEquipped = true;
-    // this.PA += this.getWeaponPA();
-    // this.MA += this.getWeaponMA();
-    // this.CC += this.getWeaponCC();
-    // }
     this.isEquipped = true;
-    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1)
-        + this.getWeaponPA();
-    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1)
-        + this.getWeaponMA();
-    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1)
-        + this.getWeaponCC();
-    this.CC = Math.round(this.CC * 100.0) / 100.0;
   }
 
   public void toUnequip() {
-    // if (this.isEquipped == true) {
-    // this.isEquipped = false;
-    // this.PA -= this.getWeaponPA();
-    // this.MA -= this.getWeaponMA();
-    // this.CC -= this.getWeaponCC();
-    // }
     this.isEquipped = false;
-    this.PA = Settings.basePA[this.getRole()] + this.incPA * (this.level - 1);
-    this.MA = Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1);
-    this.CC = Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1);
-    this.CC = Math.round(this.CC * 100.0) / 100.0;
   }
 
   public abstract String toString(boolean simplied);
@@ -149,7 +71,7 @@ public abstract class Hero {
   /////////////////////////////////////////////////////////////////////////////
   // Getter
 
-  abstract String getName();
+  // abstract String getName();
 
   abstract int getRole();
 
@@ -158,6 +80,10 @@ public abstract class Hero {
   abstract int getWeaponMA();
 
   abstract double getWeaponCC();
+
+  public String getName() {
+    return this.name;
+  }
 
   public boolean isAlive() {
     return this.HP > 0;
@@ -183,32 +109,45 @@ public abstract class Hero {
     return this.HP;
   }
 
+  public int getMaxHP() {
+    return Settings.baseMaxHP[this.getRole()]
+        + this.incMaxHP * (this.level - 1);
+  }
+
+  public int getMaxMP() {
+    return Settings.baseMaxMP[this.getRole()]
+        + this.incMaxMP * (this.level - 1);
+  }
+
   public int getPA() {
-    return this.PA;
+    return Settings.basePA[this.getRole()] + this.incPA * (this.level - 1) //
+        + this.isEquipped ? this.getWeaponPA() : 0;
   }
 
   public int getPD() {
-    return this.PD;
+    return Settings.basePD[this.getRole()] + this.incPD * (this.level - 1);
   }
 
   public int getMA() {
-    return this.MA;
+    return Settings.baseMA[this.getRole()] + this.incMA * (this.level - 1) //
+        + this.isEquipped ? this.getWeaponMA() : 0;
   }
 
   public int getMD() {
-    return this.MD;
+    return this.Settings.baseMD[this.getRole()] + this.incMD * (this.level - 1);
   }
 
   public int getAG() {
-    return this.AG;
+    return Settings.baseAG[this.getRole()] + this.incAG * (this.level - 1);
   }
 
   public double getCC() {
-    return this.CC;
+    return Settings.baseCC[this.getRole()] + this.incCC * (this.level - 1) //
+        + this.isEquipped ? this.getWeaponCC() : 0;
   }
 
   public int getCD() {
-    return this.CD;
+    return (int) (this.getPA() * this.critMultiplier);
   }
 
 }
