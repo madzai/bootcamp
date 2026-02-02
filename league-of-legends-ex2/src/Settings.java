@@ -5,14 +5,16 @@ public final class Settings {
 
         public static final int LEVEL_INIT = 1;
 
-        public static final int[] baseMaxHP = new int[] {100, 100, 100};
-        public static final int[] baseMaxMP = new int[] {20, 20, 20};
+
+
+        public static final int[] baseMaxHP = new int[] {80, 90, 100};
+        public static final int[] baseMaxMP = new int[] {15, 20, 10};
         public static final int[] consumeMP = new int[] {10, 10, 10};
-        public static final int[] basePA = new int[] {30, 30, 30};
-        public static final int[] basePD = new int[] {10, 10, 10};
-        public static final int[] baseMA = new int[] {40, 40, 40};
-        public static final int[] baseMD = new int[] {20, 20, 20};
-        public static final int[] baseAG = new int[] {40, 40, 40};
+        public static final int[] basePA = new int[] {30, 20, 40};
+        public static final int[] basePD = new int[] {15, 10, 20};
+        public static final int[] baseMA = new int[] {40, 45, 35};
+        public static final int[] baseMD = new int[] {20, 25, 15};
+        public static final int[] baseAG = new int[] {45, 30, 20};
         public static final double[] baseCC = new double[] {0.2, 0.2, 0.2};
         public static final double[] critMultiplier =
                         new double[] {1.2, 1.2, 1.2};
@@ -26,6 +28,9 @@ public final class Settings {
         public static final int[] incAG = new int[] {10, 10, 10};
         public static final double[] incCC = new double[] {0.05, 0.05, 0.05};
 
+        public static final String[] HERO_TYPES =
+                        new String[] {"Archer", "Mage", "Warrior"};
+
         public static final String[] WEAPON_TYPES =
                         new String[] {"Bow", "Stave", "Sword"};
 
@@ -35,22 +40,21 @@ public final class Settings {
         };
 
         public static final int[][] WEAPON_PA = new int[][] { //
-                        {20, 20, 20}, 
-                        {30, 30, 30} 
-        }
+                        {20, 20, 20}, {30, 30, 30}};
+
         public static final int[][] WEAPON_MA = new int[][] { //
                         {30, 30, 30}, //
                         {40, 40, 40} //
         };
+
         public static final double[][] WEAPON_CC = new double[][] { //
                         {0.1, 0.1, 0.1}, //
                         {0.2, 0.2, 0.2} //
         };
 
         public static final int[][] WEAPON_incPA = new int[][] { //
-                        {10, 10, 10}, 
-                        {10, 10, 10} 
-        }
+                        {10, 10, 10}, {10, 10, 10}};
+
         public static final int[][] WEAPON_incMA = new int[][] { //
                         {10, 10, 10}, //
                         {10, 10, 10} //

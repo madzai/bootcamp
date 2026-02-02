@@ -9,13 +9,15 @@ public class Game {
     System.out.println(h1);
     System.out.println(h2);
     System.out.println();
-    // int round = 1;
+
     double r = Math.random();
 
     while (h1.isAlive() && h2.isAlive()) {
-      // System.out.println("Round " + round);
-      System.out.println(h1.toString(true));
-      System.out.println(h2.toString(true));
+
+      // System.out.println(h1.toString(true));
+      // System.out.println(h2.toString(true));
+      System.out.println(h1);
+      System.out.println(h2);
       r = Math.random();
 
       if (r <= c) {
